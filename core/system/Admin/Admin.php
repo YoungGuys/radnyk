@@ -176,11 +176,10 @@ class Admin {
                 case "image":
                     $html .= '
                         <div class="file_upld">
-                            <br/>
                             ' . $column_text . '
-                            <br/>
                             <input type="file" class="fileUpload" multiple type="file" name ="file[]" value="' . $oldValues[$column_name] . '"/>
                             <input type="hidden" name="image_what' . $k . '" value="' . $column_name . '">
+                            <div class="file_upld__src"></div>
                         </div><br />';
                     $k++;
                     break;
@@ -239,7 +238,7 @@ class Admin {
                         $html .= "checked";
                     $html .= "/>";
                     $html .= '
-                            <label class="label-checkbox" for="checkbox' . $g . '">' . $column_text . '</label>
+                            <label class="inp_label_checkbox" for="checkbox' . $g . '">' . $column_text . '</label>
                         </div><br />';
                     $g += 1;
                     break;
@@ -250,6 +249,8 @@ class Admin {
                             <textarea id=\"editor\" name='$column_name'>";
                     $html .= $bb->get_html();
                     $html .= "</textarea>
+
+                        <script>CKEDITOR.replace('editor');</script>
                         </div>";
                     break;
             }
@@ -322,11 +323,10 @@ class Admin {
                     } else {
                         $text .= '
                         <div class="file_upld">
-                            <br/>
                             Завантажити файл
-                            <br/>
                             <input type="file" class="fileUpload" multiple type="file" name ="file" value="' . $result[$comment] . '"/>
                             <input type="hidden" name="image_what' . $k . '" value="' . $row['COLUMN_NAME'] . '">
+                            <div class="file_upld__src"></div>
                         </div><br />';
                     }
                     //}
@@ -340,7 +340,7 @@ class Admin {
                         $text .= "checked";
                     $text .= "/>";
                     $text .= '
-                            <label class="label-checkbox" for="checkbox' . $g . '">' . $comment_text . '</label>
+                            <label class="inp_label_checkbox" for="checkbox' . $g . '">' . $comment_text . '</label>
                         </div><br />';
                     $g += 1;
                 } elseif ($image[0] == 'Відео') {
