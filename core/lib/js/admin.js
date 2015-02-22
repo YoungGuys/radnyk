@@ -1,15 +1,15 @@
-$(document).ready(function(){
+$(document).ready(function () {
     var body = $('body');
 
-	/************************************************************************************
-	*************************************************************************************/
+    /************************************************************************************
+     *************************************************************************************/
     positionControlElem();
 
-	/*************************************/	
+    /*************************************/
 //	CKEDITOR.replace('editor1');
-	/*************************************/
+    /*************************************/
     //трішки приховуємо неактивні блоки
-    $('.icon-eye-close').each(function(){
+    $('.icon-eye-close').each(function () {
         $(this).parent().parent().addClass('is-no_active');
     });
 
@@ -36,7 +36,7 @@ $(document).ready(function(){
                 background: '#fff'
             },
             events: {
-                click: function(){
+                click: function () {
                     $('.main-map__search_mod').addClass('visible');
                     $('.main-map__search_mod__field').focus();
                 }
@@ -48,11 +48,11 @@ $(document).ready(function(){
             options: [{
                 title: 'Додати маркер',
                 name: 'addMarker',
-                action: function(e) {
+                action: function (e) {
                     map.addMarker({
                         lat: e.latLng.lat(),
                         lng: e.latLng.lng(),
-                        click: function() {
+                        click: function () {
                             MapNewMarker(e.latLng.lat(), e.latLng.lng());
                         }
                     });
@@ -60,7 +60,7 @@ $(document).ready(function(){
             }]
         });
 
-        body.on('click', '.js-map_marker_edit', function(){
+        body.on('click', '.js-map_marker_edit', function () {
             var modal = $('#mod_addPlace');
             select_id_event = $(this).attr('data-id');
 
@@ -69,8 +69,8 @@ $(document).ready(function(){
             $.ajax({
                 type: 'GET',
                 url: 'http://plcb.me/api/get/places/',
-                data: {id:select_id_event},
-                success: function(data) {
+                data: {id: select_id_event},
+                success: function (data) {
                     if (data != 'null') {
                         data = JSON.parse(data);
 
@@ -85,7 +85,7 @@ $(document).ready(function(){
                         else {
                             modal.find('input[name="red"]').prop('checked', false);
                         }
-                        modal.find('textarea[name="description"]').val( $("#place_editor").htmlcode(data[0].place_description) );
+                        modal.find('textarea[name="description"]').val($("#place_editor").htmlcode(data[0].place_description));
                         coordinates.lng = data[0].lon;
                         coordinates.lat = data[0].lat;
                     }
@@ -100,13 +100,13 @@ $(document).ready(function(){
 
         });
 
-        body.on('click', '.js-btn_add_place', function(e) {
+        body.on('click', '.js-btn_add_place', function (e) {
             e.preventDefault();
             $('.is-none').unbind();
             AddPlace();
         });
 
-        body.on('click', '.js-btn_edit_place', function(e) {
+        body.on('click', '.js-btn_edit_place', function (e) {
             e.preventDefault();
             $('.is-none').unbind();
             type_red = 'edit';
@@ -115,6 +115,7 @@ $(document).ready(function(){
         });
 
         var type_red;
+
         function AddPlace() {
             var send,
                 red = 0,
@@ -122,27 +123,27 @@ $(document).ready(function(){
 
             if (modal.find('input[name="red"]').prop('checked')) red = 1;
 
-            modal.find('textarea[name="description"]').val( $("#place_editor").htmlcode() );
+            modal.find('textarea[name="description"]').val($("#place_editor").htmlcode());
 
-            send =  "place_title=" + modal.find('input[name="place_name"]').val()            + "&" +
-                "image="       + modal.find('.croppedImg').eq(0).attr('src').split('/')[4]   + "&" +
-                "image1="      + modal.find('.croppedImg').eq(1).attr('src').split('/')[4]   + "&" +
-                "filter="      + modal.find('input[name="place_filter"]').val()              + "&" +
-                "rating="      + modal.find('input[name="place_rating"]').val()              + "&" +
-                "special="     + red                                                         + "&" +
-                "lon="         + coordinates.lng                                             + "&" +
-                "lat="         + coordinates.lat                                             + "&" +
-                "place_description=" + modal.find('textarea[name="description"]').val()      + "&" +
-                "address="     + GmapStreet(coordinates.lat, coordinates.lng);
+            send = "place_title=" + modal.find('input[name="place_name"]').val() + "&" +
+            "image=" + modal.find('.croppedImg').eq(0).attr('src').split('/')[4] + "&" +
+            "image1=" + modal.find('.croppedImg').eq(1).attr('src').split('/')[4] + "&" +
+            "filter=" + modal.find('input[name="place_filter"]').val() + "&" +
+            "rating=" + modal.find('input[name="place_rating"]').val() + "&" +
+            "special=" + red + "&" +
+            "lon=" + coordinates.lng + "&" +
+            "lat=" + coordinates.lat + "&" +
+            "place_description=" + modal.find('textarea[name="description"]').val() + "&" +
+            "address=" + GmapStreet(coordinates.lat, coordinates.lng);
 
             if (type_red == 'edit') {
-                send += "&id="     + select_id_event;
+                send += "&id=" + select_id_event;
             }
             $.ajax({
                 type: 'GET',
                 url: 'http://plcb.me/api/set/places/',
                 data: send,
-                success: function(data) {
+                success: function (data) {
                     if (data) closeModalId('mod_event_false');
 
                     RemoveMainMap();
@@ -176,7 +177,7 @@ $(document).ready(function(){
             return result;
         }
 
-        body.on('click', '.js-map_marker_delete', function(){
+        body.on('click', '.js-map_marker_delete', function () {
             var id = $(this).attr('data-id');
 
             var deleteMarker = confirm('Видалити місце?');
@@ -201,27 +202,27 @@ $(document).ready(function(){
 
         });
 
-        $('.js-mod_field_filter').focus(function(){
+        $('.js-mod_field_filter').focus(function () {
             $('.place_filter__list').addClass('is-visible');
         });
 
-        $('.js-mod_field_filter').blur(function(){
-            setTimeout(function() {
+        $('.js-mod_field_filter').blur(function () {
+            setTimeout(function () {
                 $('.place_filter__list').removeClass('is-visible');
-            },150);
+            }, 150);
         });
 
-        body.on('click', '.js-mod_filter', function(){
+        body.on('click', '.js-mod_filter', function () {
             var text = $(this).attr('data-filter');
             $('.js-mod_field_filter').val(text);
         });
 
 
-        $('.js-btn-search_address').click(function(){
+        $('.js-btn-search_address').click(function () {
             MapSearchAddress();
         });
 
-        $('.js-map_search_form').submit(function(e){
+        $('.js-map_search_form').submit(function (e) {
             e.preventDefault();
 
             MapSearchAddress();
@@ -232,14 +233,14 @@ $(document).ready(function(){
         function MapSearchAddress() {
             GMaps.geocode({
                 address: $('.js-map_search_field').val(),
-                callback: function(results, status) {
+                callback: function (results, status) {
                     if (status == 'OK') {
                         var latlng = results[0].geometry.location;
                         map.setCenter(latlng.lat(), latlng.lng());
                         map.addMarker({
                             lat: latlng.lat(),
                             lng: latlng.lng(),
-                            click: function() {
+                            click: function () {
                                 MapNewMarker(latlng.lat(), latlng.lng());
                             }
                         });
@@ -269,32 +270,32 @@ $(document).ready(function(){
 
     //якщо зайшов як адмін
     control = '' +
-        '<div class="control_block min right">' +
-        '<i class="icon-edit js-mod js-mod_calendarEventEdit js-calendar_event_edit"></i>' +
-        '<i class="icon-remove js-mod js-mod_calendarEventDelete js-calendar_event_delete"></i>' +
-        '</div>';
+    '<div class="control_block min right">' +
+    '<i class="icon-edit js-mod js-mod_calendarEventEdit js-calendar_event_edit"></i>' +
+    '<i class="icon-remove js-mod js-mod_calendarEventDelete js-calendar_event_delete"></i>' +
+    '</div>';
 
     var control_b_open = '<div class="control_block">';
     var control_b_close = '</div>';
 
     var control_add_column = '<i class="icon-plus js-add_table_column" title="Додати стопчик"></i>';
-    var control_add_row =    '<i class="icon-plus js-add_table_row" title="Додати рядок"></i>';
-    var control_remove_row =     '<i class="icon-remove js-remove_table_row" title="Видалити поточний рядок"></i>';
-    var control_remove_column =  '<i class="icon-remove js-remove_table_column" title="Видалити поточну колонку"></i>';
+    var control_add_row = '<i class="icon-plus js-add_table_row" title="Додати рядок"></i>';
+    var control_remove_row = '<i class="icon-remove js-remove_table_row" title="Видалити поточний рядок"></i>';
+    var control_remove_column = '<i class="icon-remove js-remove_table_column" title="Видалити поточну колонку"></i>';
 
     var b_table = $('.price_products__table');
     if (b_table.length) editTable();
 
     //розрахунок в якому магазині ціна на товар більша
-    body.on('blur', '.price_products__table td', function(){
-        var   container = $(this).parent()
+    body.on('blur', '.price_products__table td', function () {
+        var container = $(this).parent()
             , container_count_elem
             , price_arr = new Array()
             , index_max_el
             , max_el
             , i = 0;
 
-        if ( $(this).text() == '' ) {
+        if ($(this).text() == '') {
             $(this).find('span').text('0.00')
         }
 
@@ -302,7 +303,7 @@ $(document).ready(function(){
 
         while (i < container_count_elem) {
             price_arr[i] = container.find('td').eq(i).text();
-            price_arr[i] = Number(price_arr[i].replace(/\,/g,"."));
+            price_arr[i] = Number(price_arr[i].replace(/\,/g, "."));
             i++;
         }
         price_arr.shift();
@@ -314,21 +315,20 @@ $(document).ready(function(){
     });
 
 
-
     //визначення знаходження натиснутої кнопки "Змінити фото"
     var index_tr;
-    body.on('click', '.js-add_photo_product', function(){
+    body.on('click', '.js-add_photo_product', function () {
         index_tr = $(this).parent().parent().index();
     });
 
     //копіювання src з модалки в таблицю
-    body.on('click', '.js-add_table_img', function() {
+    body.on('click', '.js-add_table_img', function () {
         var src = $('#crop_img_box3 .croppedImg').attr('src').split('/')[4];
         $('.price_products__table tbody tr').eq(index_tr).find('img').attr('src', '/lib/img/article_table/' + src);
     });
 
     //додавання нової колонки до таблиці
-    body.on('click', '.js-add_table_column', function() {
+    body.on('click', '.js-add_table_column', function () {
         b_table.find('th').last().after('<th><span>Нова колонка</span></th>');
         b_table.find('tbody > tr').append('<td><span>0.0</span></td>');
 
@@ -336,7 +336,7 @@ $(document).ready(function(){
     });
 
     //додавання нового рядка до таблиці
-    body.on('click', '.js-add_table_row', function() {
+    body.on('click', '.js-add_table_row', function () {
         add_table_row('add');
     });
 
@@ -344,9 +344,9 @@ $(document).ready(function(){
     function add_table_row(type) {
         var count_column = b_table.find('tr:first-child > th').length;
         var td = '<td>' +
-                     '<img src="" alt="product-picture" />' +
-                     '<span>Продукт</span>' +
-                 '</td>';
+            '<img src="" alt="product-picture" />' +
+            '<span>Продукт</span>' +
+            '</td>';
 
         while (count_column > 1) {
             td += '<td><span>0.0</span></td>';
@@ -367,20 +367,20 @@ $(document).ready(function(){
     }
 
     //видалення рядка з таблиці
-    body.on('click', '.js-remove_table_row', function() {
+    body.on('click', '.js-remove_table_row', function () {
         $(this).parent().parent().parent().remove();
 
-        if ( $('.price_products__table tr').length == 1 ) {
+        if ($('.price_products__table tr').length == 1) {
             add_table_row('new');
         }
     });
     // видалення колонки з таблиці
-    body.on('click', '.js-remove_table_column', function() {
+    body.on('click', '.js-remove_table_column', function () {
         var column_index = $(this).parent().parent().index();
 
         b_table.find('th').eq(column_index).remove();
 
-        $('tbody > tr').each(function(){
+        $('tbody > tr').each(function () {
             $(this).find('td').eq(column_index).remove();
         });
     });
@@ -397,7 +397,7 @@ $(document).ready(function(){
         $('.price_products__table th').append(control_b_open + control_remove_column + control_b_close);
         $('.price_products__table th').first().find('.control_block').remove();
 
-        $('tbody > tr').each(function(){
+        $('tbody > tr').each(function () {
             $(this).find('td').first().append(control_b_open + control_add_row + control_b_close);
             $(this).find('td').first().find('img').after('<button class="btn btn--black btn--big js-mod js-mod_addPhoto js-add_photo_product">Змінити картинку</button>');
             $(this).find('td').last().append(control_b_open + control_remove_row + control_b_close);
@@ -439,9 +439,9 @@ $(document).ready(function(){
             type: 'POST',
             url: 'http://plcb.me/core/index.php/',
             data: {
-                what : "editTable",
-                id : id,
-                table : tableContent
+                what: "editTable",
+                id: id,
+                table: tableContent
             },
             async: false,
             success: function (data) {
@@ -465,7 +465,7 @@ $(document).ready(function(){
         $.ajax({
             type: 'GET',
             url: 'http://plcb.me/api/set/table_photo',
-            data: { tmp_name : imgUrl },
+            data: {tmp_name: imgUrl},
             async: false,
             success: function (data) {
                 if (!data) {
@@ -478,7 +478,6 @@ $(document).ready(function(){
     });
 
 });
-
 
 
 function positionControlElem() {
@@ -499,12 +498,10 @@ function positionControlElem() {
 }
 
 
-
-
 function MapEvetCntrl(data, i) {
     text = '<div class="control_block right">' +
-              '<i class="icon-edit js-map_marker_edit" data-id="' + data[i].id_places +'"></i>' +
-              '<i class="icon-remove js-map_marker_delete" data-id="' + data[i].id_places +'"></i>' +
-           '</div>';
+    '<i class="icon-edit js-map_marker_edit" data-id="' + data[i].id_places + '"></i>' +
+    '<i class="icon-remove js-map_marker_delete" data-id="' + data[i].id_places + '"></i>' +
+    '</div>';
     return text;
 }

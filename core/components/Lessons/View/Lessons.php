@@ -7,17 +7,16 @@
  */
 
 namespace View;
+
 use Balon\System;
 
-class Lessons extends System\View{
+class Lessons extends System\View {
 
-    function __construct()
-    {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 
-    public function index()
-    {
+    public function index() {
 
     }
 }

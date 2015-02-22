@@ -10,8 +10,7 @@ namespace Balon\System;
 
 
 class Balon {
-    function __construct()
-    {
+    function __construct() {
         $this->user = "Balon";
         // TODO: Implement __construct() method.
     }
@@ -26,17 +25,15 @@ class Balon {
                         $this->createController($name);
                         $this->createModel($name);
                         $this->createView($name);
-                    }
-                    else {
-                        $components = explode(",",$_GET['components']);
+                    } else {
+                        $components = explode(",", $_GET['components']);
                         if (is_array($components)) {
                             foreach ($components as $comp) {
-                                $methodName = "create".$comp;
+                                $methodName = "create" . $comp;
                                 $this->$methodName($name);
                             }
-                        }
-                        else {
-                            $methodName = "create".$components;
+                        } else {
+                            $methodName = "create" . $components;
                             $this->$methodName($name);
                         }
                     }
@@ -50,12 +47,12 @@ class Balon {
         $user = $this->user;
         $date = date("d.m.Y");
         $time = date("H:i");
-        $file = preg_replace("/{{name}}/",$name,$file);
-        $file = preg_replace("/{{user}}/",$user,$file);
-        $file = preg_replace("/{{date}}/",$date,$file);
-        $file = preg_replace("/{{time}}/",$time,$file);
+        $file = preg_replace("/{{name}}/", $name, $file);
+        $file = preg_replace("/{{user}}/", $user, $file);
+        $file = preg_replace("/{{date}}/", $date, $file);
+        $file = preg_replace("/{{time}}/", $time, $file);
         mkdir("core/components/$name/Controller");
-        file_put_contents("core/components/$name/Controller/$name.php",$file);
+        file_put_contents("core/components/$name/Controller/$name.php", $file);
     }
 
     private function createModel($name) {
@@ -63,12 +60,12 @@ class Balon {
         $user = $this->user;
         $date = date("d.m.Y");
         $time = date("H:i");
-        $file = preg_replace("/{{name}}/",$name,$file);
-        $file = preg_replace("/{{user}}/",$user,$file);
-        $file = preg_replace("/{{date}}/",$date,$file);
-        $file = preg_replace("/{{time}}/",$time,$file);
+        $file = preg_replace("/{{name}}/", $name, $file);
+        $file = preg_replace("/{{user}}/", $user, $file);
+        $file = preg_replace("/{{date}}/", $date, $file);
+        $file = preg_replace("/{{time}}/", $time, $file);
         mkdir("core/components/$name/Model");
-        file_put_contents("core/components/$name/Model/$name.php",$file);
+        file_put_contents("core/components/$name/Model/$name.php", $file);
     }
 
     private function createView($name) {
@@ -76,11 +73,11 @@ class Balon {
         $user = $this->user;
         $date = date("d.m.Y");
         $time = date("H:i");
-        $file = preg_replace("/{{name}}/",$name,$file);
-        $file = preg_replace("/{{user}}/",$user,$file);
-        $file = preg_replace("/{{date}}/",$date,$file);
-        $file = preg_replace("/{{time}}/",$time,$file);
+        $file = preg_replace("/{{name}}/", $name, $file);
+        $file = preg_replace("/{{user}}/", $user, $file);
+        $file = preg_replace("/{{date}}/", $date, $file);
+        $file = preg_replace("/{{time}}/", $time, $file);
         mkdir("core/components/$name/View");
-        file_put_contents("core/components/$name/View/$name.php",$file);
+        file_put_contents("core/components/$name/View/$name.php", $file);
     }
 } 

@@ -7,8 +7,7 @@ namespace Balon;
 
 use Balon\System\File;
 
-class Admin
-{
+class Admin {
 
     // масив з розмірами картинок в залежності від назви таблиці
 
@@ -19,8 +18,7 @@ class Admin
         "points" => [100]
     ];
 
-    private final function __construct()
-    {
+    private final function __construct() {
         $this->db = DBProc::instance();
         //$this->cache = Cache::instance();
         $this->site = $_SESSION['site'];
@@ -34,8 +32,7 @@ class Admin
         }
     }*/
 
-    static function instance()
-    {
+    static function instance() {
         static $instance;
         if (isset($instance)) {
             return $instance;
@@ -45,8 +42,7 @@ class Admin
     }
 
 
-    static function status()
-    {
+    static function status() {
         if ($_SESSION['admin']) {
             return true;
         } else {
@@ -55,8 +51,7 @@ class Admin
     }
 
 
-    function remove($array)
-    {
+    function remove($array) {
         $id = $array['id'];
         $table = $array['table'];
         $this->table = $table;
@@ -80,7 +75,8 @@ class Admin
         } else {
             $val["id"] = $id;
         }
-        if ($parent_id) $val["parent_id"] = $parent_id;
+        if ($parent_id)
+            $val["parent_id"] = $parent_id;
         if ($array['data']) {
             $data = str_replace("'", "\"", $array['data']);
             $data = json_decode($data);
@@ -100,8 +96,7 @@ class Admin
         }
     }
 
-    function add($array)
-    {
+    function add($array) {
         $table = $array['table'];
         $this->table = $table;
         $sql = [
@@ -116,14 +111,12 @@ class Admin
                     $date = Date::getDate();
                     $parent_id = "create_date = $date";
                     $k = ";";
-                }
-                elseif($row['COLUMN_NAME'] == "order") {
+                } elseif ($row['COLUMN_NAME'] == "order") {
                     $pos = $this->db->send_query("SELECT MAX(`order`)
-                        FROM  `t_".$table."`");
+                        FROM  `t_" . $table . "`");
                     if ($pos[0]['MAX(`order`)']) {
                         $result['order'] = ++$pos[0]['MAX(`order`)'];
-                    }
-                    else {
+                    } else {
                         $result['order'] = 1;
                     }
                 }
@@ -139,7 +132,6 @@ class Admin
         }
         echo $this->db->insert($table, $result);
     }
-
 
 
     function getEditHtmlNew($array) {
@@ -160,11 +152,11 @@ class Admin
         }
         $id = $array['id'];
         $config = file_get_contents("conf.json");
-        $fields= json_decode($config,true)[$table];
+        $fields = json_decode($config, true)[$table];
         $html = ""; // html forms with value fields
         $k = $q = 0; // count inputs for files and checkbox elements
         $db = DBProc::instance();
-        $oldValues = $db->select($table,false,[$what => $id])[0];
+        $oldValues = $db->select($table, false, [$what => $id])[0];
         foreach ($fields['fields'] as $column_name => $field) {
             if (is_array($field)) {
                 $column_type = $field[0];
@@ -176,7 +168,7 @@ class Admin
             }
             switch ($column_type) {
                 case "text":
-                    $html .= $column_text.':
+                    $html .= $column_text . ':
                         <p>
                             <input name="' . $column_name . '" type="text"  value="' . $oldValues[$column_name] . '" />
                         </p>';
@@ -185,7 +177,7 @@ class Admin
                     $html .= '
                         <div class="file_upld">
                             <br/>
-                            '. $column_text .'
+                            ' . $column_text . '
                             <br/>
                             <input type="file" class="fileUpload" multiple type="file" name ="file[]" value="' . $oldValues[$column_name] . '"/>
                             <input type="hidden" name="image_what' . $k . '" value="' . $column_name . '">
@@ -242,8 +234,9 @@ class Admin
                 case "checkbox":
                     $html .= '
                         <div class="inp_container">
-                            <input type="checkbox" class="checkbox-style" id="checkbox' . $g . '" name="' . $column_name. '" ';
-                    if ($oldValues[$column_name] == "on") $html .= "checked";
+                            <input type="checkbox" class="checkbox-style" id="checkbox' . $g . '" name="' . $column_name . '" ';
+                    if ($oldValues[$column_name] == "on")
+                        $html .= "checked";
                     $html .= "/>";
                     $html .= '
                             <label class="label-checkbox" for="checkbox' . $g . '">' . $column_text . '</label>
@@ -272,8 +265,7 @@ class Admin
         echo $html;
     }
 
-    function getEditHtml($array)
-    {
+    function getEditHtml($array) {
         $table = $array['table'];
         $this->table = "none";
         $_SESSION[md5('table')] = $table;
@@ -307,7 +299,8 @@ class Admin
                 if ($image[0] == 'Картинка' || $comment == "multiple") {
                     //if ($row["COLUMN_NAME"] != "image_full") {
                     $word = str_replace("Картинка", "", $row['COLUMN_COMMENT']);
-                    if (!$word) $word = "Картинка";
+                    if (!$word)
+                        $word = "Картинка";
                     $text .= $word . " :";
                     //<input type="hidden" name="file' . $k . '" value="' . $result[$comment] . '" class="js-cropic_file" />
                     if ($image[1] == "Розмір") {
@@ -339,11 +332,12 @@ class Admin
                     //}
                     $k += 1;
                 } elseif ($image[0] == 'Chackbox') {
-                    $comment_text = preg_replace("/Chackbox[\s]/","",$row['COLUMN_COMMENT']);
+                    $comment_text = preg_replace("/Chackbox[\s]/", "", $row['COLUMN_COMMENT']);
                     $text .= '
                         <div class="inp_container">
                             <input type="checkbox" class="checkbox-style" id="checkbox' . $g . '" name="' . $row['COLUMN_NAME'] . '" ';
-                    if ($result[$comment] == "on") $text .= "checked";
+                    if ($result[$comment] == "on")
+                        $text .= "checked";
                     $text .= "/>";
                     $text .= '
                             <label class="label-checkbox" for="checkbox' . $g . '">' . $comment_text . '</label>
@@ -381,7 +375,8 @@ class Admin
                     $text .= "<div class='select'><select name='{$row['COLUMN_NAME']}'>";
                     foreach ($select as $key => $value) {
                         // $result[$comment];
-                        if ($result[$comment] == $value['id_column']) $check = "selected";
+                        if ($result[$comment] == $value['id_column'])
+                            $check = "selected";
                         $text .= "<option value='{$value['id_column']}' $check>{$value['name_column']}</option>";
                         $check = "";
                     }
@@ -392,8 +387,8 @@ class Admin
                     $text .= '
                         <p>
                             <input name="' . $row['COLUMN_NAME'] . '" type="text"  value="' . $result[$comment] . '" />';
-                    if (($row['COLUMN_NAME']  == "author_id" && $table == "article") || ($row['COLUMN_NAME']  == "author_id" && $table == "photoshots")) {
-                        $text .= '<a href = "'.SITE.'My/Admin" target="_blank"><i class="icon-search_toolbar js-open_search_box"></i></a>';
+                    if (($row['COLUMN_NAME'] == "author_id" && $table == "article") || ($row['COLUMN_NAME'] == "author_id" && $table == "photoshots")) {
+                        $text .= '<a href = "' . SITE . 'My/Admin" target="_blank"><i class="icon-search_toolbar js-open_search_box"></i></a>';
                     }
                     $text .= '
                         </p>';
@@ -409,12 +404,11 @@ class Admin
     }
 
 
-    public function newEdit($array,$files) {
+    public function newEdit($array, $files) {
         //TODO: implements this method
     }
 
-    function edit($array, $files)
-    {
+    function edit($array, $files) {
         //забираємо з масиву посилання сторінки, на яку потрібно перенаправити юзера
         if ($array['returnedHref']) {
             $returnHref = $array['returnedHref'];
@@ -474,37 +468,32 @@ class Admin
                             $j++;
                         }
                     }
-                }
-                elseif ($value == "image1") {
+                } elseif ($value == "image1") {
                     if (isset($files_list['file']['name'][0])) {
                         $files["file1"]["name"] = $files_list['file']['name'][0];
                         $files["file1"]["tmp_name"] = $files_list['file']['tmp_name'][0];
                         unset($files_list['file']['tmp_name'][0]);
                         unset($files_list['file']['name'][0]);
-                    }
-                    elseif (isset($files_list['file']['name'][1])) {
+                    } elseif (isset($files_list['file']['name'][1])) {
                         $files["file1"]["name"] = $files_list['file']['name'][1];
                         $files["file1"]["tmp_name"] = $files_list['file']['tmp_name'][1];
                         unset($files_list['file']['tmp_name'][1]);
                         unset($files_list['file']['name'][1]);
                     }
-                }
-                else { // ($value == "image") {
+                } else { // ($value == "image") {
                     if (isset($array['file']) && $table == "article") {
                         $files["file"]["name"] = $array['file'];
-                        $files["file"]["tmp_name"] = "temp/".$array['file'];/*
+                        $files["file"]["tmp_name"] = "temp/" . $array['file'];/*
                         unset($files_list['file']['tmp_name'][0]);
                         unset($files_list['file']['name'][0]);*/
-                    }
-                    elseif (isset($files_list['file']['name'][0])) {
+                    } elseif (isset($files_list['file']['name'][0])) {
                         $j++;
                         $k = 1;
                         $files["file"]["name"] = $files_list['file']['name'][0];
                         $files["file"]["tmp_name"] = $files_list['file']['tmp_name'][0];
                         unset($files_list['file']['tmp_name'][0]);
                         unset($files_list['file']['name'][0]);
-                    }
-                    elseif (isset($files_list['file']['name'])) {
+                    } elseif (isset($files_list['file']['name'])) {
                         $files["file"]["name"] = $files_list['file']['name'];
                         $files["file"]["tmp_name"] = $files_list['file']['tmp_name'];
                         unset($files_list['file']['tmp_name']);
@@ -516,12 +505,11 @@ class Admin
         if (!$files) {
 
         }
-        print_r ($files);
         while (isset($files["file$a"]['name'])) {
             if ($files["file$a"]['name'] && $files["file$a"]['tmp_name']) {
                 $name = iconv("utf-8", "cp1251", $files["file$a"]['name']);
-                $name = str_replace("#","",$name);
-                $name = str_replace("/","",$name);
+                $name = str_replace("#", "", $name);
+                $name = str_replace("/", "", $name);
                 //це піздець які тут костилі... але по іншому просто ніяк...
                 if ($array['image_what' . $a] && $array['image_what' . $a] != "multiple" && !$crunches) {
                     $tbl = $array['image_what' . $a];
@@ -533,10 +521,9 @@ class Admin
                     $tbl = "image";
                     $image = $this->db->select("$table", $tbl, [$what => $id]);
                 }
-                if ($array['image_what'.$a] != "image1") {
-                    $resize =  $this->imageSize[$table];
-                }
-                else {
+                if ($array['image_what' . $a] != "image1") {
+                    $resize = $this->imageSize[$table];
+                } else {
                     $resize = $this->imageSize['image_special'];
                 }
                 if ($image && !$crunches) {
@@ -546,15 +533,17 @@ class Admin
                     }
                     if (file_exists('../lib/image/' . $table . '/' . $image) && file_exists($files["file$a"]['tmp_name'])) {
                         if (unlink('../lib/image/' . $table . '/' . $image)) {
-                            if (!is_dir("../lib/image/$table")) mkdir("../lib/image/$table", 0777);
-                            File::resizeImage($exp . $files["file$a"]['tmp_name'], "../lib/image/$table/$name",$resize);
+                            if (!is_dir("../lib/image/$table"))
+                                mkdir("../lib/image/$table", 0777);
+                            File::resizeImage($exp . $files["file$a"]['tmp_name'], "../lib/image/$table/$name", $resize);
                             if (file_exists($exp . $files["file$a"]['tmp_name']) && $name) {
                                 unlink($exp . $files["file$a"]['tmp_name']);
                             }
                         }
                     } else {
-                        if (!is_dir("../lib/image/$table")) mkdir("../lib/image/$table", 0777);
-                        File::resizeImage($exp . $files["file$a"]['tmp_name'], "../lib/image/$table/$name",$resize);
+                        if (!is_dir("../lib/image/$table"))
+                            mkdir("../lib/image/$table", 0777);
+                        File::resizeImage($exp . $files["file$a"]['tmp_name'], "../lib/image/$table/$name", $resize);
                         if (file_exists($exp . $files["file$a"]['tmp_name']) && $name) {
                             unlink($exp . $files["file$a"]['tmp_name']);
                         }
@@ -565,10 +554,12 @@ class Admin
                         $exp = "../";
                     }
                     if (!$crunches) {
-                        if (!is_dir("../lib/image/$table")) mkdir("../lib/image/$table", 0777);
+                        if (!is_dir("../lib/image/$table"))
+                            mkdir("../lib/image/$table", 0777);
                         File::resizeImage($exp . $files["file$a"]['tmp_name'], "../lib/image/$table/$name", $resize);
                     } else {
-                        if (!is_dir("../lib/image/part_photoshots")) mkdir("../lib/image/part_photoshots", 0777);
+                        if (!is_dir("../lib/image/part_photoshots"))
+                            mkdir("../lib/image/part_photoshots", 0777);
                         File::resizeImage($exp . $files["file$a"]['tmp_name'], "../lib/image/part_photoshots/$name", $this->imageSize["part_photoshots"]);
                         $this->db->insert("part_photoshots", ["id_photoshots" => $_SESSION[md5('id')], "image_photoshot" => $name]);
                     }
@@ -595,14 +586,17 @@ class Admin
             $image = $this->db->select("$table", 'video', [$what => $id]);
             if ($image) {
                 if (unlink('../lib/image/' . $table . '/' . $image)) {
-                    if (!is_dir("../lib/image/$table")) mkdir("../lib/image/$table", 0777);
+                    if (!is_dir("../lib/image/$table"))
+                        mkdir("../lib/image/$table", 0777);
                     copy($files_list["video"]['tmp_name'], "../lib/image/$table/$name");
                 } else {
-                    if (!is_dir("../lib/image/$table")) mkdir("../lib/image/$table", 0777);
+                    if (!is_dir("../lib/image/$table"))
+                        mkdir("../lib/image/$table", 0777);
                     copy($files_list["video"]['tmp_name'], "../lib/image/$table/$name");
                 }
             } else {
-                if (!is_dir("../lib/image/$table")) mkdir("../lib/image/$table", 0777);
+                if (!is_dir("../lib/image/$table"))
+                    mkdir("../lib/image/$table", 0777);
                 copy($files_list["video"]['tmp_name'], "../lib/image/$table/$name");
             }
             if ($array['video_what']) {
@@ -624,14 +618,17 @@ class Admin
             }
             if ($image) {
                 if (unlink('../lib/audio/' . $table . '/' . $image)) {
-                    if (!is_dir("../lib/audio/$table")) mkdir("../lib/audio/$table", 0777);
+                    if (!is_dir("../lib/audio/$table"))
+                        mkdir("../lib/audio/$table", 0777);
                     copy($files_list["audio"]['tmp_name'], "../lib/audio/$table/$name");
                 } else {
-                    if (!is_dir("../lib/audio/$table")) mkdir("../lib/audio/$table", 0777);
+                    if (!is_dir("../lib/audio/$table"))
+                        mkdir("../lib/audio/$table", 0777);
                     copy($files_list["audio"]['tmp_name'], "../lib/audio/$table/$name");
                 }
             } else {
-                if (!is_dir("../lib/audio/$table")) mkdir("../lib/audio/$table", 0777);
+                if (!is_dir("../lib/audio/$table"))
+                    mkdir("../lib/audio/$table", 0777);
                 copy($files_list["audio"]['tmp_name'], "../lib/audio/$table/$name");
             }
             if ($array['audio_what']) {
@@ -658,6 +655,10 @@ class Admin
                 //$value = preg_replace("/\<.*\>.*\<\/.*\>/", "", $value);
                 //$value = preg_replace("/\[([a-z]+)\]/", "<$1>", $value);
                 //$value = preg_replace("/\[\/([a-z]+)\]/", "</$1>", $value);
+                if ($key == "most" && $table == "news") {
+                    $idChapter = $this->db->select($table,"id_chapter",[$what => $id]);
+                    $this->db->update($table,["most" => ""],["most" => "on", "id_chapter" => $idChapter]);
+                }
                 $result["$key"] = $value;
             }
         }
@@ -669,8 +670,7 @@ class Admin
                 /*if (!header("Location:$returnHref")) {
                     throw new \Exception("Сталася якась помилка. Заголовок не було выдправлено");
                 }*/
-            }
-            catch (\Exception $e){
+            } catch (\Exception $e) {
                 echo $e->getMessage();
                 //echo $this->replace;
             }
@@ -678,36 +678,33 @@ class Admin
         }
     }
 
-    function hz($array, $text, $name)
-    {
+    function hz($array, $text, $name) {
         $arr = $this->db->select($text);
         $end = '<label for="' . $val['name'] . '">Оберіть ' . $name . '</label>';
         $end .= '<select size="1" id="' . $text . '" name="' . $text . '">';
         foreach ($arr as $val) {
             $end .= '<option  value="' . $val['name'] . '"';
-            if ($array[$text] == $val['name']) $end .= " selected ";
+            if ($array[$text] == $val['name'])
+                $end .= " selected ";
             $end .= '>' . $val['name'] . '</option>';
         }
         $end .= '<option value="None">None</option></select><br>';
         return $end;
     }
 
-    function edit_visibility($array)
-    {
+    function edit_visibility($array) {
         $table = $array['table'];
         $id = $array['id'];
         $visibility = $array['visibility'];
         if ($array['what']) {
             $what = $array['what'];
-        }
-        else {
+        } else {
             $what = "id";
         }
         $this->db->update($table, ["visibility" => $visibility], [$what => $id]);
     }
 
-    function position($array)
-    {
+    function position($array) {
         //crunches!!!
         //if ($array['table'] == 'part_article') {
         $array = $array['array'];
@@ -715,21 +712,19 @@ class Admin
         $new = $array['new'];
         if ($array['what']) {
             $what = $array['what'];
-        }
-        else {
+        } else {
             $what = "id";
         }
         if ($array['table']) {
             $order = $this->db->select($array['table'], "order", [$what => $new]);
             $order1 = $this->db->select($array['table'], "order", [$what => $id]);
-            $this->db->update($array['table'],["order" => $order1,$what => $new],[$what => $new]);
+            $this->db->update($array['table'], ["order" => $order1, $what => $new], [$what => $new]);
             $this->db->update($array['table'], ["order" => $order, $what => $id], [$what => $id]);
-        }
-        else {
+        } else {
 
             $order = $this->db->select("part_article", "order", [$what => $new]);
             $order1 = $this->db->select("part_article", "order", [$what => $id]);
-            $this->db->update("part_article", ["order" => $order1, $what=> $new], [$what=> $new]);
+            $this->db->update("part_article", ["order" => $order1, $what => $new], [$what => $new]);
             /*$sql = "UPDATE `t_part_article` SET
               `order` = :order1 WHERE `id` = :new";
             print_r ($array);
@@ -773,8 +768,7 @@ class Admin
      * 12 - список
      */
 
-    public function add_article($array)
-    {
+    public function add_article($array) {
         switch ($array['type']) {
             case "p":
                 $id = $this->db->insert("article_text", false, true);
@@ -788,12 +782,10 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
                 $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 1, "type_id" => $id, "order" => $pos]);
@@ -810,15 +802,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 2, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 2, "type_id" => $id, "order" => $pos]);
                 break;
             case "image":
                 $id = $this->db->insert("article_image", false, true);
@@ -832,15 +822,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 3, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 3, "type_id" => $id, "order" => $pos]);
                 break;
             case "quote":
                 $id = $this->db->insert("quote", false, true);
@@ -854,15 +842,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 4, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 4, "type_id" => $id, "order" => $pos]);
                 break;
             case "slider":
                 $id = $this->db->insert("article_slider", ["article" => $array['id']], true);
@@ -876,15 +862,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 5, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 5, "type_id" => $id, "order" => $pos]);
                 break;
             case "video":
                 $id = $this->db->insert("video", false, true);
@@ -898,15 +882,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 6, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 6, "type_id" => $id, "order" => $pos]);
                 break;
             case "table":
                 $id = $this->db->insert("article_table", false, true);
@@ -920,15 +902,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 7, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 7, "type_id" => $id, "order" => $pos]);
                 break;
             case "nav":
                 $id = $this->db->insert("nav", false, true);
@@ -942,15 +922,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 8, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 8, "type_id" => $id, "order" => $pos]);
                 break;
             case "image-spec":
                 $id = $this->db->insert("article_image_spec", false, true);
@@ -964,15 +942,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 9, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 9, "type_id" => $id, "order" => $pos]);
                 break;
             case "audio":
                 $id = $this->db->insert("audio", false, true);
@@ -986,15 +962,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 10, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 10, "type_id" => $id, "order" => $pos]);
                 break;
             case "signature":
                 $id = $this->db->insert("signature", false, true);
@@ -1008,15 +982,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 11, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 11, "type_id" => $id, "order" => $pos]);
                 break;
             case "timeline":
                 $id = $this->db->insert("article_timelist", ["id_article" => $array['id']], true);
@@ -1030,15 +1002,13 @@ class Admin
                             }
                         }
                         $pos = ++$max;
-                    }
-                    else {
+                    } else {
                         $pos += 1;
                     }
-                }
-                else {
+                } else {
                     $pos = 1;
                 }
-                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 12, "type_id" => $id,"order" => $pos]);
+                $this->db->insert("part_article", ["article_id" => $array['id'], "type" => 12, "type_id" => $id, "order" => $pos]);
                 break;
             default:
                 echo "You shell not pass";
@@ -1047,7 +1017,7 @@ class Admin
     }
 
     public function editTable($array) {
-        $this->db->update("article_table",["table" => $array["table"]],["id_table" => $array['id']]);
+        $this->db->update("article_table", ["table" => $array["table"]], ["id_table" => $array['id']]);
         echo $this->replace;
     }
 

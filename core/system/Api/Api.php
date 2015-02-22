@@ -7,26 +7,22 @@
  */
 //namespace Balon;
 
-class Api
-{
+class Api {
 
     private $cache = "";
 
     public $db;
 
-    function __construct()
-    {
+    function __construct() {
         header('Content-type:application/json;charset=utf-8');
     }
 
-    function __destructor()
-    {
+    function __destructor() {
         $this->cache->close();
     }
 
 
-    function get($array = [])
-    {
+    function get($array = []) {
         $db = \Balon\DBProc::instance();
         switch ($array[2]) {
             case "country":
@@ -180,18 +176,16 @@ class Api
                 echo json_encode($tour);
                 break;
             case "like":
-                if ($db->select("rating",false,["id_user" => $_GET['id_user'],"id_tour" => $_GET['id_tour']])) {
+                if ($db->select("rating", false, ["id_user" => $_GET['id_user'], "id_tour" => $_GET['id_tour']])) {
                     echo json_encode(true);
-                }
-                else {
+                } else {
                     echo json_encode(false);
                 }
                 break;
         }
     }
 
-    function post($array = [])
-    {
+    function post($array = []) {
         $db = \Balon\DBProc::instance();
         switch ($array[2]) {
             case "user":

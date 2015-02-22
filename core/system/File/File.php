@@ -4,11 +4,9 @@ namespace Balon\System;
 
 use Balon\DBProc;
 
-class File
-{
+class File {
 
-    function a()
-    {
+    function a() {
     }
 
     /**
@@ -21,8 +19,7 @@ class File
      * @return array
      */
 
-    static public function fileList($dir, $class = false, $name = false)
-    {
+    static public function fileList($dir, $class = false, $name = false) {
         if ($class) {
             if (!($file_list = scandir("cmp_system/$class/$dir"))) {
                 $file_list = scandir("admin/cmp_system/$class/$dir");
@@ -44,8 +41,7 @@ class File
     }
 
 
-    static public function resizeImage($tmp_name, $file_name, $size_image)
-    {
+    static public function resizeImage($tmp_name, $file_name, $size_image) {
         $end = explode(".", $tmp_name);
         $end = end($end);
         if (file_exists($tmp_name)) {
@@ -55,11 +51,10 @@ class File
                     while ($a < 2) {
                         if ($a == 0) {
                             $size_image = [1000];
-                        }
-                        elseif ($a == 1) {
+                        } elseif ($a == 1) {
                             $size_image = [192];
-                            $file_name = preg_replace("/(.*)\.([a-z]+)$/","$1_small.$2",$file_name);
-                            $path = preg_replace("/(.*)\.([a-z]+)$/","$1_small.$2",$path);
+                            $file_name = preg_replace("/(.*)\.([a-z]+)$/", "$1_small.$2", $file_name);
+                            $path = preg_replace("/(.*)\.([a-z]+)$/", "$1_small.$2", $path);
                         }
                         $a++;
                         $filename = $tmp_name;
@@ -71,8 +66,7 @@ class File
                         if ($size_w > $size_h) {
                             $h = $size_image[0];
                             $w = round($h * $size_w / $size_h);
-                        }
-                        else {
+                        } else {
                             $w = $size_image[0];
                             $h = round($w * $size_h / $size_w);
                         }
@@ -107,8 +101,7 @@ class File
                             unlink($tmp_name);
                         }*/
                     }
-                }
-                else {
+                } else {
                     $filename = $tmp_name;
                     $size = getimagesize($filename);
                     $size_w = $size[0]; // ширина оригіналу
@@ -158,38 +151,38 @@ class File
     function download($file) {
 
 
-            $info = getimagesize($file);
-            if ($info) {
-                $file_name = end(explode("/",$file));
-                $mime = $info['mime'];
-                //header ("Content-Type: application/octet-stream");
-                header ("Content-Type: application/$mime");
-                header ("Accept-Ranges: bytes");
-                header ("Content-Length: ".filesize($file));
-                header ("Content-Disposition: attachment; filename=".$file_name);
-                readfile($file);
-            }
+        $info = getimagesize($file);
+        if ($info) {
+            $file_name = end(explode("/", $file));
+            $mime = $info['mime'];
+            //header ("Content-Type: application/octet-stream");
+            header("Content-Type: application/$mime");
+            header("Accept-Ranges: bytes");
+            header("Content-Length: " . filesize($file));
+            header("Content-Disposition: attachment; filename=" . $file_name);
+            readfile($file);
+        }
     }
 
     function toZip() {
         $file_folder = "lib/img/part_photoshots/";
         if ($_GET['id']) {
             $db = DBProc::instance();
-            $post= $db->select("part_photoshots",false,["id_photoshots" => $_GET['id']],false,false,[0,995]);
-            $name_album = $db->select("photoshots",false,["id_photoshots" => $_GET['id']])[0]['title'];
+            $post = $db->select("part_photoshots", false, ["id_photoshots" => $_GET['id']], false, false, [0, 995]);
+            $name_album = $db->select("photoshots", false, ["id_photoshots" => $_GET['id']])[0]['title'];
             $zip = new \ZipArchive();
             $zip_name = time() . ".zip";
             if ($zip->open($zip_name, \ZIPARCHIVE::CREATE) !== TRUE) {
                 $error = "* Sorry ZIP creation failed at this time";
             }
             foreach ($post as $file) {
-                $zip->addFile($file_folder . $file['image_photoshot'],$file['image_photoshot']);
+                $zip->addFile($file_folder . $file['image_photoshot'], $file['image_photoshot']);
             }
             $zip->close();
             if (file_exists($zip_name)) {
                 header('Content-type: application/zip');
-                header ("Accept-Ranges: bytes");
-                header ("Content-Length: ".filesize($zip_name));
+                header("Accept-Ranges: bytes");
+                header("Content-Length: " . filesize($zip_name));
                 header('Content-Disposition: attachment; filename="' . $name_album . '"');
                 readfile($zip_name);
                 unlink($zip_name);

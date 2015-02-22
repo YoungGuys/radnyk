@@ -9,8 +9,7 @@
 namespace Balon\System;
 
 abstract class Controller {
-    function __construct()
-    {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 

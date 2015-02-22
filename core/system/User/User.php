@@ -2,16 +2,14 @@
 
 namespace Balon\System;
 
-class User
-{
-    function __construct()
-    {
+class User {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 
 
     public static function trueUser() {
-        if ($_COOKIE['token'] == md5("balon_".$_COOKIE['user_id']."_core")) {
+        if ($_COOKIE['token'] == md5("balon_" . $_COOKIE['user_id'] . "_core")) {
             return true;
         }
     }
@@ -21,7 +19,7 @@ class User
         return true;
         $role = $_COOKIE['role'];
         $token = $_COOKIE['role_token'];
-        if ($token == md5("balon_".$role."_core_role") && $role == 2) {
+        if ($token == md5("balon_" . $role . "_core_role") && $role == 2) {
             return true;
         }
     }

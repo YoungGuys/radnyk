@@ -2,7 +2,7 @@
 
 
 
-define("SITE","http://www.radnyk.com/");
+define("SITE", "http://www.radnyk.com/");
 
 
 

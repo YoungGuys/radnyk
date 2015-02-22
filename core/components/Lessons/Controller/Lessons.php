@@ -9,17 +9,15 @@
 namespace Controller;
 use Balon\System;
 
-class Lessons extends System\Controller{
+class Lessons extends System\Controller {
 
-    function __construct()
-    {
+    function __construct() {
         $this->model = new \Model\Main();
         $this->view = new \View\Main();
         // TODO: Implement __construct() method.
     }
 
-    public function index()
-    {
+    public function index() {
         $val = [
             "D" => 36.6,
             "R" => 63.4,
@@ -30,11 +28,11 @@ class Lessons extends System\Controller{
             "C3H8" => 37.51,
 
         ];
-        $val['y`D1'] = $table['CH4']/$val['D'];
-        $val['y`D2'] = $table['C2H6']/$val['D'];
-        $val['y`D2'] = $table['C2H6']/$val['D'];
+        $val['y`D1'] = $table['CH4'] / $val['D'];
+        $val['y`D2'] = $table['C2H6'] / $val['D'];
+        $val['y`D2'] = $table['C2H6'] / $val['D'];
         echo "<pre>";
-        print_r ($val);
+        print_r($val);
     }
 }
 

@@ -4,38 +4,35 @@
  * @copyright 2014
  */
 namespace Balon;
+use Balon\System\User;
+
 /**
  * Class DBProc
  * Класс займається підключенням до бази данних.
  */
-class DBProc
-{
+class DBProc {
     private $mysqli;
     //public $pdo;
     public $dev_mod;
 
     static $stat;
 
-    final private function __construct()
-    {
+    final private function __construct() {
         $this->cache = Cache::instance();
         //$this->replace = 'Запрос выполнен успешно.<script>history.go(-1)</script>';
     }
 
-    function __destruct()
-    {
+    function __destruct() {
         //echo "Count query to data base = ".$this::$stat;
     }
 
-    function __get($a)
-    {
+    function __get($a) {
         if ($a == "pdo") {
             return $this->construct();
         }
     }
 
-    private function construct()
-    {
+    private function construct() {
         static $host;
         if (!$host) {
             $host = true;
@@ -55,8 +52,7 @@ class DBProc
     }
 
 
-    static function instance()
-    {
+    static function instance() {
         static $instance;
         if (isset($instance)) {
             return $instance;
@@ -66,8 +62,7 @@ class DBProc
     }
 
 
-    function send_query($sql, $replace = false)
-    {
+    function send_query($sql, $replace = false) {
         self::$stat++;
         try {
             $query = $this->pdo->prepare($sql);
@@ -75,12 +70,11 @@ class DBProc
             $result = $query->fetchAll();
         } catch (\Exception $e) {
             if (!file_exists("sql_errors.php")) {
-                echo " ERROR ".$e->getMessage();
+                echo " ERROR " . $e->getMessage();
                 //file_put_contents("sql_errors.php", time()." ERROR ".$e->getMessage(). "\n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin());
-            }
-            else {
+            } else {
                 $text = file_get_contents("sql_errors.php");
-                $text .= time()." ERROR ".$e->getMessage(). "\n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin();
+                $text .= time() . " ERROR " . $e->getMessage() . "\n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin();
                 file_put_contents("sql_errors.php", $text);
             }
             //echo "ERROR" . $e->getMessage();
@@ -104,8 +98,7 @@ class DBProc
      * @ASC - за умовчуванням приймає значення "DESC";
      **/
 
-    public function select($table, $what = false, $where = Array(), $order = false, $ASC = false, $limit = [])
-    {
+    public function select($table, $what = false, $where = Array(), $order = false, $ASC = false, $limit = []) {
 //        if ($this->cache->get("t_".$table)) {
         if (false) {
             $results = $this->cache->get("t_" . $table);
@@ -123,26 +116,31 @@ class DBProc
             }
             $key = $what;
             if (!is_array($what)) {
-                if (!$what) $what = "*";
+                if (!$what)
+                    $what = "*";
                 else $what = "`" . $what . "`";
-            }
-            else {
+            } else {
                 $delimiter = "";
                 foreach ($what as $whatElem) {
-                    if (!$whatElem) $whatText .= $delimiter."*";
-                    else $whatText .= $delimiter.$whatElem;
+                    if (!$whatElem)
+                        $whatText .= $delimiter . "*";
+                    else $whatText .= $delimiter . $whatElem;
                     $delimiter = ",";
                 }
                 $what = $whatText;
             }
             $explode = $this->new_explode_where($where);
             $whr = $explode[0];
-            if ($where) $where = "WHERE " . $whr;
-            if (!$ASC) $ASC = "DESC";
+            if ($where)
+                $where = "WHERE " . $whr;
+            if (!$ASC)
+                $ASC = "DESC";
             else $ASC = "ASC";
-            if ($order) $order = "ORDER BY `$order` $ASC";
+            if ($order)
+                $order = "ORDER BY `$order` $ASC";
             // ліміт кількості результатів. Якщо немає, то ставить 30
-            if ($limit[1]) $limit_text = "LIMIT {$limit[0]},{$limit[1]}";
+            if ($limit[1])
+                $limit_text = "LIMIT {$limit[0]},{$limit[1]}";
             else $limit_text = "LIMIT 0,30";
             $sql = "SELECT $what FROM `$table` $where $order $limit_text";
             //echo $sql;
@@ -170,8 +168,7 @@ class DBProc
      * @return mixed|string
      */
 
-    public function insert($table, $parent_id = Array(), $id = false)
-    {
+    public function insert($table, $parent_id = Array(), $id = false) {
         $table = "t_" . $table;
         $coma = "";
 
@@ -197,13 +194,12 @@ class DBProc
         } catch (\PDOException $e) {
             //$this->pdo->rollBack();
             if (!file_exists("sql_errors.php")) {
-                echo " ERROR ".$e->getMessage();
+                echo " ERROR " . $e->getMessage();
                 //echo $sql;
                 //file_put_contents("sql_errors.php", time()." ERROR ".$e->getMessage(). "\n sql - $sql \n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin());
-            }
-            else {
+            } else {
                 $text = file_get_contents("sql_errors.php");
-                $text .= time()." ERROR ".$e->getMessage(). "\n sql - $sql \n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin();
+                $text .= time() . " ERROR " . $e->getMessage() . "\n sql - $sql \n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin();
                 file_put_contents("sql_errors.php", $text);
             }
             //echo "Error:" . $e->getMessage() . "sql:" . $sql;
@@ -222,13 +218,13 @@ class DBProc
     }
 
 
-    public function delete($table, $where = false)
-    {
+    public function delete($table, $where = false) {
         $table = "t_" . $table;
         $explode = $this->new_explode_where($where);
         $whr = $explode[0];
         $exec = $explode[1];
-        if ($where) $where = "WHERE " . $whr;
+        if ($where)
+            $where = "WHERE " . $whr;
         $sql = "DELETE FROM `$table` $where";
         try {
             $query = $this->pdo->prepare($sql);
@@ -236,18 +232,16 @@ class DBProc
         } catch (\PDOException $e) {
             //echo "Error: " . $e->getMessage();
             if (!file_exists("sql_errors.php")) {
-                file_put_contents("sql_errors.php", time()." ERROR ".$e->getMessage(). "\n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin());
-            }
-            else {
+                file_put_contents("sql_errors.php", time() . " ERROR " . $e->getMessage() . "\n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin());
+            } else {
                 $text = file_get_contents("sql_errors.php");
-                $text .= time()." ERROR ".$e->getMessage(). "\n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin();
+                $text .= time() . " ERROR " . $e->getMessage() . "\n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin();
                 file_put_contents("sql_errors.php", $text);
             }
         }
     }
 
-    public function update($table, $values = false, $where = false)
-    {
+    public function update($table, $values = false, $where = false) {
         $table = "t_" . $table;
         if ($values) {
             $value = "";
@@ -284,11 +278,11 @@ class DBProc
                 $query->execute($exec);
             } catch (\PDOException $e) {
                 if (!file_exists("sql_errors.php")) {
-                    file_put_contents("sql_errors.php", time()." ERROR ".$e->getMessage(). "\n sql - $sql \n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin());
-                }
-                else {
+                    file_put_contents("sql_errors.php", time() . " ERROR " . $e->getMessage() . "\n sql - $sql \n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin());
+                } else {
+                    echo $e->getMessage();
                     $text = file_get_contents("sql_errors.php");
-                    $text .= time()." ERROR ".$e->getMessage(). "\n sql - $sql \n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin();
+                    $text .= time() . " ERROR " . $e->getMessage() . "\n sql - $sql \n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin();
                     file_put_contents("sql_errors.php", $text);
                 }
                 //echo $e->getMessage();
@@ -302,8 +296,7 @@ class DBProc
      * @return array|string
      */
 
-    public function join($array = Array(), $where = "", $order = Array(), $ASC = false, $limit = "")
-    {
+    public function join($array = Array(), $where = "", $order = Array(), $ASC = false, $limit = "") {
         self::$stat++;
         $join = "";
         $on = "";
@@ -322,7 +315,8 @@ class DBProc
             }
             $last_key = $key;
         }
-        if ($array['article'] && !User::trueAdmin()) $whr = "AND article.`visibility` = 1";
+        if ($array['article'] && !User::trueAdmin())
+            $whr = "AND article.`visibility` = 1";
         if ($where) {
             if ($where[2]) {
                 $result = " WHERE $where[0].`$where[1]` = ? $whr";
@@ -335,7 +329,8 @@ class DBProc
                 $result = " WHERE ";
                 foreach ($where[0] as $val) {
                     $result .= " $or $val[0].`$val[1]` = '$val[2]' ";
-                    if ($val[3]) $or = $val[3];
+                    if ($val[3])
+                        $or = $val[3];
                     else $or = " OR ";
                 }
             } else {
@@ -347,12 +342,14 @@ class DBProc
         } else if ($array['article'] && !User::trueAdmin()) {
             $result = " WHERE article.`visibility` = 1";
         }
-        if (!$ASC) $ASC = "DESC";
+        if (!$ASC)
+            $ASC = "DESC";
         else $ASC = "ASC";
         if ($limit) {
             $limit = " LIMIT $limit[0], $limit[1]";
         }
-        if ($order[1]) $order_text = " ORDER BY $order[0].$order[1] $ASC";
+        if ($order[1])
+            $order_text = " ORDER BY $order[0].$order[1] $ASC";
         $sql = $sql . "" . $join . "  " . $result . $order_text . $limit;
         try {
             //$result = $this->cache->get($sql);
@@ -366,19 +363,17 @@ class DBProc
             }
         } catch (\PDOException $e) {
             if (!file_exists("sql_errors.php")) {
-                file_put_contents("sql_errors.php", time()." ERROR ".$e->getMessage(). "\n sql - $sql \n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin());
-            }
-            else {
+                file_put_contents("sql_errors.php", time() . " ERROR " . $e->getMessage() . "\n sql - $sql \n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin());
+            } else {
                 $text = file_get_contents("sql_errors.php");
-                $text .= time()." ERROR ".$e->getMessage(). "\n sql - $sql \n user - ". $_COOKIE['user_id']. " trueUser - ". User::trueUser(). " true admin - ".User::trueAdmin();
+                $text .= time() . " ERROR " . $e->getMessage() . "\n sql - $sql \n user - " . $_COOKIE['user_id'] . " trueUser - " . User::trueUser() . " true admin - " . User::trueAdmin();
                 file_put_contents("sql_errors.php", $text);
             }
         }
         return $result;
     }
 
-    function explode_where($where)
-    {
+    function explode_where($where) {
         if ($where) {
             $where1 = $where;
             $where = explode("||", $where);
@@ -432,8 +427,7 @@ class DBProc
         }
     }
 
-    private function new_explode_where($array = Array())
-    {
+    private function new_explode_where($array = Array()) {
         $result = "";
         $comm = "";
         if (is_array($array)) {
@@ -490,19 +484,21 @@ class DBProc
     }
 
     private
-    function findConfig()
-    {
-        if (file_exists("../core/config.php")) include("../core/config.php");
-        elseif (file_exists("../../core/config.php")) include("../../core/config.php");
-        elseif (file_exists("../../../core/config.php")) include("../../../core/config.php");
-        elseif (file_exists("core/config.php")) include("core/config.php");
+    function findConfig() {
+        if (file_exists("../core/config.php"))
+            include("../core/config.php");
+        elseif (file_exists("../../core/config.php"))
+            include("../../core/config.php");
+        elseif (file_exists("../../../core/config.php"))
+            include("../../../core/config.php");
+        elseif (file_exists("core/config.php"))
+            include("core/config.php");
         $db = Array($db_host, $db_user, $db_passw, $db_name);
         return $db;
     }
 
     public
-    function db_update()
-    {
+    function db_update() {
         if ($this->mysqli) {
             //$this->mysqli->close();
         }
@@ -516,7 +512,8 @@ class DBProc
                 echo "У вас проблеми містер";
             }
         }
-        if (($part[0][2])) $db = $part[0][2];
+        if (($part[0][2]))
+            $db = $part[0][2];
         else $db = $db[3];
         $bububu = $db;
         $tables = $this->mysqli->query("SHOW TABLES FROM `$db`");

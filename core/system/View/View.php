@@ -11,13 +11,12 @@ namespace Balon\System;
 
 abstract class View {
 
-    function __construct()
-    {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 
     public function loadContent($params = []) {
-        include_once ("./view/content.php");
+        include_once("./view/content.php");
     }
 
     protected function loadHead($params = []) {
@@ -53,8 +52,7 @@ abstract class View {
     protected function loadModal($params = []) {
         if (file_exists("./view/modal.php")) {
             include_once("./view/modal.php");
-        }
-        elseif (file_exists("./view/none_element.php")) {
+        } elseif (file_exists("./view/none_element.php")) {
             include_once("./view/none_element.php");
         }
     }

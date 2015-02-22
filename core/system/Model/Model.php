@@ -15,8 +15,7 @@ abstract class Model {
 
     public $db;
 
-    function __construct()
-    {
+    function __construct() {
         $this->db = DBProc::instance();
         // TODO: Implement __construct() method.
     }

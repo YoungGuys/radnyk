@@ -5,7 +5,7 @@
  * @copyright 2013
  */
 session_start();
-require ('autoloader.php');
+require('autoloader.php');
 $user = new User;
 $array = $_POST['array'];
 switch ($_SESSION['what']) {
@@ -22,7 +22,7 @@ switch ($_SESSION['what']) {
         $user->sendForum($array);
         break;
     case 'online':
-        $user->onlineMes ($array);
+        $user->onlineMes($array);
         break;
 }
 ?>

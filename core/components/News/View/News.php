@@ -7,17 +7,16 @@
  */
 
 namespace View;
+
 use Balon\System;
 
-class News extends System\View{
+class News extends System\View {
 
-    function __construct()
-    {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 
-    public function loadNews($data)
-    {
+    public function loadNews($data) {
         //TODO: Потрібно реалізувати слайдер в середині новини
         $this->loadHead();
         $this->loadHeader();
@@ -33,6 +32,9 @@ class News extends System\View{
     }
 
     public function loadList($data) {
+        $nameChapter = $data['nameChapter'];
+        $most = $data['most'];
+        $data = $data['data'];
         $this->loadHead();
         $this->loadHeader();
         $this->loadContent();

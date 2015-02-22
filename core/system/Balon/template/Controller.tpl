@@ -14,12 +14,12 @@ class {{name}} extends System\Controller{
     function __construct()
     {
         $this->model = new \Model\{{name}}();
-        $this->view = new \View\{{name}}();
-        // TODO: Implement __construct() method.
-    }
+$this->view = new \View\{{name}}();
+// TODO: Implement __construct() method.
+}
 
-    public function index()
-    {
+public function index()
+{
 
-    }
+}
 } 

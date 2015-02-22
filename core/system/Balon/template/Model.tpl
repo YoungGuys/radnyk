@@ -16,11 +16,11 @@ class {{name}} extends System\Model{
     function __construct()
     {
         $this->db = DBProc::instance();
-        // TODO: Implement __construct() method.
-    }
+// TODO: Implement __construct() method.
+}
 
-    public function index()
-    {
+public function index()
+{
 
-    }
+}
 }

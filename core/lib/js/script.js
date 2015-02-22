@@ -37,9 +37,9 @@ $(document).ready(function () {
                 location.reload();
             }
             /*if (data == "okey") {
-                th.slideDown();
-                th.parent().parent().remove();
-            }*/
+             th.slideDown();
+             th.parent().parent().remove();
+             }*/
         }
 
         function success(data) {
@@ -157,11 +157,11 @@ $(document).ready(function () {
             "table": table,
             "new": newId,
             "id": id,
-            "what":what
+            "what": what
         };
         sendWhat('position');
         function fail(data) {
-            alert (data);
+            alert(data);
             fn_openModalId("mod_event_false");
         }
 
@@ -327,8 +327,6 @@ function getSite() {
 }
 
 
-
-
 function fn_display_noneId(nameModalId) {
     var el = '#' + nameModalId;
 
@@ -337,11 +335,11 @@ function fn_display_noneId(nameModalId) {
 
 //ширина скролла
 //створюємо елемент з прокруткою
-function fn_scroll () {
+function fn_scroll() {
     var div = document.createElement('div');
 
     div.style.overflowY = 'scroll';
-    div.style.width =  '50px';
+    div.style.width = '50px';
     div.style.height = '50px';
 
     // при display:none размеры нельзя узнать
@@ -367,7 +365,7 @@ function fn_modal_center(name) {
 
     //якщо висота елемнта більша за вікно браузера
     //20 - це для красоти, щоб завжди були відступи
-    if ( elem_height < window_height - 20 ) {
+    if (elem_height < window_height - 20) {
         elem_top = (window_height - elem_height) / 2;
         elem.css('margin', elem_top + 'px auto 0');
     }
@@ -384,7 +382,7 @@ function fn_openModal(elem) {
     for (var i = 0; i < class_list.length; i++) {
         var reg_search = class_list[i].search(/js-mod_\w+/),
             reg_match = class_list[i].match(/js-mod_\w+/);
-        if ( !reg_search ) {
+        if (!reg_search) {
             var name_window = new String(reg_match).split('_');
             var el = 'mod_' + name_window[1];
 
@@ -392,7 +390,6 @@ function fn_openModal(elem) {
         }
     }
 }
-
 
 
 /*	непогано б допілить
@@ -410,11 +407,11 @@ function fn_openModalId(name_modalId) {
         'overflow': 'hidden',
         'margin-right': w_scroll
     });
-    $(el).css('display','table');
+    $(el).css('display', 'table');
     $(el).parent().addClass('visible');
     $(el).addClass('visible');
 
-    if ( $(el).hasClass('is-blocked') ) {
+    if ($(el).hasClass('is-blocked')) {
         blocked = true;
     }
 }

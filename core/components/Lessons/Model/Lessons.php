@@ -7,17 +7,16 @@
  */
 
 namespace Model;
+
 use Balon\System;
 
-class Lessons extends System\Model{
+class Lessons extends System\Model {
 
-    function __construct()
-    {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 
-    public function index()
-    {
+    public function index() {
 
     }
 }

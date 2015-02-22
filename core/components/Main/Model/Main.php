@@ -10,8 +10,7 @@ class Main {
 
     private $db;
 
-    function __construct()
-    {
+    function __construct() {
         $this->db = DBProc::instance();// TODO: comment this when finish
     }
 
