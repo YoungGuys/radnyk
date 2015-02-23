@@ -18,6 +18,7 @@
         <?php //if Admin ?>
             <link rel="stylesheet" href="/core/lib/admin.css"/>
             <script src="/core/lib/js/script.js"></script>
+            <script src="/lib/js/admin.js"></script>
             <script src="/lib/js/ckeditor/ckeditor.js"></script>
         <?php ?>
 
