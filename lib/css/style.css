@@ -1862,8 +1862,9 @@ footer a {
 
 /* line 9, ../sass/page/_slider.sass */
 .slide_item {
-  top: 0px;
-  left: 0px;
+  top: 0;
+  left: 0;
+  width: 100%;
   opacity: 0;
   visibility: hidden;
   -webkit-transition: all 0.8s ease;
