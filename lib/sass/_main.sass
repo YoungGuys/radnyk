@@ -1,0 +1,572 @@
+
+.clearfix
+    &:after
+        content: ' '
+        width: 0
+        height: 0
+        display: table
+        font-size: 0
+        line-height: 0
+        visibility: hidden
+        clear: both
+
+
+%fontComLight
+    font-family: Comfortaa
+    font-weight: 300
+
+
+.wrap
+    min-width: 768px
+    color: #202020
+    overflow: hidden
+    font-family: Roboto
+
+
+header
+    padding-bottom: 65px
+    background-image: url(../pic/bg-header.jpg)
+    -webkit-background-size: cover
+    background-size: cover
+
+.header__top
+    position: relative
+    height: 69px
+    line-height: 69px
+    //rgba(#202020, 0.8)
+    background: rgba(32,32,32,.8)
+
+.header__top__in
+    @extend .clearfix
+    position: relative
+    max-width: 850px
+    margin: 0 auto
+    padding: 0 10px
+
+.header__top__num
+    float: left
+    color: #fff
+    font-size: 26px
+    font-weight: 300
+
+.header__top__logo
+    position: absolute
+    top: 6px
+    left: 0
+    right: 0
+    width: 180px
+    height: 55px
+    margin: auto
+    vertical-align: middle
+    line-height: 55px
+    text-align: center
+    background: #e1e1e1
+    border-radius: 5px
+    @extend %fontComLight
+
+.header__top__nav
+    float: right
+
+.header__top__nav__item
+    display: inline-block
+    margin: 0 8px
+    text-transform: uppercase
+    font-size: 18px
+    @extend %fontComLight
+
+    &:hover
+        text-decoration: underline
+
+
+.order
+    width: 282px
+    margin: 42px auto 0
+    padding: 25px 30px
+
+    text-align: center
+
+    background: rgba(241,196,15,0.6)
+    border: 2px solid #41a9e8
+    border-radius: 5px
+
+.order__title
+    margin-bottom: 20px
+    font-size: 24px
+    font-weight: 300
+
+    
+
+.order-test__text
+    font-size: 16px
+
+
+.header__title
+    max-width: 832px
+    margin: 44px auto 0
+    padding-bottom: 10px
+    color: #2196f3
+    line-height: 1
+    text-align: center
+    text-shadow: 0 4px 0 #faf8f6
+    font-size: 55px
+    font-weight: 400
+    border: 6px solid #2196f3
+
+    &:before,
+    &:after
+        content: ''
+        position: absolute
+        bottom: 0
+
+    &:before
+        left: 40px
+    &:after
+        right: 40px
+
+
+
+
+
+.benefits
+    padding: 32px 0 70px
+    text-align: center
+
+.benefits__title
+    padding-bottom: 45px
+    font-family: Comfortaa
+    font-size: 30px
+
+.benefits__row
+    width: 780px
+    margin: 0 auto
+
+.benefits__row__item
+    width: 14%
+    padding: 0 2.5%
+    display: inline-block
+
+.benefits__row__item__text
+    padding: 10px 10% 0
+
+
+
+
+.work
+    height: 530px
+    padding: 32px 10px 36px
+    text-align: center
+    color: #fff
+    background-image: url(../pic/bg-wood.jpg)
+
+
+.work__in
+    position: relative
+    max-width: 776px
+    height: 480px
+    margin: 0 auto
+    background-image: url(../pic/steps.png)
+    background-repeat: no-repeat
+    background-position: 32% 70%
+
+
+.work__title
+    font-family: Comfortaa
+    font-size: 30px
+    background-image: url(../pic/menu-line.png)
+    background-repeat: no-repeat
+    background-position: 0 50%
+
+
+.work__item
+    position: absolute
+    width: 180px
+    font-size: 16px
+    font-weight: 300
+
+    &--1
+        top: 240px
+
+    &--2
+        top: 450px
+        left: 240px
+
+    &--3
+        top: 185px
+        left: 382px
+
+    &--4
+        top: 400px
+        left: 600px
+
+
+
+
+.action
+    @extend .clearfix
+    position: relative
+    max-width: 855px
+    margin: 34px auto 30px
+
+
+    border: 3px solid #41a9e8
+    border-radius: 5px
+
+.action__box
+    width: 510% * 100 / 855
+    padding-top: 75px
+    float: left
+
+
+.action__timer
+    position: relative
+    width: 334px
+    margin: 0 auto
+    text-align: center
+    border: 5px solid #41a9e8
+
+.action__timer__title
+    position: relative
+    top: -20px
+    padding: 0 12px
+    display: inline-block
+    color: #2196f3
+    font-size: 26px
+    font-weight: 400
+    background: #fff
+
+.action__timer__box
+    position: relative
+    width: 320px
+    height: 94px
+
+
+.action__price
+    width: 344px
+    margin: 0 auto
+
+.action__price__title
+    margin: 25px 0 25px -12px
+    font-size: 24px
+    color: #2196f3
+
+.action__descrp
+    font-size: 20px
+    font-weight: 400
+
+.action__order
+    width: 345% * 100 / 855
+    padding: 32px 32px 25px
+    height: 422px
+    float: left
+
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+    text-align: center
+
+    background: url(../pic/bg-delivery.png)
+    border-left: 5px solid #41a9e8
+
+
+.action__order__title
+    margin: 0 -20px 30px
+    //text-shadow: 0 0 1px #fff
+    font-size: 26px
+    font-weight: 400
+
+.order-info
+    text-align: right
+    line-height: 62px
+    font-size: 18px
+
+
+
+.menu
+    padding: 90px 10px 43px
+    background: url(../pic/bg-menu.jpg)
+
+.menu__title
+    position: relative
+    margin-bottom: 45px
+    color: #000
+    text-align: center
+    font-size: 30px
+    font-family: Comfortaa
+
+    &:before,
+    &:after
+        content: ' '
+        position: absolute
+        top: 50%
+        width: 42%
+        height: 2px
+        margin-top: -1px
+        background: #000
+
+    &:before
+        left: 0
+
+    &:after
+        right: 0
+    
+.menu__form
+    max-width: 940px
+    margin: 0 auto
+    color: #fff
+    font-weight: 300
+
+.menu__box
+    position: relative
+    padding: 20px 5.5% 125px 19%
+    background-image: url(../pic/bg-menu-list.jpg)
+    background-repeat: no-repeat
+    background-position: -25px 0
+
+.menu__table
+
+    td
+        width: 225% * 100 / 730
+        min-height: 70px
+        padding: 25px 22px 20px 0
+        vertical-align: middle
+
+        &:first-child
+            width: 144% * 100 / 730
+
+
+        &:last-child
+            width: 254% * 100 / 730
+
+
+.menu__table__row--3
+    td
+        padding-top: 35px
+
+.menu__table__row--4
+    td
+        padding-top: 35px
+
+
+
+.menu__table__dish
+    position: relative
+    width: 100%
+    height: 35px
+    vertical-align: middle
+    line-height: 35px
+
+    input
+        position: absolute
+        top: 0
+        bottom: 0
+        right: 0
+        width: 30px
+        height: 25px
+        margin: auto
+        display: inline-block
+        padding: 0 2px 0 5px
+        color: #fff
+        border: 1px solid #fff
+        border-radius: 3px
+
+        font-size: 15px
+        font-weight: 300
+
+
+label
+    display: inline-block
+    padding-right: 40px
+    line-height: 1
+    font-size: 16px
+
+
+
+
+.dish
+    @extend .clearfix
+    //margin: 0 -13%
+
+.dish__item
+    position: relative
+    width: 100 / 6 + 0%
+    float: left
+    padding-top: 13.3%
+
+    &:hover
+        .dish__item__text,
+        &:before
+            opacity: 1
+            visibility: visible
+
+    &:before
+        content: ' '
+        position: absolute
+        top: 0
+        right: 0
+        bottom: 0
+        left: 0
+        opacity: 0
+        visibility: hidden
+        background: rgba(#000, .4)
+        z-index: 1
+
+.dish__item__pic
+    position: absolute
+    top: 0
+    left: 0
+    min-width: 100%
+    min-height: 100%
+    display: table
+
+
+.dish__item__text
+    position: absolute
+    top: 50%
+    left: 0
+    right: 0
+    margin: auto
+    padding: 5%
+    color: #fff
+    visibility: hidden
+    opacity: 0
+    font-size: 18px
+    z-index: 2
+
+    -webkit-transition: all 0.5s ease
+    -moz-transition: all 0.5s ease
+    -ms-transition: all 0.5s ease
+    -o-transition: all 0.5s ease
+    transition: all 0.5s ease
+
+.dish__item__text__el
+    position: absolute
+    top: -50%
+    width: 90%
+    text-align: center
+
+footer
+    padding-bottom: 80px
+    color: #fff
+    background-image: url(../pic/bg-wood.jpg)
+    background-repeat: no-repeat
+    background-position: 0 100%
+
+.about
+    text-align: center
+
+.about__title
+    padding: 30px 0
+    font-family: Comfortaa
+    font-size: 30px
+    font-weight: 400
+
+
+
+.slider
+    position: relative
+    max-width: 940px
+    margin: 0 auto 40px
+
+.slider__container
+    @extend .clearfix
+    overflow: hidden
+
+.slider__container__item
+    float: left
+
+.owl-item
+    float: left
+
+.slider__container__item__pic
+    position: relative
+    width: 85px
+    height: 85px
+    margin-bottom: 15px
+    display: inline-block
+    //border: 3px solid #fff
+
+    &:after
+        content: ' '
+        position: absolute
+        top: -2px
+        left: -1px
+        width: 90px
+        height: 95px
+        display: block
+        background: url("../pic/mask.png") no-repeat
+        z-index: 2
+
+.slider__container__item__pic__img
+    border-radius: 100%
+    z-index: 1
+
+.slider__container__item__description
+    padding: 7px 64px
+    line-height: 22px
+    border-bottom: 1px solid #fff
+    font-weight: 300
+
+.slider__container__item__name
+    padding: 2px 0
+    color: #cac8ff
+    font-size: 16px
+
+    &:before
+        content: '- '
+
+.slider__container__item__job
+    font-size: 16px
+
+
+.btn-control
+    position: absolute
+    bottom: 80px
+    opacity: .8
+    cursor: pointer
+
+    -webkit-transition: all .5s ease
+    -moz-transition: all .5s ease
+    -ms-transition: all .5s ease
+    -o-transition: all .5s ease
+    transition: all .5s ease
+
+    &:hover
+        opacity: 1
+
+    &--next
+        right: -50px
+        @extend .icon-arr-right
+
+        &:hover
+            right: -53px
+
+    &--prev
+        left: -50px
+        @extend .icon-arr-left
+
+        &:hover
+            left: -53px
+
+
+
+
+
+.company
+    padding: 25px 0 5px
+    text-align: center
+    color: #202020
+    background: rgba(#fffefe, .8)
+
+.company__title
+    margin-bottom: 20px
+    font-family: Comfortaa
+    font-size: 30px
+    font-weight: 400
+
+.comnany__box__item
+    margin: 0 50px 10px
+    display: inline-block
+
+.comnany__box__item__pic
+    height: 68px

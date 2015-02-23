@@ -1,7 +1,5 @@
 <?php
 
-
-
 define("SITE", "http://www.radnyk.com/");
 
 

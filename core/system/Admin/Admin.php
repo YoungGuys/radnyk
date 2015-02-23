@@ -255,7 +255,6 @@ class Admin {
                             <textarea id=\"editor\" name='$column_name'>$oldValues[$column_name]";
                     //$html .= $bb->get_html();
                     $html .= "</textarea>
-
                         <script>CKEDITOR.replace('editor');</script>
                         </div>";
                     break;

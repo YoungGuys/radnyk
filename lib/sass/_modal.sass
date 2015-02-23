@@ -1,0 +1,254 @@
+/************************************************************************************
+ * Modal window
+ ************************************************************************************
+
+.modal_bg
+    position: fixed
+    top: 0
+    left: 0
+    bottom: 0
+    right: 0
+    margin: 0
+    overflow: auto
+    visibility: hidden
+    opacity: 0
+    background: rgba(225, 225, 220, 0.64)
+    z-index: 100
+    -webkit-overflow-scrolling: touch
+    -webkit-animation-duration: 1s
+    -moz-animation-duration: 1s
+    animation-duration: 1s
+
+    &.visible
+        visibility: visible !important
+        opacity: 1 !important
+        -webkit-transform: scale(1)
+        -moz-transform: scale(1)
+        transform: scale(1)
+
+.modal_window
+    max-width: 90%
+    min-width: 20%
+    margin: 10px auto
+    padding: 30px 50px
+    opacity: 0
+    display: none
+    overflow: auto
+    visibility: hidden
+    background-color: #fff
+    border: 1px solid #6d6c6c
+    z-index: 102
+    -webkit-transform: scale(0.7)
+    -moz-transform: scale(0.7)
+    transform: scale(0.7)
+    -webkit-transition: transform .4s ease, opacity .4s ease
+    -moz-transition: transform .4s ease, opacity .4s ease
+    -o-transition: transform .4s ease, opacity .4s ease
+    transition: transform .4s ease, opacity .4s ease
+    &.visible
+        display: table
+        visibility: visible !important
+        opacity: 1 !important
+        -webkit-transform: scale(1) !important
+        -moz-transform: scale(1) !important
+        transform: scale(1) !important
+    &.blocked .i-close
+        display: none
+
+.mod__header, .mod__footer
+    text-align: center
+    color: #405c86
+
+.mod__header
+    padding: 1rem 2.5rem
+    font-size: 28px
+
+.mod__content
+    padding: 0 2.5rem 2rem
+
+.mod__footer
+    padding: 1rem 0
+    font-size: 16px
+
+.mod__title
+    margin: 15px 0 10px 0
+    display: block
+    color: #405c86
+
+.mod__field
+    padding: 3px 5px
+    border: 1px solid #000
+    font-size: 14px
+    &:focus
+        border-color: #0066cc
+
+.btn-ok
+    width: auto
+    display: inline-block
+    margin: 0 auto
+    color: #fff
+    padding: 5px 15px
+    text-align: center
+    font-size: 1em
+    font-weight: 500
+    text-decoration: none
+    background-color: #405c86
+    border: 0
+
+    &:hover
+        background-color: #5070a1
+
+.ok
+    width: auto
+    min-width: 114px
+    height: 40px
+    margin-top: 30px
+    padding: 0 10px
+    line-height: 40px
+    color: #fefefe
+    background: #343535
+
+.mod-ckeditor
+    z-index: 111
+
+.modal_window p
+    margin: 10px 0
+
+.icon-close
+    position: absolute
+    top: 5px
+    right: 5px
+
+#mod_preload
+    position: absolute
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    width: 300px
+    height: 200px
+    border: 0
+    background: transparent
+    z-index: 101
+
+.modal_window
+    &.blocked .i-close
+        display: none
+    .mod_header, .mod_footer
+        padding: 1rem 2.5rem
+        font-size: 20px
+        font-weight: 300
+        color: #424343
+
+.mod_content
+    padding: 0rem 2.5rem 2rem
+
+.modal_window
+    .mod_footer
+        font-size: 16px
+    .i-close
+        position: absolute
+        color: #414343
+        font-size: 20px
+        cursor: pointer
+        top: 0.4em
+        right: 2.5rem
+        font-style: normal
+        font-family: Verdana
+    .ok
+        width: auto
+        margin: 0 auto
+        display: block
+        color: #fff
+        padding: 5px 15px
+        text-align: center
+        line-height: 1
+        font-size: 1.2em
+        font-weight: 300
+        background-color: #4aac6d
+        border: 0
+        -webkit-transition: all 0.5s ease
+        -moz-transition: all 0.5s ease
+        transition: all 0.5s ease
+        &:hover
+            background-color: #58CB79
+    &.photo
+        line-height: 0px
+
+.mod-ckeditor
+    z-index: 111
+
+.modal_window
+    form
+        display: block !important
+    textarea
+        display: block
+        max-width: 98%
+        width: 98%
+        height: 100px
+        margin: 10px 0
+        padding: 2px 1%
+    width: 580px
+    min-width: 280px
+    margin-left: -23%
+    .column1
+        width: 46%
+        margin-right: 10%
+    .column2
+        width: 38%
+    .column1 input
+        width: 98%
+        padding: 3px 1%
+    .column2 img
+        width: 24px
+
+/*.modal_window span {
+/*margin: 15px 0 10px 0;
+/*display: block;
+/*}
+/*.modal_window label {
+/*margin: 30px 0 0;
+/*}
+
+#mod_photo
+    padding: 50px 2%
+    color: #73e2af
+    .mod_content
+        padding: 0rem 2.5rem
+
+.mod_num_photo
+    top: 10px
+    left: 80px
+
+.mod_prev_photo
+    top: 48%
+    left: 0
+    width: 18px
+    height: 35px
+
+.mod_next_photo
+    top: 48%
+    width: 18px
+    height: 35px
+    right: 0
+
+#mod_photo .mod_content
+    overflow: hidden
+
+.mod_photo_container
+    ul li
+        position: relative
+        top: 0
+        left: 0
+        width: 100%
+        line-height: 100%
+        float: left
+        img
+            width: 100%
+    /*	-webkit-transition: all .8s ease;
+     *	   -moz-transition: all .8s ease;
+     *			transition: all .8s ease;
+    > ul > li.mod_slide__visible
+        display: block !important
+
+/*.mod_photo_container > ul > li.mod_slide__visible { left: 0 !important; }

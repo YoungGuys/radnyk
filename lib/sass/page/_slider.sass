@@ -1,0 +1,124 @@
+.slider
+    background: #eeebeb
+    margin: 0 0 15px 0
+
+.slider_container
+    height: 296px
+    overflow: hidden
+
+.slide_item
+    top: 0px
+    left: 0px
+    opacity: 0
+    visibility: hidden
+    -webkit-transition: all .8s ease
+    -moz-transition: all .8s ease
+    transition: all .8s ease
+    &.slide__visible
+        opacity: 1
+        visibility: visible
+
+.slide_img
+    width: 48%
+    height: 100%
+    overflow: hidden
+    img
+        position: relative
+        width: auto
+        max-width: 1000%
+        height: 100%
+
+.slide_content
+    width: 44%
+    color: #141414
+    padding: 15px 4%
+    h2
+        margin: 0 0 40px 0
+        a
+            color: #323131
+            font-weight: 700
+
+.slider_control
+    left: 52%
+    bottom: 0
+    li
+        width: 33px
+        height: 3px
+        margin: 0 11px 8px 0
+        display: inline-block
+        background: #4e4d4d
+        cursor: pointer
+
+.slider_control__active
+    background: #2abe7a !important
+
+
+
+.post_photo_carusel
+    margin: 30px 0 70px
+
+.prev_post_photo
+    top: 50%
+    left: 0
+    text-align: right
+
+.next_post_photo
+    top: 50%
+    right: 0
+    width: 35px
+    height: 35px
+    padding: 0 22px
+    color: #6f7476
+    line-height: 29px
+    background: rgba(255, 255, 255, 0.6)
+    z-index: 10
+
+.prev_post_photo
+    width: 35px
+    height: 35px
+    padding: 0 22px
+    color: #6f7476
+    line-height: 29px
+    background: rgba(255, 255, 255, 0.6)
+    z-index: 10
+
+.next_post_photo img, .prev_post_photo img
+    height: 70%
+
+.author_post_photo
+    bottom: -40px
+    left: 0
+    width: 100%
+    color: #918f8f
+    text-align: center
+    font-size: 13px
+    font-weight: 300
+
+.num_post_photo
+    right: 45px
+    bottom: -40px
+    color: #2e3130
+    font-size: 16px
+    font-weight: 600
+
+.post_photo_carusel_container
+    width: 100%
+    padding-bottom: 66%
+    overflow: hidden
+    li
+        position: absolute
+        top: 0
+        left: 0
+        width: 100%
+        text-align: center
+        z-index: 1
+        img
+            width: auto
+            opacity: 0
+            -webkit-transition: all .8s ease
+            -moz-transition: all .8s ease
+            transition: all .8s ease
+    .gallery_slide__visible
+        z-index: 2
+        img
+            opacity: 1

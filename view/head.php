@@ -4,7 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <link href="favicon.ico" rel="shortcut icon" type="image/x-icon">
-        <link rel="stylesheet" type="text/css" href="/lib/style/style.css">
+        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,700,600&subset=cyrillic,latin' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" type="text/css" href="/lib/css/style.css">
 
         <!--[if lt IE 9]>
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>

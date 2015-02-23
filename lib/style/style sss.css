@@ -385,46 +385,7 @@ nav ul li:last-child { margin: 0; }
 	border-color: #4e4d4d transparent transparent transparent;
 
 }
-/************************************************************************************
-BTN
-*************************************************************************************/
-.btn {
-	margin: 15px 10px 5px 0;
-	padding: 7px;
-	font-size: 16px;
-	font-weight: 600;
-	color: #2abe7a;
-	background: #fff;
-}
-.btn:hover,
-.btn.active {
-	color: #fff;
-	background: #2abe7a
-}
-.btn:hover { text-decoration: underline; }
 
-.btn-print {
-	width: 27px;
-	height: 22px;
-	margin: -1px 0 0 35px;
-	background: url('../pic/print.svg') no-repeat  center center;
-	background-size: 65%;
-}
-
-.bnt-font_plus {
-	margin: 0 0 0 35px;
-	color: #3eb85c;
-	font-size: 15px;
-}
-
-.btn_grey {
-	width: 85px;
-	padding: 5px 0;
-	font-size: 12px;
-	font-weight: 700;
-	color: #fff;
-	background: #bbbcbc;
-}
 /************************************************************************************
 SIDEBAR
 *************************************************************************************/
@@ -1977,8 +1938,3 @@ textarea {
     z-index: 101;
 }
 
-
-
-.cke_editor_editor {
-	width: 950px;
-}
