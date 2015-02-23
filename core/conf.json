@@ -71,6 +71,14 @@
         "text",
         "Введіть заголовок новини"
       ],
+      "righttext": [
+        "text",
+        "Текст з права від фотографії"
+      ],
+      "photoauthor": [
+        "text",
+        "Хто робив фото?"
+      ],
       "text": [
         "editor",
         "Введть саму новину"
@@ -82,6 +90,58 @@
       "most": [
         "checkbox",
         "Головна новина"
+      ]
+    },
+    "settings": {"pk": "id"}
+  },
+  "photolist": {
+    "fields": {
+      "title": [
+        "text",
+        "Введіть заголовок новини"
+      ],
+      "description": [
+        "editor",
+        "Введть саму новину"
+      ],
+      "image": [
+        "image",
+        "Оберіть картинку"
+      ],
+      "id_chapter": [
+        "select",
+        "Оберіть розділ",
+        {"table": "chapter"}
+      ],
+      "most": [
+        "checkbox",
+        "Основна фотографія"
+      ]
+    },
+    "settings": {"pk": "id"}
+  },
+  "videolist": {
+    "fields": {
+      "title": [
+        "text",
+        "Введіть заголовок новини"
+      ],
+      "description": [
+        "editor",
+        "Введть саму новину"
+      ],
+      "image": [
+        "image",
+        "Оберіть картинку"
+      ],
+      "id_chapter": [
+        "select",
+        "Оберіть розділ",
+        {"table": "chapter"}
+      ],
+      "most": [
+        "checkbox",
+        "Основна фотографія"
       ]
     },
     "settings": {"pk": "id"}

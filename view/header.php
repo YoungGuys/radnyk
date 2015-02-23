@@ -56,10 +56,10 @@
                 </ul>
                 <ul class="addit-menu p-rel clearfix">
                     <li>
-                        <a href="">Фото</a>
+                        <a href="<?= SITE ?>Photo">Фото</a>
                     </li>
                     <li>
-                        <a href="">Відео</a>
+                        <a href="<?= SITE ?>Video">Відео</a>
                     </li>
                     <li>
                         <a href="">Блоги</a>

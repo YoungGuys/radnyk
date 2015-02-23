@@ -11,13 +11,11 @@ use Balon\System;
 
 class {{name}} extends System\View{
 
-    function __construct()
-    {
+    function __construct() {
         // TODO: Implement __construct() method.
     }
 
-    public function index()
-    {
+    public function index() {
 
     }
 }

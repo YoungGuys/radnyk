@@ -2,24 +2,24 @@
     <h1>Відео</h1>
 
     <div class="page_info">
-        <a class="tag" href="">Культура</a>
-        <span class="date">8 березня, 10:33</span>
-        <span class="num_view">1</span>
+        <a class="tag" href=""><?=$most['chapter'];?></a>
+        <span class="date"><?=$most['create_date']?></span>
+        <span class="num_view"><?=$most['views']?></span>
     </div>
 </div>
 
 <div class="post_news">
-    <a href="">
+    <?php Control::controllers(["edit","visibility","remove"], "videolist", $most['id'], $most['visibility']); ?>
+    <a href="Video/show/<?=$most['title'];?>?id=<?=$most['id'];?>">
         <div class="img_container p-rel">
-            <img src="/lib/pic/sidebar/splin.png" alt=""/>
+            <img src="/lib/image/videolist/<?=$most['image']?>" alt=""/>
 
             <div class="post_news__title p-abs">
-                <span>Самые популярные <br/> достопримечательности мира</span>
+                <span><?=$most['title']?></span>
             </div>
         </div>
         <div class="post_news_descr">
-            Эйфелева башня обошла Таймс-сквер и Биг-Бен по <br/>
-            количеству опубликованных фотографий на Instagram.
+            <?=$most['description']?>
         </div>
     </a>
 </div>
@@ -33,117 +33,41 @@
 
             <div class="all_part_list p-abs">
                 <ul>
-                    <li>
-                        <a href="">Політика</a>
-                    </li>
-                    <li>
-                        <a href="">Економіка</a>
-                    </li>
-                    <li>
-                        <a href="">Культура</a>
-                    </li>
-                    <li>
-                        <a href="">Спорт</a>
-                    </li>
-                    <li>
-                        <a href="">Світ</a>
-                    </li>
+                    <?php foreach (\Balon\System\Model::$nameChapter as $key => $val) {?>
+                        <li>
+                            <a href="?chapter=<?=$val;?>&id=<?=$key;?>"><?=$val?></a>
+                        </li>
+                    <?php } ?>
                 </ul>
             </div>
         </div>
     </div>
     <div class="page video_container clearfix">
-        <div class="post video_item">
-            <a href="" class="img_container p-rel">
-                <img src="/lib/pic/sidebar/splin.png" alt=""/>
-            </a>
+        <?php Control::add("videolist"); ?>
+        <?php foreach ($data as $key => $val) {?>
+            <div class="post video_item">
+                <?php Control::controllers(
+                    ['edit',"visibility","remove"],
+                    "videolist", $val['id'],$val['visibility']); ?>
+                <a href="Video/show/<?=$val['title'];?>?id=<?=$val['id'];?>"
+                   class="img_container p-rel">
+                    <img src="/lib/image/videolist/<?=$val['image'];?>" alt=""/>
+                </a>
 
-            <div class="info">
-                <a class="tag" href="">Політика</a>
-                <span class="time">8 березня, 10:33</span>
-                <span class="num_view">1</span>
+                <div class="info">
+                    <a class="tag" href=""><?=$val['chapter']?></a>
+                    <span class="time"><?=$val['create_date'];?></span>
+                    <span class="num_view"><?=$val['views']?$val['views']:0?></span>
+                </div>
+                <div class="text">
+                    <?=$val['title'];?>
+                </div>
             </div>
-            <div class="text">
-                Экс-премьер Израиля признан виновным в получении взяток
-            </div>
-        </div>
-
-        <div class="post video_item">
-            <a href="" class="img_container p-rel">
-                <img src="/lib/pic/sidebar/splin.png" alt=""/>
-            </a>
-
-            <div class="info">
-                <a class="tag" href="">Політика</a>
-                <span class="time">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
-            <div class="text">
-                Экс-премьер Израиля признан виновным в получении взяток
-            </div>
-        </div>
-
-        <div class="post video_item">
-            <a href="" class="img_container p-rel">
-                <img src="/lib/pic/sidebar/splin.png" alt=""/>
-            </a>
-
-            <div class="info">
-                <a class="tag" href="">Політика</a>
-                <span class="time">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
-            <div class="text">
-                Экс-премьер Израиля признан виновным в получении взяток
-            </div>
-        </div>
-
-        <div class="post video_item">
-            <a href="" class="img_container p-rel">
-                <img src="/lib/pic/sidebar/splin.png" alt=""/>
-            </a>
-
-            <div class="info">
-                <a class="tag" href="">Політика</a>
-                <span class="time">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
-            <div class="text">
-                Экс-премьер Израиля признан виновным в получении взяток
-            </div>
-        </div>
-
-        <div class="post video_item">
-            <a href="" class="img_container p-rel">
-                <img src="/lib/pic/sidebar/splin.png" alt=""/>
-            </a>
-
-            <div class="info">
-                <a class="tag" href="">Політика</a>
-                <span class="time">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
-            <div class="text">
-                Экс-премьер Израиля признан виновным в получении взяток
-            </div>
-        </div>
-
-        <div class="post video_item">
-            <a href="" class="img_container p-rel">
-                <img src="/lib/pic/sidebar/splin.png" alt=""/>
-            </a>
-
-            <div class="info">
-                <a class="tag" href="">Політика</a>
-                <span class="time">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
-            <div class="text">
-                Экс-премьер Израиля признан виновным в получении взяток
-            </div>
-        </div>
+        <?php } ?>
     </div>
-    <div class="all_post_link">
-        <a href=""> >> показати всі відео</a>
-    </div>
+    <?php if ($limitHref) { ?>
+        <div class="all_post_link">
+            <a href="<?=$limitHref;?>"> >> показати всі відео</a>
+        </div>
+    <?php } ?>
 </div>

@@ -8,17 +8,20 @@
 
 namespace Balon\System;
 
-
 use Balon\DBProc;
 
 abstract class Model {
 
-    public $db;
+
+public static $array = ["politics" => 1, "world" => 2, "economic" => 3, "culture" => 4, "sport" => 5];
+public static $nameChapter = [1 => "Політика", 2 => "Світ", 3 => "Економіка", 4 => "Культура", 5 => "Спорт"];
+
+    /*public $db;
 
     function __construct() {
-        $this->db = DBProc::instance();
+        //$this->db = DBProc::instance();
         // TODO: Implement __construct() method.
-    }
+    }*/
 
 
 }

@@ -23,6 +23,14 @@ class Date {
         return $month[$number];
     }
 
+    public static function reformatDate($val) {
+
+        $date = new \DateTime($val);
+        $day = $date->format("j");
+        $month = \Balon\Date::getMonth($date->format("n"));
+        $time = $date->format("H:i");
+        return "$day $month, $time";
+    }
 
 }
 

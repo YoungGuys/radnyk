@@ -220,12 +220,18 @@ class Admin {
                     break;
                 case "select":
                     $html .= "<div class='select'><select name='$column_name'>";
-                    $selectList = $fields[2];
+                    if (!$field[2]['table']) {
+                        $selectList = $field[2];
+                    }
+                    else {
+                        $table = $field[2]['table'];
+                        $selectList = $this->db->select($table);
+                    }
                     foreach ($selectList as $key => $value) {
-                        if ($value == $oldValues[$column_name]) {
+                        if ($value['id'] == $oldValues[$column_name]) {
                             $check = "selected";
                         }
-                        $html .= "<option value='$value' $check>$value</option>";
+                        $html .= "<option value='{$value['id']}' $check>{$value['name']}</option>";
                         $chck = "";
                     }
                     $html .= "</select></div>";
@@ -246,8 +252,8 @@ class Admin {
                     $bb = new \bbcode($oldValues[$column_name]);
                     $html .= "
                         <div class='textarea'>
-                            <textarea id=\"editor\" name='$column_name'>";
-                    $html .= $bb->get_html();
+                            <textarea id=\"editor\" name='$column_name'>$oldValues[$column_name]";
+                    //$html .= $bb->get_html();
                     $html .= "</textarea>
 
                         <script>CKEDITOR.replace('editor');</script>
@@ -658,6 +664,9 @@ class Admin {
                 if ($key == "most" && $table == "news") {
                     $idChapter = $this->db->select($table,"id_chapter",[$what => $id]);
                     $this->db->update($table,["most" => ""],["most" => "on", "id_chapter" => $idChapter]);
+                }
+                elseif ($key == "most") {
+                    $this->db->update($table,["most" => ""],["most" => "on"]);
                 }
                 $result["$key"] = $value;
             }

@@ -19,7 +19,8 @@ class News extends System\Model {
     private $idChapter;
 
     function __construct() {
-        parent::__construct();
+        $this->db = DBProc::instance();
+        //parent::__construct();
         // TODO: Implement __construct() method.
         $this->nameChapter = [1 => "Політика", 2 => "Світ", 3 => "Економіка", 4 => "Культура", 5 => "Спорт"];
     }
@@ -74,6 +75,7 @@ class News extends System\Model {
         $most['create_date'] = "$day $month, $time";
         $cache = Cache::instance();
         $most['views'] = $cache->getCache("news".$id,$most['id'])['views'];
+        $most['text'] = mb_substr($most['text'], 0, 250, 'UTF-8') . "...";
         $nameCacheFile = "news" . $id;
         $results = $this->prepareList($result, $nameCacheFile);
         $results['most'] = $most;

@@ -63,12 +63,14 @@ class Cache {
         if (!file_exists("cache/$file.json")) {
             //?????
             file_put_contents("cache/$file.json", json_encode([$id => ["views" => 1, "comments" => 0]]));
+            $views = 1;
         } else {
             $content = file_get_contents("cache/$file.json");
             $content = $this->getCache($file);
-            @$content[$id]['views']++;
+            $views = ++$content[$id]['views'];
             $this->setCache($file, $content);
         }
+        return $views;
     }
 
 

@@ -69,7 +69,7 @@
                         <a href="?news=<?=urlencode($most['title'])?>&id=<?=$most['id']?>">
                             <span class="ttl"><?= $val['title']; ?></span>
 
-                            <div class="num_view"><?= $val['views']; ?></div>
+                            <div class="num_view"><?=$val['views']?$val['views']:0?></div>
                         </a>
 
                         <div class="text">
