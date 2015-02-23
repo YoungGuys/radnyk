@@ -20,13 +20,13 @@
                     </a>
                 </div>
                 <div class="quote p-rel left">
+                    <?php Control::controllers(["edit"], "else", ["id" => $quote['id']]); ?>
                     <div class="q-ttl p-rel">Цитата дня</div>
                     <div class="q-cont">
-                        Прежние цивилизации утверждали, что они основаны на любви и справедливости. Наша основана на
-                        ненависти.
+                        <?=$quote['col1'];?>
                     </div>
                     <div class="q-author t-right">
-                        Джордж Оурелл
+                        <?=$quote['col2'];?>
                     </div>
                 </div>
                 <div class="search p-rel right">

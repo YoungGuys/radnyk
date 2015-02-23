@@ -9,6 +9,8 @@
 namespace Balon\System;
 
 
+use Balon\DBProc;
+
 abstract class View {
 
     function __construct() {
@@ -32,6 +34,8 @@ abstract class View {
     }
 
     protected function loadHeader($params = []) {
+        $db = DBProc::instance();
+        $quote = $db->select("else",false,['id' => 1])[0];
         if (file_exists("./view/header.php")) {
             include_once("./view/header.php");
         }

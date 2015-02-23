@@ -18,7 +18,6 @@ class Main extends System\View {
     }
 
     function index($data) {
-
         $this->loadHead();
         $this->loadHeader();
         $this->loadContent();
