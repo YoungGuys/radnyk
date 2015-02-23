@@ -14,7 +14,7 @@ use Balon\DBProc;
 
 class Sidebar extends System\Model{
 
-    private $db;
+    //private $db;
 
     function __construct(){
         $this->db = DBProc::instance();

@@ -675,12 +675,12 @@ class Admin {
         }
         if (!$this->db->update("$table", $result, [$what => $id])) {
             try {
-                /*if (!header("Location:$returnHref")) {
+                if (!header("Location:$returnHref")) {
                     throw new \Exception("Сталася якась помилка. Заголовок не було выдправлено");
-                }*/
+                }
             } catch (\Exception $e) {
                 echo $e->getMessage();
-                //echo $this->replace;
+                echo $this->replace;
             }
             //echo $this->replace;
         }

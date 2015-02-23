@@ -1,4 +1,5 @@
 <div class="page_name">
+    <?php Control::add("news", ["id_chapter" => $most['id_chapter']]) ?>
     <h1><?=$data['nameChapter']?></h1>
 
     <div class="page_info">
@@ -8,6 +9,7 @@
 </div>
 
 <section class="preview_bl page clearfix p-rel">
+    <?php Control::controllers(['edit','visibility','remove'], "news", ['id' => $most['id']],$most['visibility']); ?>
     <div class="preview_img">
         <img src="<?=SITE?>lib/image/news/<?=$most['image']?>" alt=""/>
 

@@ -13,6 +13,7 @@ class Main {
 
     public function index() {
         $data = $this->model->index();
+        $data['header'] = $this->model->loadHeader();
         $this->view->index($data);
     }
 

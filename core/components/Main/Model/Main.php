@@ -2,13 +2,15 @@
 
 namespace Model;
 
+use Balon\Cache;
 use Balon\Date;
 use Balon\DBProc;
 use Balon\System\Article;
+use Balon\System\Model;
 
-class Main {
+class Main extends Model{
 
-    private $db;
+    //private $db;
 
     function __construct() {
         $this->db = DBProc::instance();// TODO: comment this when finish
@@ -35,7 +37,19 @@ class Main {
             $month = Date::getMonth($date->format("n"));
             $time = $date->format("H:i");
             $result[$key]['create_date'] = "$day $month, $time";
+            $arrayForViews[] = $val['id'];
+            if ($val['most'] && ($j%3 == 0)) {
+                $newsWithMost[] = $key;
+            }
+            $j++;
+
         }
+        $cache = Cache::instance();
+        $arrayViews = $cache->get("news$chapter",$arrayForViews);
+        foreach ($result as $key => $val) {
+            $result[$key]['views'] = $arrayViews[$val['id']]['views'];
+        }
+
         return $result;
     }
 

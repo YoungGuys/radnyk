@@ -34,10 +34,8 @@ include('view/content/slider.php');
 <section class="home_item left m_right">
     <?php Control::add("news", ['id_chapter' => 1]); ?>
     <h3>Політика</h3>
-
     <?php foreach ($data['politics'] as $key => $val) { ?>
-
-        <div class="home_post_item">
+        <div class="home_post_item p_abs">
             <?php Control::controllers(['edit', 'visibility', 'remove'], 'news', ['id' => $val['id']], $val['visibility']) ?>
             <?php if ($val['image']) { ?>
                 <div class="home_post_img">
@@ -50,7 +48,7 @@ include('view/content/slider.php');
                 </div>
                 <div class="page_info">
                     <span class="date"><?= $val['create_date'] ?></span>
-                    <span class="num_view"><?= $val['view']; ?></span>
+                    <span class="num_view"><?=$val['views']?$val['views']:0?></span>
                 </div>
             </div>
         </div>

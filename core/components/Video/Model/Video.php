@@ -14,7 +14,7 @@ use Balon\System;
 
 class Video extends System\Model{
 
-    private $db;
+    //private $db;
 
     private $count = 7;
 

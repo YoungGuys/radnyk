@@ -26,7 +26,7 @@ class Article {
         $result = $this->db->select($this->table, false,
             [
                 array_keys($filter)[0] => array_values($filter)[0]
-            ], 'create_date', false, [0, 4]
+            ], 'create_date', false, [0, 5]
         );
         return $result;
     }
