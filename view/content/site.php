@@ -46,10 +46,10 @@ include('view/content/slider.php');
                 <div class="text">
                     <a href="<?= SITE . "News/Politic?id=" . $val['id']; ?>"><?= $val['title'] ?></a>
                 </div>
-                <div class="page_info">
-                    <span class="date"><?= $val['create_date'] ?></span>
-                    <span class="num_view"><?=$val['views']?$val['views']:0?></span>
-                </div>
+            </div>
+            <div class="page_info">
+                <span class="date"><?= $val['create_date'] ?></span>
+                <span class="num_view"><?=$val['views']?$val['views']:0?></span>
             </div>
         </div>
 
@@ -67,10 +67,10 @@ include('view/content/slider.php');
             <div class="text">
                 <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
             </div>
-            <div class="page_info">
-                <span class="date">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
+        </div>
+        <div class="page_info">
+            <span class="date">8 березня, 10:33</span>
+            <span class="num_view">1</span>
         </div>
     </div>
 
@@ -82,10 +82,10 @@ include('view/content/slider.php');
             <div class="text">
                 <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
             </div>
-            <div class="page_info">
-                <span class="date">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
+        </div>
+        <div class="page_info">
+            <span class="date">8 березня, 10:33</span>
+            <span class="num_view">1</span>
         </div>
     </div>
 
@@ -94,10 +94,10 @@ include('view/content/slider.php');
             <div class="text">
                 <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
             </div>
-            <div class="page_info">
-                <span class="date">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
+        </div>
+        <div class="page_info">
+            <span class="date">8 березня, 10:33</span>
+            <span class="num_view">1</span>
         </div>
     </div>
 
@@ -106,10 +106,10 @@ include('view/content/slider.php');
             <div class="text">
                 <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
             </div>
-            <div class="page_info">
-                <span class="date">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
+        </div>
+        <div class="page_info">
+            <span class="date">8 березня, 10:33</span>
+            <span class="num_view">1</span>
         </div>
     </div>
 </section>
@@ -128,10 +128,10 @@ include('view/content/slider.php');
                 <a href="" class="ttl">Премєра нового альбому групи "Сплін"</a>
                 <span>Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</span>
             </div>
-            <div class="page_info">
-                <span class="date">8 березня, 10:33</span>
-                <span class="num_view">1</span>
-            </div>
+        </div>
+        <div class="page_info">
+            <span class="date">8 березня, 10:33</span>
+            <span class="num_view">1</span>
         </div>
     </div>
     <?php /*	друга колонка */ ?>
@@ -144,10 +144,10 @@ include('view/content/slider.php');
                 <div class="text">
                     <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
                 </div>
-                <div class="page_info">
-                    <span class="date">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
-                </div>
+            </div>
+            <div class="page_info">
+                <span class="date">8 березня, 10:33</span>
+                <span class="num_view">1</span>
             </div>
         </div>
 
@@ -159,10 +159,10 @@ include('view/content/slider.php');
                 <div class="text">
                     <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
                 </div>
-                <div class="page_info">
-                    <span class="date">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
-                </div>
+            </div>
+            <div class="page_info">
+                <span class="date">8 березня, 10:33</span>
+                <span class="num_view">1</span>
             </div>
         </div>
 
@@ -171,10 +171,10 @@ include('view/content/slider.php');
                 <div class="text">
                     <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
                 </div>
-                <div class="page_info">
-                    <span class="date">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
-                </div>
+            </div>
+            <div class="page_info">
+                <span class="date">8 березня, 10:33</span>
+                <span class="num_view">1</span>
             </div>
         </div>
 
@@ -183,10 +183,10 @@ include('view/content/slider.php');
                 <div class="text">
                     <a href="">Рок-група «Сплін» в 2014 році випускає свій дванадцатий студійний альбом.</a>
                 </div>
-                <div class="page_info">
-                    <span class="date">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
-                </div>
+            </div>
+            <div class="page_info">
+                <span class="date">8 березня, 10:33</span>
+                <span class="num_view">1</span>
             </div>
         </div>
     </div>
