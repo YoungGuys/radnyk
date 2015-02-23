@@ -23,10 +23,5 @@
         <?php ?>
 
         <script src="/lib/js/control.js"></script>
-        <style>
-            .video_item, .news_item, .photo_item, .home_item, .post_news, .page_name {
-                position: relative;
-            }
-        </style>
     </head>
 <body>
