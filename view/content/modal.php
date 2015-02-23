@@ -1,49 +1,49 @@
 <div class="modal_bg">
     <div class="modal_window" id="mod_edit">
-        <div class="mod_header">
-            Додати новий запис
-        </div>
-        <div class="mod_content">
-            <form enctype="multipart/form-data" action="">
-                <div class="inp_container">
-                    <input type="radio" id="r1" name="r"/>
-                    <label class="inp_label_radio" for="r1">Радіо кнопка 1</label>
-                </div>
-                <div class="inp_container">
-                    <input type="radio" id="r2" name="r"/>
-                    <label class="inp_label_radio" for="r2">Радіо кнопка 2</label>
-                </div>
-                <div class="inp_container">
-                    <input type="radio" id="r3" name="r"/>
-                    <label class="inp_label_radio" for="r3">Радіо кнопка 3</label>
-                </div>
-
-                <div class="inp_container">
-                    <input type="checkbox" id="ch1" name="ch1"/>
-                    <label class="inp_label_checkbox" for="ch1">Радіо кнопка 1</label>
-                </div>
-                <div class="inp_container">
-                    <input type="checkbox" id="ch2" name="ch2"/>
-                    <label class="inp_label_checkbox" for="ch2">Радіо кнопка 2</label>
-                </div>
-                <div class="inp_container">
-                    <input type="checkbox" id="ch3" name="ch3"/>
-                    <label class="inp_label_checkbox" for="ch3">Радіо кнопка 3</label>
-                </div>
-                <div class="textarea">
-                    <textarea></textarea>
-                </div>
-                <div class="file_upld">
-                    Завантажити файл
-                    <input type="file"/>
-                </div>
-            </form>
-        </div>
-        <div class="mod_footer">
-            <button class="ok">OK</button>
-        </div>
-        <i class="i-close">[x]</i>
+    <div class="mod_header">
+        Додати новий запис
     </div>
+    <div class="mod_content">
+        <form enctype="multipart/form-data" action="">
+            <div class="inp_container">
+                <input type="radio" id="r1" name="r"/>
+                <label class="inp_label_radio" for="r1">Радіо кнопка 1</label>
+            </div>
+            <div class="inp_container">
+                <input type="radio" id="r2" name="r"/>
+                <label class="inp_label_radio" for="r2">Радіо кнопка 2</label>
+            </div>
+            <div class="inp_container">
+                <input type="radio" id="r3" name="r"/>
+                <label class="inp_label_radio" for="r3">Радіо кнопка 3</label>
+            </div>
+
+            <div class="inp_container">
+                <input type="checkbox" id="ch1" name="ch1"/>
+                <label class="inp_label_checkbox" for="ch1">Радіо кнопка 1</label>
+            </div>
+            <div class="inp_container">
+                <input type="checkbox" id="ch2" name="ch2"/>
+                <label class="inp_label_checkbox" for="ch2">Радіо кнопка 2</label>
+            </div>
+            <div class="inp_container">
+                <input type="checkbox" id="ch3" name="ch3"/>
+                <label class="inp_label_checkbox" for="ch3">Радіо кнопка 3</label>
+            </div>
+            <div class="textarea">
+                <textarea></textarea>
+            </div>
+            <div class="file_upld">
+                Завантажити файл
+                <input type="file"/>
+            </div>
+        </form>
+    </div>
+    <div class="mod_footer">
+        <button class="ok">OK</button>
+    </div>
+    <i class="i-close">[x]</i>
+</div>
 
     <div class="modal_window blocked" id="mod_edit2">
         <div class="mod_header">
