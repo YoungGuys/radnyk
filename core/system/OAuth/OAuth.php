@@ -30,7 +30,7 @@ namespace Balon;
  */
 class OAuth {
 
-        private $redirect = REDIRECT;
+        private $redirect = "http://www.radnyk.com/?method=";
 
         // Масив данних для підключення до vk api
         private $vk = Array(
@@ -40,8 +40,8 @@ class OAuth {
         ),
             // Масив данних для підключення до facebook api
             $fb = Array(
-            "client" => "1524432787773146",// CLIENT_ID
-            "secret" => "29dfe9701910a87dfd9489090f87d520", // SECRET_ID
+            "client" => "1573265746293344",// CLIENT_ID
+            "secret" => "4720582e4f3752d8a4d0bfd91a4efb01", // SECRET_ID
             "access_token" => ""
         ),
             // Масив данних для підключення до twitter api
@@ -63,9 +63,9 @@ class OAuth {
         function __construct() {
             //в масиві зберігаються посилання на вікна авторизації через соц. мережі
             $this->href = Array(
-                "vk" => "http://oauth.vk.com/authorize?client_id={$this->vk['client']}&response_type=code&scope=email&display=popup&v=5.24&redirect_uri=".REDIRECT."vk",
+                "vk" => "http://oauth.vk.com/authorize?client_id={$this->vk['client']}&response_type=code&scope=email&display=popup&v=5.24&redirect_uri=".$this->redirect."vk",
                 "tw" => $this->get_tw_code(),
-                "fb" => "https://www.facebook.com/v2.1/dialog/oauth?response_type=code&display=popup&client_id={$this->fb['client']}&scope=user_friends&redirect_uri=http://plcb.me?method=fb",
+                "fb" => "https://www.facebook.com/v2.1/dialog/oauth?response_type=code&display=popup&client_id={$this->fb['client']}&scope=user_friends&redirect_uri=".$this->redirect."fb",
                 "ggl" => "https://accounts.google.com/o/oauth2/auth?redirect_uri={$this->redirect}ggl&response_type=code&client_id={$this->ggl['client']}&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile"
             );
         }
@@ -111,7 +111,7 @@ class OAuth {
                 $info = $info->response[0];
                 if ($_COOKIE['user_id']) {
                     $this->db->update("users",["vk_id" => $array->user_id], ["id" => $_COOKIE['user_id']]);
-                    header("Location:".SITE."My");
+                    header("Location:".SITE);
                     return;
                 }
                 $ids = $this->db->select("users",false,["vk_id" => $array->user_id]);
@@ -154,7 +154,7 @@ class OAuth {
 
         function fb_auth($code) {
             $fb_param = "first_name,last_name,link,picture,email";
-            $access_href = "https://graph.facebook.com/oauth/access_token?code=$code&client_id={$this->fb['client']}&client_secret={$this->fb['secret']}&redirect_uri=http://plcb.me/?method=fb&";
+            $access_href = "https://graph.facebook.com/oauth/access_token?code=$code&client_id={$this->fb['client']}&client_secret={$this->fb['secret']}&redirect_uri=".$this->redirect."fb&";
             $access = file_get_contents($access_href);
             $code = explode("=",$access)[1];
             $code = explode("&",$code)[0];
@@ -163,7 +163,7 @@ class OAuth {
             $info = json_decode($info);
             if ($_COOKIE['user_id']) {
                 $this->db->update("users",["fb_id" => $info->id], ["id" => $_COOKIE['user_id']]);
-                header("Location:".SITE."My");
+                header("Location:".SITE);
                 return;
             }
             $id = $this->db->select("users",false,["fb_id" => $info->id]);
@@ -284,7 +284,7 @@ class OAuth {
                 $photo = $user_data->profile_image_url;
                 if ($_COOKIE['user_id']) {
                     $this->db->update("users",["tw_id" => $id], ["id" => $_COOKIE['user_id']]);
-                    header("Location:".SITE."My");
+                    header("Location:".SITE);
                     return;
                 }
                 $ids = $this->db->select("users",false,["tw_id" => $id]);
@@ -357,7 +357,7 @@ class OAuth {
             $picture = $info['picture'];
             if ($_COOKIE['user_id']) {
                 $this->db->update("users",["ggl_id" => $id], ["id" => $_COOKIE['user_id']]);
-                header("Location:".SITE."My");
+                header("Location:".SITE);
                 return;
             }
             $ids = $this->db->select("users","id",["ggl_id" => $id]);

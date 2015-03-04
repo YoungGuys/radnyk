@@ -8,6 +8,7 @@
 
 namespace Controller;
 
+use Balon\DBProc;
 use Balon\System;
 
 class News extends System\Controller {
@@ -35,6 +36,7 @@ class News extends System\Controller {
             } else {
                 $data = $this->model->loadFeaturedList($id);
             }
+            $db = DBProc::instance();
             $this->view->loadList($data);
         }
     }

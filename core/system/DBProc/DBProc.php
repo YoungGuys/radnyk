@@ -4,6 +4,7 @@
  * @copyright 2014
  */
 namespace Balon;
+
 use Balon\System\User;
 
 /**
@@ -57,7 +58,9 @@ class DBProc {
         if (isset($instance)) {
             return $instance;
         }
+        $b = microtime(true);
         $instance = new static;
+        echo "Load DBProc == " . ($b - $_SESSION['a']);
         return $instance;
     }
 
@@ -351,6 +354,7 @@ class DBProc {
         if ($order[1])
             $order_text = " ORDER BY $order[0].$order[1] $ASC";
         $sql = $sql . "" . $join . "  " . $result . $order_text . $limit;
+        //echo $sql;
         try {
             //$result = $this->cache->get($sql);
             if ($results) {

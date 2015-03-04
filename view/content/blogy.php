@@ -16,105 +16,32 @@
 </div>
 
 <div class="blog_container">
-    <div class="blogy_item">
-        <div class="blogy_img">
-            <img src="/lib/pic/sidebar/splin.png" alt="">
-        </div>
-        <div class="blogy_content">
-            <div class="header">
-                <a href="" class="author_name left" href="">Дмитро Гнал</a>
+    <?php foreach ($data as $key => $val) { ?>
+        <div class="blogy_item">
+            <div class="blogy_img">
+                <img src="/lib/pic/sidebar/splin.png" alt="">
+            </div>
+            <div class="blogy_content">
+                <div class="header">
+                    <a href=""
+                       class="author_name left" href=""><?=$val['first_name'].$val['second_name'];?></a>
 
-                <div class="info">
-                    <span class="time">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
+                    <div class="info">
+                        <span class="time"><?=$val['create_date']?></span>
+                        <span class="num_view"><?=$val['views'];?></span>
+                    </div>
+                    <h2>
+                        <a href="<?=SITE?>Blog/show?title=<?=$val['title'];?>&id=<?=$val['id']?>">
+                            <?=$val['title'];?>
+                        </a>
+                    </h2>
                 </div>
-                <h2>
-                    <a href="">"Как начать жить"</a>
-                </h2>
-            </div>
-            <div class="text">
-                Самый ключевой вопрос для Украины – как выйти из коллективного
-                помешательства и начать жить. Как понять, что перемены
-                не происходят от щелчка пальцев. И, даже если погибла сотня людей,
-                это не может дать мгновенного желаемого результата.
-            </div>
-        </div>
-    </div>
-
-    <div class="blogy_item">
-        <div class="blogy_img">
-            <img src="/lib/pic/sidebar/splin.png" alt="">
-        </div>
-        <div class="blogy_content">
-            <div class="header">
-                <a href="" class="author_name left" href="">Дмитро Гнал</a>
-
-                <div class="info">
-                    <span class="time">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
+                <div class="text">
+                    <?=$val['text']?>
                 </div>
-                <h2>
-                    <a href="">"Как начать жить"</a>
-                </h2>
-            </div>
-            <div class="text">
-                Самый ключевой вопрос для Украины – как выйти из коллективного
-                помешательства и начать жить. Как понять, что перемены
-                не происходят от щелчка пальцев. И, даже если погибла сотня людей,
-                это не может дать мгновенного желаемого результата.
             </div>
         </div>
-    </div>
-
-    <div class="blogy_item">
-        <div class="blogy_img">
-            <img src="/lib/pic/sidebar/splin.png" alt="">
-        </div>
-        <div class="blogy_content">
-            <div class="header">
-                <a href="" class="author_name left" href="">Дмитро Гнал</a>
-
-                <div class="info">
-                    <span class="time">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
-                </div>
-                <h2>
-                    <a href="">"Как начать жить"</a>
-                </h2>
-            </div>
-            <div class="text">
-                Самый ключевой вопрос для Украины – как выйти из коллективного
-                помешательства и начать жить. Как понять, что перемены
-                не происходят от щелчка пальцев. И, даже если погибла сотня людей,
-                это не может дать мгновенного желаемого результата.
-            </div>
-        </div>
-    </div>
-
-    <div class="blogy_item">
-        <div class="blogy_img">
-            <img src="/lib/pic/sidebar/splin.png" alt="">
-        </div>
-        <div class="blogy_content">
-            <div class="header">
-                <a href="" class="author_name left" href="">Дмитро Гнал</a>
-
-                <div class="info">
-                    <span class="time">8 березня, 10:33</span>
-                    <span class="num_view">1</span>
-                </div>
-                <h2>
-                    <a href="">"Как начать жить"</a>
-                </h2>
-            </div>
-            <div class="text">
-                Самый ключевой вопрос для Украины – как выйти из коллективного
-                помешательства и начать жить. Как понять, что перемены
-                не происходят от щелчка пальцев. И, даже если погибла сотня людей,
-                это не может дать мгновенного желаемого результата.
-            </div>
-        </div>
-    </div>
+    <?php } ?>
 </div>
 
 <div class="page_navigation">

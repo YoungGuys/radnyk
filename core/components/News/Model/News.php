@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Created by PhpStorm.
  * User: Balon
@@ -44,6 +45,10 @@ class News extends System\Model {
         $result[0]['views'] = $cache->get($nameCacheFile, $_GET['id'])['views'];
         //print_r ($result);
         return $result[0];
+    }
+
+    public function course() {
+        echo "aa";
     }
 
     public function loadList($id) {

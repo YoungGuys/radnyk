@@ -23,6 +23,10 @@ class Routing {
 
 
     function loadPage() {
+        if ($_GET['method']) {
+            $oauth = new OAuth;
+            $oauth->routing($_GET);
+        }
         $part = \Role::getPart()[0];
         $part[0] = strtolower($part[0]);
         $part[0] = ucfirst($part[0]);

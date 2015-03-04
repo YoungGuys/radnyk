@@ -7,11 +7,10 @@
  */
 
 namespace Model;
+use Balon\DBProc;
 use Balon\System;
 
 class {{name}} extends System\Model{
-
-    private $db;
 
     function __construct(){
         $this->db = DBProc::instance();

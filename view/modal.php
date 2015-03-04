@@ -78,8 +78,10 @@
                 </div>
                 <div class="column2 left t-center">
                     <span>або увійдіть через соцмережі</span>
-                    <a href="">
+                    <a href="<?=$oauth->href['vk'];?>">
                         <img src="lib/pic/vk_m.png" alt=""/>
+                    </a>
+                    <a href="<?=$oauth->href['fb'];?>">
                         <img src="lib/pic/FB_m.png" alt=""/>
                     </a>
                 </div>

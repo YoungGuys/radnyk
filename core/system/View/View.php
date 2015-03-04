@@ -10,6 +10,7 @@ namespace Balon\System;
 
 
 use Balon\DBProc;
+use Balon\OAuth;
 
 abstract class View {
 
@@ -54,6 +55,7 @@ abstract class View {
     }
 
     protected function loadModal($params = []) {
+        $oauth = new OAuth();
         if (file_exists("./view/modal.php")) {
             include_once("./view/modal.php");
         } elseif (file_exists("./view/none_element.php")) {
