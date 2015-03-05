@@ -1,0 +1,480 @@
+/* line 1, ../../sass/_reset.sass */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5,
+h6, p, blockquote, pre, a, abbr, acronym, address, big,
+cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small,
+strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt,
+dd, ol, ul, li, fieldset, form, label, legend, table, caption,
+tbody, tfoot, thead, tr, th, td, article, aside, canvas, details,
+embed, figure, figcaption, footer, header, hgroup, menu, nav,
+output, ruby, section, summary, time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+}
+
+/* line 14, ../../sass/_reset.sass */
+body, html {
+  height: 100%;
+  font-family: "Roboto Condensed";
+}
+
+/* line 18, ../../sass/_reset.sass */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, nav, section, summary {
+  display: block;
+}
+
+/* line 21, ../../sass/_reset.sass */
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+/* line 25, ../../sass/_reset.sass */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/* line 29, ../../sass/_reset.sass */
+img,
+fieldset,
+a img {
+  border: none;
+}
+
+/* line 34, ../../sass/_reset.sass */
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+
+/* line 38, ../../sass/_reset.sass */
+a {
+  color: #fff;
+  text-decoration: none;
+}
+/* line 42, ../../sass/_reset.sass */
+a:active, a:hover {
+  outline: 0;
+  text-decoration: none;
+}
+
+/* line 47, ../../sass/_reset.sass */
+input[type="submit"],
+button {
+  cursor: pointer;
+}
+/* line 50, ../../sass/_reset.sass */
+input[type="submit"]::-moz-focus-inner,
+button::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}
+
+/* line 54, ../../sass/_reset.sass */
+textarea {
+  overflow: auto;
+}
+
+/* line 57, ../../sass/_reset.sass */
+input, button {
+  margin: 0;
+  padding: 0;
+  background: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+/* line 64, ../../sass/_reset.sass */
+label {
+  cursor: pointer;
+}
+
+/* line 67, ../../sass/_reset.sass */
+input, textarea, select, button,
+h1, h2, h3, h4, h5, h6, a, span, a:focus {
+  outline: none;
+}
+
+/* line 70, ../../sass/_reset.sass */
+ul {
+  list-style-type: none;
+}
+
+/* line 75, ../../sass/_reset.sass */
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+/* line 80, ../../sass/_reset.sass */
+td, th {
+  padding: 0;
+}
+
+/* line 84, ../../sass/_reset.sass */
+code, kbd, pre, samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+/* line 5, ../../sass/mobile/_main.sass */
+a:hover {
+  text-decoration: underline;
+}
+
+/* line 14, ../../sass/mobile/_main.sass */
+.clearfix:after, .header__top:after, .slide_item:after {
+  content: " ";
+  width: 0;
+  height: 0;
+  display: table;
+  font-size: 0;
+  line-height: 0;
+  visibility: hidden;
+  clear: both;
+}
+
+/* line 28, ../../sass/mobile/_main.sass */
+.header__top {
+  padding: 26px 11px 10px;
+  background: #2b2c2c;
+  font-size: 12px;
+  vertical-align: bottom;
+}
+
+/* line 35, ../../sass/mobile/_main.sass */
+.logo {
+  float: left;
+  margin-right: 12px;
+}
+
+/* line 39, ../../sass/mobile/_main.sass */
+.header__soc {
+  margin-right: 20px;
+  padding-top: 28px;
+  float: left;
+}
+/* line 44, ../../sass/mobile/_main.sass */
+.header__soc__link {
+  display: block;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+/* line 49, ../../sass/mobile/_main.sass */
+.header__info {
+  position: relative;
+  height: 45px;
+  padding: 0 30px 0 15px;
+  overflow: hidden;
+  line-height: 45px;
+  background-image: url("../../pic/bg-menu.jpg");
+  font-weight: 700;
+}
+
+/* line 58, ../../sass/mobile/_main.sass */
+.header__info__title {
+  margin-right: 50px;
+  padding-top: 3px;
+  color: #888;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  font-size: 14px;
+}
+
+/* line 71, ../../sass/mobile/_main.sass */
+.icon-menu {
+  position: absolute;
+  top: 15px;
+  right: 30px;
+  width: 40px;
+  height: 18px;
+  display: inline-block;
+  padding: 4px 0;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  border-top: 4px solid #888;
+  border-bottom: 4px solid #888;
+  z-index: 4;
+  cursor: pointer;
+}
+/* line 89, ../../sass/mobile/_main.sass */
+.icon-menu:before {
+  content: " ";
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  margin-top: -2px;
+  height: 4px;
+  background: #888888;
+}
+
+/* line 99, ../../sass/mobile/_main.sass */
+.menu {
+  visibility: hidden;
+  text-align: center;
+}
+
+/* line 103, ../../sass/mobile/_main.sass */
+.menu__item {
+  display: block;
+  color: #888;
+  font-weight: 500;
+}
+
+/* line 112, ../../sass/mobile/_main.sass */
+.main {
+  padding: 0 10px;
+}
+
+/* line 115, ../../sass/mobile/_main.sass */
+.news {
+  font-size: 14px;
+}
+
+/* line 119, ../../sass/mobile/_main.sass */
+.news__item {
+  padding: 8px 0;
+  border-bottom: 1px solid #dcdfde;
+}
+/* line 124, ../../sass/mobile/_main.sass */
+.news__item:hover .news__item__title {
+  color: #777979;
+}
+
+/* line 127, ../../sass/mobile/_main.sass */
+.news__item__date {
+  color: #45cb97;
+}
+
+/* line 130, ../../sass/mobile/_main.sass */
+.news__item__title {
+  margin-top: 3px;
+  color: #2b2c2c;
+  font-weight: 500;
+}
+
+/* line 135, ../../sass/mobile/_main.sass */
+.news__type {
+  margin-top: 3px;
+  text-transform: uppercase;
+  color: #141414;
+}
+
+/* line 146, ../../sass/mobile/_main.sass */
+footer {
+  margin-top: 55px;
+  padding: 25px 0;
+  text-align: center;
+  font-size: 13px;
+  background: #2a2b2b;
+}
+
+/* line 153, ../../sass/mobile/_main.sass */
+.footer__link {
+  color: #3eb85c;
+}
+
+/* line 156, ../../sass/mobile/_main.sass */
+.footer__copyright {
+  margin-top: 8px;
+  color: #fff;
+}
+
+/* line 1, ../../sass/mobile/_slider.sass */
+.slider {
+  position: relative;
+  background: #eeebeb;
+  margin: 28px 0;
+}
+
+/* line 6, ../../sass/mobile/_slider.sass */
+.slider_container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* line 10, ../../sass/mobile/_slider.sass */
+.slide_cont {
+  position: relative;
+  padding-top: 56%;
+}
+
+/* line 14, ../../sass/mobile/_slider.sass */
+.slide_item {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+/* line 27, ../../sass/mobile/_slider.sass */
+.slide_item.slide__visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* line 31, ../../sass/mobile/_slider.sass */
+.slide_img {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+/* line 37, ../../sass/mobile/_slider.sass */
+.slide_img img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: auto;
+  max-width: 1000%;
+  height: 100%;
+}
+
+/* line 45, ../../sass/mobile/_slider.sass */
+.slide_content {
+  color: #141414;
+  padding: 15px 4%;
+}
+/* line 48, ../../sass/mobile/_slider.sass */
+.slide_content h2 {
+  margin: 0 0 15px;
+  line-height: 1;
+}
+/* line 51, ../../sass/mobile/_slider.sass */
+.slide_content h2 a {
+  color: #323131;
+  font-size: 15px;
+  font-weight: 700;
+}
+/* line 56, ../../sass/mobile/_slider.sass */
+.slide_content .content {
+  margin: 0 0 20px;
+  font-size: 12px;
+}
+
+/* line 60, ../../sass/mobile/_slider.sass */
+.slider_control {
+  position: absolute;
+  left: 32px;
+  bottom: 0;
+}
+/* line 64, ../../sass/mobile/_slider.sass */
+.slider_control li {
+  width: 33px;
+  height: 3px;
+  margin: 0 11px 8px 0;
+  display: inline-block;
+  background: #4e4d4d;
+  cursor: pointer;
+}
+
+/* line 72, ../../sass/mobile/_slider.sass */
+.slider_control__active {
+  background: #2abe7a !important;
+}
+
+/* line 77, ../../sass/mobile/_slider.sass */
+.post_photo_carusel {
+  margin: 30px 0 70px;
+}
+
+/* line 80, ../../sass/mobile/_slider.sass */
+.prev_post_photo {
+  top: 50%;
+  left: 0;
+  text-align: right;
+}
+
+/* line 85, ../../sass/mobile/_slider.sass */
+.next_post_photo {
+  top: 50%;
+  right: 0;
+  width: 35px;
+  height: 35px;
+  padding: 0 22px;
+  color: #6f7476;
+  line-height: 29px;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 10;
+}
+
+/* line 96, ../../sass/mobile/_slider.sass */
+.prev_post_photo {
+  width: 35px;
+  height: 35px;
+  padding: 0 22px;
+  color: #6f7476;
+  line-height: 29px;
+  background: rgba(255, 255, 255, 0.6);
+  z-index: 10;
+}
+
+/* line 105, ../../sass/mobile/_slider.sass */
+.next_post_photo img, .prev_post_photo img {
+  height: 70%;
+}
+
+/* line 108, ../../sass/mobile/_slider.sass */
+.author_post_photo {
+  bottom: -40px;
+  left: 0;
+  width: 100%;
+  color: #918f8f;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+/* line 117, ../../sass/mobile/_slider.sass */
+.num_post_photo {
+  right: 45px;
+  bottom: -40px;
+  color: #2e3130;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+/* line 124, ../../sass/mobile/_slider.sass */
+.post_photo_carusel_container {
+  width: 100%;
+  padding-bottom: 66%;
+  overflow: hidden;
+}
+/* line 128, ../../sass/mobile/_slider.sass */
+.post_photo_carusel_container li {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  z-index: 1;
+}
+/* line 135, ../../sass/mobile/_slider.sass */
+.post_photo_carusel_container li img {
+  width: auto;
+  opacity: 0;
+  -webkit-transition: all 0.8s ease;
+  -moz-transition: all 0.8s ease;
+  transition: all 0.8s ease;
+}
+/* line 141, ../../sass/mobile/_slider.sass */
+.post_photo_carusel_container .gallery_slide__visible {
+  z-index: 2;
+}
+/* line 143, ../../sass/mobile/_slider.sass */
+.post_photo_carusel_container .gallery_slide__visible img {
+  opacity: 1;
+}

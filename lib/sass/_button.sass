@@ -111,6 +111,7 @@ input:checked + label
 
 
 .file_upld
+    @extend .animate
     position: relative
     display: inline-block
     margin: 5px auto
@@ -119,6 +120,9 @@ input:checked + label
     background: #9db647
     cursor: pointer
     z-index: 2
+
+    &:hover
+        background: lighten(#9db647, 10%)
 
     &__src
         position: absolute

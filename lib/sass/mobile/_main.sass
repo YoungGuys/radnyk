@@ -1,0 +1,158 @@
+@import compass/css3
+
+$color-grey: #3eb85c
+
+a:hover
+    text-decoration: underline
+
+//+font-face("ClearSans", font-files("../fonts/ClearSans-Regular.ttf", "../fonts/ClearSans-Regular.woff", "../fonts/ClearSans-Regular.svg", "../fonts/ClearSans-Regular.eot"))
+//+font-face("ClearSans-Bold", font-files("../fonts/ClearSans-Bold.ttf", "../fonts/ClearSans-Bold.woff", "../fonts/ClearSans-Bold.svg", "../fonts/ClearSans-Bold.eot"))
+//+font-face("ClearSans-Light", font-files("../fonts/ClearSans-Light.ttf", "../fonts/ClearSans-Light.woff", "../fonts/ClearSans-Light.svg", "../fonts/ClearSans-Light.eot"))
+
+
+.clearfix
+    &:after
+        content: ' '
+        width: 0
+        height: 0
+        display: table
+        font-size: 0
+        line-height: 0
+        visibility: hidden
+        clear: both
+
+
+
+header
+
+.header__top
+    @extend .clearfix
+    padding: 26px 11px 10px
+    background: #2b2c2c
+    font-size: 12px
+    vertical-align: bottom
+
+.logo
+    float: left
+    margin-right: 12px
+
+.header__soc
+    margin-right: 20px
+    padding-top: 28px
+    float: left
+
+    &__link
+        display: block
+        text-transform: uppercase
+        font-weight: 600
+
+.header__info
+    position: relative
+    height: 45px
+    padding: 0 30px 0 15px
+    overflow: hidden
+    line-height: 45px
+    background-image: url('../../pic/bg-menu.jpg')
+    font-weight: 700
+
+.header__info__title
+    margin-right: 50px
+    padding-top: 3px
+    color: #888
+
+    overflow: hidden
+    white-space: nowrap
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    text-transform: uppercase
+
+    font-size: 14px
+
+.icon-menu
+    position: absolute
+    top: 15px
+    right: 30px
+    width: 40px
+    height: 18px
+    display: inline-block
+    padding: 4px 0
+
+    -webkit-box-sizing: border-box
+    -moz-box-sizing: border-box
+    box-sizing: border-box
+
+    border-top: 4px solid #888
+    border-bottom: 4px solid #888
+    z-index: 4
+    cursor: pointer
+
+    &:before
+        content: ' '
+        position: absolute
+        width: 100%
+        top: 50%
+        margin-top: -2px
+        height: 4px
+        background: #888888
+
+
+.menu
+    visibility: hidden
+    text-align: center
+
+.menu__item
+    display: block
+    color: #888
+    font-weight: 500
+
+
+
+
+
+.main
+    padding: 0 10px
+
+.news
+    font-size: 14px
+
+
+.news__item
+    padding: 8px 0
+    border-bottom: 1px solid #dcdfde
+    
+    &:hover
+        .news__item__title
+            color: lighten(#2b2c2c, 30%)
+
+.news__item__date
+    color: #45cb97
+
+.news__item__title
+    margin-top: 3px
+    color: #2b2c2c
+    font-weight: 500
+
+.news__type
+    margin-top: 3px
+    text-transform: uppercase
+    color: #141414
+
+
+
+
+
+
+
+footer
+    margin-top: 55px
+    padding: 25px 0
+    text-align: center
+    font-size: 13px
+    background: #2a2b2b
+
+.footer__link
+    color: $color-grey
+
+.footer__copyright
+    margin-top: 8px
+    color: #fff

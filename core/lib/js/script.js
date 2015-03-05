@@ -1,5 +1,6 @@
 var site = getSite(),
     array = new Array();
+
 $(document).ready(function () {
 
 
@@ -87,8 +88,10 @@ $(document).ready(function () {
             id = $(this).data('id'),
             visibility = $(this).data('visibility'),
             what = $(this).data('what');
+
         if (visibility == 0) visibility = 1;
         else visibility = 0;
+
         array = {
             "table": table,
             "id": id,
@@ -96,6 +99,7 @@ $(document).ready(function () {
             "what": what
         };
         sendWhat('edit_visibility');
+
         function fail(data) {
             fn_openModalId("mod_event_false");
         }
@@ -176,6 +180,7 @@ $(document).ready(function () {
     $(".set_admin").click(function () {
         var role = $(this).data('role'),
             id = $(this).data('id');
+
         $.get(
             site + '/api/set/admin',
             {
@@ -189,7 +194,8 @@ $(document).ready(function () {
                 }
                 location.reload();
                 fn_display_noneId('mod_preload');
-            });
+            }
+        );
     });
 
     //блокуємо відправку всіх форм, і відправляємо їх в фоновому режимі
