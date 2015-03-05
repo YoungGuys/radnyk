@@ -29,7 +29,6 @@ class Blog extends System\View{
     }
 
     public function viewLoadBlog($data) {
-        $a = microtime(true);
         $this->loadHead();
         $this->loadHEader();
         $this->loadContent();
@@ -37,7 +36,6 @@ class Blog extends System\View{
 
         $sidebar = new Sidebar();
         $sidebar->loadSidebar(["advice","video", "recklama", "blog"]);
-        echo "Time Controller = ". (microtime(true) - $a);
         $this->loadFooter();
         $this->loadModal();
     }

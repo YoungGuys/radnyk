@@ -24,7 +24,6 @@ class Blog extends System\Controller{
 
 
     public function show() {
-        echo "ok";
         $data = $this->model->modelGetBlog();
         $this->view->viewLoadBlog($data);
     }

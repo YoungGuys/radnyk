@@ -64,7 +64,7 @@ class OAuth {
             //в масиві зберігаються посилання на вікна авторизації через соц. мережі
             $this->href = Array(
                 "vk" => "http://oauth.vk.com/authorize?client_id={$this->vk['client']}&response_type=code&scope=email&display=popup&v=5.24&redirect_uri=".$this->redirect."vk",
-                "tw" => $this->get_tw_code(),
+                //"tw" => $this->get_tw_code(),
                 "fb" => "https://www.facebook.com/v2.1/dialog/oauth?response_type=code&display=popup&client_id={$this->fb['client']}&scope=user_friends&redirect_uri=".$this->redirect."fb",
                 "ggl" => "https://accounts.google.com/o/oauth2/auth?redirect_uri={$this->redirect}ggl&response_type=code&client_id={$this->ggl['client']}&scope=https://www.googleapis.com/auth/userinfo.email+https://www.googleapis.com/auth/userinfo.profile"
             );

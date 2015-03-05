@@ -58,9 +58,7 @@ class DBProc {
         if (isset($instance)) {
             return $instance;
         }
-        $b = microtime(true);
         $instance = new static;
-        echo "Load DBProc == " . ($b - $_SESSION['a']);
         return $instance;
     }
 
