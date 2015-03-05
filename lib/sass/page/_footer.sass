@@ -6,18 +6,30 @@ footer
     a
         color: #fff
 
+.footer__in
+    @extend .container
+    @extend .clearfix
+    position: relative
+
 .f_main
+    position: relative
     width: 57%
+    float: left
     padding: 3px 0
     border-bottom: 3px solid #3eb85c
 
     ul li
-        margin: 11px 13.4% 5px 0
+        @extend .clearfix
+        margin: 11px 11.4% 5px 0
         float: left
 
+.footer__line
+    @extend .clearfix
+    position: relative
 
 .mob_ver
     @extend .btn-style--active
+    position: absolute
     bottom: 0
     right: 0
     width: 26%
@@ -28,6 +40,7 @@ footer
     //background: #3eb85c
 
 .f_archive_bl
+    float: left
     margin: 28px 0 0 7.25%
     a
         width: 65px
@@ -37,10 +50,15 @@ footer
         font-weight: 600
 
 .f_logo
+    position: absolute
     top: 0px
     right: 10px
 
 .f_soc
+    @extend .clearfix
+    position: relative
+
+.f_soc__box
     padding: 10px 0
     a
         margin: 0 16px 0
@@ -48,6 +66,7 @@ footer
         background: #3eb85c
 
 .copyright
+    position: absolute
     bottom: 5px
     right: 15px
     color: #c9c5c5

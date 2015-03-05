@@ -24,14 +24,14 @@
     </a>
 </div>
 
-<div class="all_post p-rel">
+<div class="all_post">
     <div class="header">
         <span class="title">Інші відео</span>
 
-        <div class="all_part p-rel cur-p">
+        <div class="all_part">
             <span>Всі розділи</span>
 
-            <div class="all_part_list p-abs">
+            <div class="all_part_list">
                 <ul>
                     <?php foreach (\Balon\System\Model::$nameChapter as $key => $val) {?>
                         <li>
@@ -42,7 +42,7 @@
             </div>
         </div>
     </div>
-    <div class="page video_container clearfix">
+    <div class="page video_container">
         <?php Control::add("videolist"); ?>
         <?php foreach ($data as $key => $val) {?>
             <div class="post video_item">

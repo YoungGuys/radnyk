@@ -140,6 +140,8 @@
 /*.post_news_descr:hover { color: #fff; background: #434545;  }
 
 .all_post
+    position: relative
+
     .header
         padding: 15px 0
         border-top: 3px solid #434545
@@ -149,15 +151,18 @@
         font-weight: bold
         text-transform: uppercase
     .all_part
+        position: relative
         margin: 0 7.25% 0 0
         padding: 0 20px 0 0
         float: right
         font-weight: 300
+        cursor: pointer
         &:hover .all_part_list
             top: 100%
             opacity: 1
             visibility: visible
     .all_part_list
+        position: absolute
         top: 50%
         left: -20px
         width: 150px
@@ -403,6 +408,7 @@
             font-size: 10px
             float: right
     &.photo_container
+        @extend .clearfix
         margin: 0 -3%
     .photo_item
         width: 44%
@@ -454,6 +460,10 @@
     font-size: 12px
     font-weight: 600
     background: #2abe7a
+    overflow: hidden
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    white-space: nowrap
 
 .archive_content
     overflow: hidden
