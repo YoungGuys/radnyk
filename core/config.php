@@ -16,5 +16,7 @@
 
     $this->dev_mod = 1;
 
+    define("COUNT_ARTICLE",2);
+
 
 ?>

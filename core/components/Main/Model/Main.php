@@ -48,6 +48,7 @@ class Main extends Model{
         $arrayViews = $cache->get("news$chapter",$arrayForViews);
         foreach ($result as $key => $val) {
             $result[$key]['views'] = $arrayViews[$val['id']]['views'];
+            $result[$key]['href'] = "?title=".str_replace(" ","_",$result[$key]['title'])."&id=".$result[$key]['id'];
         }
 
         return $result;

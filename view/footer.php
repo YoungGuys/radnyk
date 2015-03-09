@@ -35,11 +35,14 @@
         </div>
     </section>
     <section class="f-bot">
-        <div class="container">
-            <span class="theme-news">Важливо</span>
-            <span class="time-news">10:03</span>
-            <a href="" class="text-news">Яценюк вимагає від Росії негайно вивести війська</a>
-        </div>
+        <?php
+        foreach ($important as $key => &$val) { ?>
+            <div class="container">
+                <span class="theme-news">Важливо</span>
+                <span class="time-news"><?=$val['create_date'];?></span>
+                <a href="" class="text-news"><?=$val['title'];?></a>
+            </div>
+        <?php } ?>
     </section>
 </footer>
 

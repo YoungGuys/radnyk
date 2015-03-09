@@ -29,6 +29,12 @@ abstract class View {
     }
 
     protected function loadFooter($params = []) {
+        $db = DBProc::instance();
+        $important = $db->select("news",false,['important' => "on"]);
+        foreach ($important as $key => &$val) {
+            $date = new \DateTime($val['create_date']);
+            $val['create_date'] = $date->format("H:i");
+        }
         if (file_exists("./view/footer.php")) {
             include_once("./view/footer.php");
         }

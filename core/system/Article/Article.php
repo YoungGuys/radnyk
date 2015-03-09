@@ -17,6 +17,8 @@ class Article {
 
     private $db;
 
+
+
     function __construct() {
         // TODO: Implement __construct() method.
     }
@@ -29,6 +31,17 @@ class Article {
             ], 'create_date', false, [0, 5]
         );
         return $result;
+    }
+
+    static function getPaginatorLimit() {
+        if ($_GET['page']) {
+            $page = (int) $_GET['page'];
+            $limit = [COUNT_ARTICLE*($page-1),COUNT_ARTICLE*$page];
+        }
+        else {
+            $limit = [0,COUNT_ARTICLE];
+        }
+        return $limit;
     }
 
 }

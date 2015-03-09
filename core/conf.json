@@ -90,6 +90,10 @@
       "most": [
         "checkbox",
         "Головна новина"
+      ],
+      "important": [
+        "checkbox",
+        "Важлива новина"
       ]
     },
     "settings": {"pk": "id"}

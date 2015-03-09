@@ -44,7 +44,7 @@ include('view/content/slider.php');
             <?php } ?>
             <div class="home_post_content">
                 <div class="text">
-                    <a href="<?= SITE . "News/Politic?id=" . $val['id']; ?>"><?= $val['title'] ?></a>
+                    <a href="<?= SITE . "News/Politics{$val['href']}"?>"><?= $val['title'] ?></a>
                 </div>
             </div>
             <div class="page_info">

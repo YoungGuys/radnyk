@@ -52,15 +52,16 @@ class News extends System\Model {
     }
 
     public function loadList($id) {
+        include_once("core/config.php");
         $this->idChapter = $id;
         $result = $this->db->select("news", [false],
             [
                 "id_chapter" => $id
-            ], "create_date", false, [0, 11]);
+            ], "create_date", false, System\Article::getPaginatorLimit());
         $unset = false;
         foreach ($result as $key => $val) {
             if ($val['most'] == "on") {
-                $most = $result[$key];
+                $most[0] = $result[$key];
                 unset($result[$key]);
                 $unset = true;
                 break;
@@ -68,7 +69,7 @@ class News extends System\Model {
         }
         if (!$unset) {
             $most = $this->db->select("news",false,["id_chapter" => $id, "most" => "on"]);
-            array_pop($result);
+            //array_pop($result);
         }
         // reformat create date for most news
 
@@ -82,6 +83,7 @@ class News extends System\Model {
         $most['views'] = $cache->getCache("news".$id,$most['id'])['views'];
         $most['text'] = mb_substr($most['text'], 0, 250, 'UTF-8') . "...";
         $nameCacheFile = "news" . $id;
+        $most = $this->prepareList([$most[0]],$nameCacheFile);
         $results = $this->prepareList($result, $nameCacheFile);
         $results['most'] = $most;
         /*echo "<pre>";

@@ -7,7 +7,6 @@
  */
 
 namespace View;
-¡¡¡¡
 use Balon\System;
 use Controller\Sidebar;
 
