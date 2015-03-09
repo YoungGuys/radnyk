@@ -2485,53 +2485,57 @@ i {
 }
 /* line 58, ../sass/_modal.sass */
 .modal_window.is-full {
+  max-width: 100%;
   width: 100%;
   padding: 55px 0;
+  color: #e7e5e5;
   background: #313030;
+  border: 0;
+  font-weight: 300;
 }
 
-/* line 63, ../sass/_modal.sass */
+/* line 67, ../sass/_modal.sass */
 .mod__header, .mod__footer {
   text-align: center;
   color: #405c86;
 }
 
-/* line 67, ../sass/_modal.sass */
+/* line 71, ../sass/_modal.sass */
 .mod__header {
   padding: 1rem 2.5rem;
   font-size: 28px;
 }
 
-/* line 71, ../sass/_modal.sass */
+/* line 75, ../sass/_modal.sass */
 .mod__content {
   padding: 0 2.5rem 2rem;
 }
 
-/* line 74, ../sass/_modal.sass */
+/* line 78, ../sass/_modal.sass */
 .mod__footer {
   padding: 1rem 0;
   font-size: 16px;
 }
 
-/* line 78, ../sass/_modal.sass */
+/* line 82, ../sass/_modal.sass */
 .mod__title {
   margin: 15px 0 10px 0;
   display: block;
   color: #405c86;
 }
 
-/* line 83, ../sass/_modal.sass */
+/* line 87, ../sass/_modal.sass */
 .mod__field {
   padding: 3px 5px;
   border: 1px solid #000;
   font-size: 14px;
 }
-/* line 87, ../sass/_modal.sass */
+/* line 91, ../sass/_modal.sass */
 .mod__field:focus {
   border-color: #0066cc;
 }
 
-/* line 90, ../sass/_modal.sass */
+/* line 94, ../sass/_modal.sass */
 .btn-ok {
   width: auto;
   display: inline-block;
@@ -2545,12 +2549,12 @@ i {
   background-color: #405c86;
   border: 0;
 }
-/* line 103, ../sass/_modal.sass */
+/* line 107, ../sass/_modal.sass */
 .btn-ok:hover {
   background-color: #5070a1;
 }
 
-/* line 106, ../sass/_modal.sass */
+/* line 110, ../sass/_modal.sass */
 .ok {
   width: auto;
   min-width: 114px;
@@ -2562,24 +2566,24 @@ i {
   background: #343535;
 }
 
-/* line 116, ../sass/_modal.sass */
+/* line 120, ../sass/_modal.sass */
 .mod-ckeditor {
   z-index: 111;
 }
 
-/* line 119, ../sass/_modal.sass */
+/* line 123, ../sass/_modal.sass */
 .modal_window p {
   margin: 10px 0;
 }
 
-/* line 122, ../sass/_modal.sass */
+/* line 126, ../sass/_modal.sass */
 .icon-close {
   position: absolute;
   top: 5px;
   right: 5px;
 }
 
-/* line 127, ../sass/_modal.sass */
+/* line 131, ../sass/_modal.sass */
 #mod_preload {
   position: absolute;
   top: 0;
@@ -2593,11 +2597,11 @@ i {
   z-index: 101;
 }
 
-/* line 140, ../sass/_modal.sass */
+/* line 144, ../sass/_modal.sass */
 .modal_window.blocked .i-close {
   display: none;
 }
-/* line 142, ../sass/_modal.sass */
+/* line 146, ../sass/_modal.sass */
 .modal_window .mod_header, .modal_window .mod_footer {
   padding: 1rem 2.5rem;
   font-size: 20px;
@@ -2605,17 +2609,22 @@ i {
   color: #424343;
 }
 
-/* line 148, ../sass/_modal.sass */
+/* line 152, ../sass/_modal.sass */
 .mod_content {
   position: relative;
   padding: 0rem 2.5rem 2rem;
 }
+/* line 156, ../sass/_modal.sass */
+.mod_content--mini {
+  max-width: 540px;
+  padding: 0;
+}
 
-/* line 153, ../sass/_modal.sass */
+/* line 161, ../sass/_modal.sass */
 .modal_window .mod_footer {
   font-size: 16px;
 }
-/* line 155, ../sass/_modal.sass */
+/* line 163, ../sass/_modal.sass */
 .modal_window .i-close {
   position: absolute;
   color: #414343;
@@ -2626,7 +2635,7 @@ i {
   font-style: normal;
   font-family: Verdana;
 }
-/* line 164, ../sass/_modal.sass */
+/* line 172, ../sass/_modal.sass */
 .modal_window .ok {
   width: auto;
   margin: 0 auto;
@@ -2643,31 +2652,31 @@ i {
   -moz-transition: all 0.5s ease;
   transition: all 0.5s ease;
 }
-/* line 179, ../sass/_modal.sass */
+/* line 187, ../sass/_modal.sass */
 .modal_window .ok:hover {
   background-color: #58CB79;
 }
-/* line 181, ../sass/_modal.sass */
+/* line 189, ../sass/_modal.sass */
 .modal_window.photo {
   line-height: 0px;
 }
 
-/* line 184, ../sass/_modal.sass */
+/* line 192, ../sass/_modal.sass */
 .mod-ckeditor {
   z-index: 111;
 }
 
-/* line 187, ../sass/_modal.sass */
+/* line 195, ../sass/_modal.sass */
 .modal_window {
   width: 580px;
   min-width: 280px;
   margin-left: -23%;
 }
-/* line 188, ../sass/_modal.sass */
+/* line 196, ../sass/_modal.sass */
 .modal_window form {
   display: block !important;
 }
-/* line 190, ../sass/_modal.sass */
+/* line 198, ../sass/_modal.sass */
 .modal_window textarea {
   display: block;
   max-width: 98%;
@@ -2676,21 +2685,21 @@ i {
   margin: 10px 0;
   padding: 2px 1%;
 }
-/* line 200, ../sass/_modal.sass */
+/* line 208, ../sass/_modal.sass */
 .modal_window .column1 {
   width: 46%;
   margin-right: 10%;
 }
-/* line 203, ../sass/_modal.sass */
+/* line 211, ../sass/_modal.sass */
 .modal_window .column2 {
   width: 38%;
 }
-/* line 205, ../sass/_modal.sass */
+/* line 213, ../sass/_modal.sass */
 .modal_window .column1 input {
   width: 98%;
   padding: 3px 1%;
 }
-/* line 208, ../sass/_modal.sass */
+/* line 216, ../sass/_modal.sass */
 .modal_window .column2 img {
   width: 24px;
 }
@@ -2702,23 +2711,23 @@ i {
 /*.modal_window label { */
 /*margin: 30px 0 0; */
 /*} */
-/* line 219, ../sass/_modal.sass */
+/* line 227, ../sass/_modal.sass */
 #mod_photo {
   padding: 50px 2%;
   color: #73e2af;
 }
-/* line 222, ../sass/_modal.sass */
+/* line 230, ../sass/_modal.sass */
 #mod_photo .mod_content {
   padding: 0rem 2.5rem;
 }
 
-/* line 225, ../sass/_modal.sass */
+/* line 233, ../sass/_modal.sass */
 .mod_num_photo {
   top: 10px;
   left: 80px;
 }
 
-/* line 229, ../sass/_modal.sass */
+/* line 237, ../sass/_modal.sass */
 .mod_prev_photo {
   top: 48%;
   left: 0;
@@ -2726,7 +2735,7 @@ i {
   height: 35px;
 }
 
-/* line 235, ../sass/_modal.sass */
+/* line 243, ../sass/_modal.sass */
 .mod_next_photo {
   top: 48%;
   width: 18px;
@@ -2734,18 +2743,18 @@ i {
   right: 0;
 }
 
-/* line 241, ../sass/_modal.sass */
+/* line 249, ../sass/_modal.sass */
 #mod_photo .mod_content {
   overflow: hidden;
 }
 
-/* line 244, ../sass/_modal.sass */
+/* line 252, ../sass/_modal.sass */
 .mod_photo_container {
   /*	-webkit-transition: all .8s ease;
    *	   -moz-transition: all .8s ease;
    *			transition: all .8s ease; */
 }
-/* line 245, ../sass/_modal.sass */
+/* line 253, ../sass/_modal.sass */
 .mod_photo_container ul li {
   position: relative;
   top: 0;
@@ -2754,16 +2763,82 @@ i {
   line-height: 100%;
   float: left;
 }
-/* line 252, ../sass/_modal.sass */
+/* line 260, ../sass/_modal.sass */
 .mod_photo_container ul li img {
   width: 100%;
 }
-/* line 257, ../sass/_modal.sass */
+/* line 265, ../sass/_modal.sass */
 .mod_photo_container > ul > li.mod_slide__visible {
   display: block !important;
 }
 
 /*.mod_photo_container > ul > li.mod_slide__visible { left: 0 !important; } */
+/* line 271, ../sass/_modal.sass */
+.mod_advice__title {
+  margin: 0 0 20px;
+  color: #53cf96;
+  font-size: 31px;
+  font-weight: 300;
+}
+
+/* line 277, ../sass/_modal.sass */
+.mod_advice__hint {
+  margin: 0 0 45px;
+  font-size: 12px;
+}
+
+/* line 281, ../sass/_modal.sass */
+.mod_advice__label {
+  display: block;
+  margin-top: 35px;
+  color: #fff;
+  font-size: 16px;
+}
+
+/* line 287, ../sass/_modal.sass */
+.mod_advice__field {
+  background: transparent;
+  width: 100%;
+  color: #fff;
+  padding: 6px 0;
+  border: 0;
+  border-bottom: 1px solid #656464;
+}
+/* line 295, ../sass/_modal.sass */
+.mod_advice__field--textarea {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 6px !important;
+  border: 1px solid #656464;
+}
+/* line 61, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+.mod_advice__field:-moz-placeholder {
+  color: #939393;
+}
+/* line 64, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+.mod_advice__field::-moz-placeholder {
+  color: #939393;
+}
+/* line 67, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+.mod_advice__field:-ms-input-placeholder {
+  color: #939393;
+}
+/* line 56, ../../../../../../Library/Ruby/Gems/2.0.0/gems/compass-core-1.0.1/stylesheets/compass/css3/_user-interface.scss */
+.mod_advice__field::-webkit-input-placeholder {
+  color: #939393;
+}
+/* line 304, ../sass/_modal.sass */
+.mod_advice__field.is-error {
+  color: #e57980;
+}
+
+/* line 309, ../sass/_modal.sass */
+.i-close-big {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
 @media print {
   /* line 2, ../sass/_media.sass */
   body {

@@ -147,21 +147,82 @@
 
 
         <div class="modal_window is-full mod_advice" id="mod_getAdvice">
-            <div class="mod_content">
-                <h4 class="mod_advice__title">Отримати пораду</h4>
-                <p class="mod_advice__hint">
-                    Будь-яке Ваше питання має можливість отримати відповідь від нашої редакції.
-                    Відповідь можна отримати протягом 3 днів. Найцікавіші питання ми анонімно публікуємо.
-                </p>
+            <div class="container p-rel">
+                <div class="mod_content mod_content--mini">
+                    <h4 class="mod_advice__title">Отримати пораду</h4>
 
-                <form class="js-sendAdvice">
-                    <label class="mod_advice__label" for="get-advice-name">1. Ваше ім’я та тема запитання</label>
-                    <input type="text" name="name" id="get-advice-name" placeholder="Ірина Іванівна: Як правильно робити обмін валюти?"/>
-                    <label class="mod_advice__label" for="get-advice-email">2. Ваш  E-mail</label>
-                    <input type="text" name="name" id="get-advice-email" placeholder="name@example.com"/>
-                    <label class="mod_advice__label" for="get-advice-text">3. Повідомлення</label>
-                    <textarea name="" id="get-advice-text" cols="30" rows="10" placeholder="Якщо я маю гривні, де я зможу обміняти їх на долари найвигідніше?"> </textarea>
-                </form>
+                    <div class="mod_advice__hint">
+                        Будь-яке Ваше питання має можливість отримати відповідь від нашої редакції.
+                        Відповідь можна отримати протягом 3 днів. Найцікавіші питання ми анонімно публікуємо.
+                    </div>
+
+                    <form class="js-sendAdvice" action="">
+                        <label class="mod_advice__label" for="get-advice-name">1. Ваше ім’я та тема запитання</label>
+                        <input type="text"
+                               name="name"
+                               id="get-advice-name"
+                               class="mod_advice__field"
+                               placeholder="Ірина Іванівна: Як правильно робити обмін валюти?"/>
+
+                        <label class="mod_advice__label" for="get-advice-email">2. Ваш E-mail</label>
+                        <input type="text"
+                               name="name"
+                               id="get-advice-email"
+                               class="mod_advice__field"
+                               placeholder="name@example.com"/>
+
+                        <label class="mod_advice__label" for="get-advice-text">3. Повідомлення</label>
+                        <textarea
+                                name=""
+                                cols="30"
+                                rows="10"
+                                id="get-advice-text"
+                                class="mod_advice__field mod_advice__field--textarea">Якщо я маю гривні, де я зможу обміняти їх на долари найвигідніше?
+                        </textarea>
+                        <input type="submit" class="btn active" value="Отимати пораду"/>
+                    </form>
+                </div>
+                <i class="i-close-big"></i>
+            </div>
+        </div>
+
+        <div class="modal_window is-full mod_advice" id="mod_addAdvice">
+            <div class="container p-rel">
+                <div class="mod_content mod_content--mini">
+                    <h4 class="mod_advice__title">Дати пораду</h4>
+
+                    <div class="mod_advice__hint">
+                        Маєте що сказати, що може бути вирішенням проблем інших?
+                        Ваші поради отримує редакція, а найцікавіші публікує на широкий загал
+                    </div>
+
+                    <form class="js-sendAdvice" action="">
+                        <label class="mod_advice__label" for="get-advice-name">1. Хто Ви та яку проблему ви намагатесь вирішити?</label>
+                        <input type="text"
+                               name="name"
+                               id="get-advice-name"
+                               class="mod_advice__field"
+                               placeholder="Ірина Іванівна: Як правильно робити обмін валюти?"/>
+
+                        <label class="mod_advice__label" for="get-advice-email">2. Ваш E-mail</label>
+                        <input type="text"
+                               name="name"
+                               id="get-advice-email"
+                               class="mod_advice__field"
+                               placeholder="name@example.com"/>
+
+                        <label class="mod_advice__label" for="get-advice-text">3. Повідомлення</label>
+                        <textarea
+                                name=""
+                                cols="30"
+                                rows="10"
+                                id="get-advice-text"
+                                class="mod_advice__field mod_advice__field--textarea">Якщо я маю гривні, де я зможу обміняти їх на долари найвигідніше?
+                                </textarea>
+                        <input type="submit" class="btn active" value="Отимати пораду"/>
+                    </form>
+                </div>
+                <i class="i-close-big"></i>
             </div>
         </div>
 

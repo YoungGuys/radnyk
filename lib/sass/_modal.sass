@@ -56,9 +56,13 @@
         display: none
 
     &.is-full
+        max-width: 100%
         width: 100%
         padding: 55px 0
+        color: #e7e5e5
         background: #313030
+        border: 0
+        font-weight: 300
 
 .mod__header, .mod__footer
     text-align: center
@@ -148,6 +152,10 @@
 .mod_content
     position: relative
     padding: 0rem 2.5rem 2rem
+
+    &--mini
+        max-width: 540px
+        padding: 0
 
 .modal_window
     .mod_footer
@@ -260,3 +268,45 @@
 /*.mod_photo_container > ul > li.mod_slide__visible { left: 0 !important; }
 
 
+.mod_advice__title
+    margin: 0 0 20px
+    color: #53cf96
+    font-size: 31px
+    font-weight: 300
+
+.mod_advice__hint
+    margin: 0 0 45px
+    font-size: 12px
+
+.mod_advice__label
+    display: block
+    margin-top: 35px
+    color: #fff
+    font-size: 16px
+
+.mod_advice__field
+    background: transparent
+    width: 100%
+    color: #fff
+    padding: 6px 0
+    border: 0
+    border-bottom: 1px solid #656464
+
+    &--textarea
+        max-width: 100% !important
+        width: 100% !important
+        padding: 6px !important
+        border: 1px solid #656464
+
+    +input-placeholder
+        color: #939393
+
+    &.is-error
+        color: #e57980
+
+
+
+.i-close-big
+    position: absolute
+    top: 0
+    right: 0
