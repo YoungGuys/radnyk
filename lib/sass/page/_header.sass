@@ -1,5 +1,6 @@
 header
     .h-top
+        @extend .container
         min-height: 15px
         font-size: 12px
         padding: 30px 0 8px
@@ -19,22 +20,27 @@ header
         font-weight: 600
         color: #9a9898
     .header
+        position: relative
         min-height: 60px
         padding: 20px 0
         overflow: hidden
         background: #323131
     .logo
         width: 23.4%
+        float: left
 
 
 .quote
+    position: relative
     width: 35%
     margin: 0 0 0 8%
+    float: left
     color: #e4e4e4
     font-size: 14px
     font-style: italic
 
 .q-ttl
+    position: relative
     margin: 0 0 8px 30px
     text-transform: uppercase
 
@@ -56,6 +62,7 @@ header
 
 .q-author
     margin: 3px 0 0
+    text-align: right
     font-weight: 600
 
 .search
@@ -80,19 +87,15 @@ header
             background: url('../pic/search-icon.png') no-repeat center center
 
 
-nav
-    font-size: 18px
+.menu
     color: #323131
     overflow: hidden
-    font-weight: 300
     text-transform: uppercase
     background: #f0eded
-    ul
-        width: 67.4%
-        float: left
-    a
-        color: #323131
-        font-weight: 300
+
+    font-size: 18px
+    font-weight: 300
+
     ul li
         float: left
         margin: 0 9.4% 0 0
@@ -100,17 +103,29 @@ nav
         &:last-child
             margin: 0
 
+.base-menu
+    @extend .clearfix
+    width: 67.4%
+    float: left
+
+    a
+        color: #323131
+
+
 .addit-menu
+    @extend .clearfix
+    position: relative
     width: 29%
-    font-weight: 600
+    float: left
     background: #4e4d4d
+    font-weight: 600
 
     a
         color: #fff
 
     li
         width: 33.33%
-        margin: 0
+        margin: 0 !important
         text-align: center
 
     &:before

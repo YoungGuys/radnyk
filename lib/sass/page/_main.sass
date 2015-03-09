@@ -140,6 +140,8 @@
 /*.post_news_descr:hover { color: #fff; background: #434545;  }
 
 .all_post
+    position: relative
+
     .header
         padding: 15px 0
         border-top: 3px solid #434545
@@ -149,15 +151,18 @@
         font-weight: bold
         text-transform: uppercase
     .all_part
+        position: relative
         margin: 0 7.25% 0 0
         padding: 0 20px 0 0
         float: right
         font-weight: 300
+        cursor: pointer
         &:hover .all_part_list
             top: 100%
             opacity: 1
             visibility: visible
     .all_part_list
+        position: absolute
         top: 50%
         left: -20px
         width: 150px
@@ -313,6 +318,7 @@
     width: 48.5%
 
 .home_post_item
+    @extend .clearfix
     position: relative
     padding: 5px 8px
     border-bottom: 1px solid #bebcbc
@@ -362,6 +368,7 @@
     margin: 0 0 45px
 
 .news_item
+    @extend .clearfix
     padding: 9px 0
     border-bottom: 1px solid #e5e9e9
 
@@ -403,6 +410,7 @@
             font-size: 10px
             float: right
     &.photo_container
+        @extend .clearfix
         margin: 0 -3%
     .photo_item
         width: 44%
@@ -432,6 +440,7 @@
  *************************************************************************************
 
 .archive_item
+    @extend .clearfix
     padding: 9px 0
     border-bottom: 1px solid #e5e9e9
 
@@ -454,6 +463,10 @@
     font-size: 12px
     font-weight: 600
     background: #2abe7a
+    overflow: hidden
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    white-space: nowrap
 
 .archive_content
     overflow: hidden
@@ -597,7 +610,6 @@
     font-size: 13px
     color: #656363
     font-weight: normal
-    font-family: Verdana, Tahoma
 
 .page.preview_bl
     margin: 12px 0 30px
@@ -659,7 +671,7 @@
 
 .post_text
     font-weight: normal
-    font-family: Verdana, Tahoma
+
     h6
         margin: 12px 0
         font-size: 14px

@@ -255,7 +255,7 @@ class Admin {
                             <textarea id=\"editor\" name='$column_name'>$oldValues[$column_name]";
                     //$html .= $bb->get_html();
                     $html .= "</textarea>
-                        <script>CKEDITOR.replace('editor');</script>
+                        <script>CKEDITOR.replace('editor', {filebrowserUploadUrl: 'http://www.radnyk.com/upload.php'});</script>
                         </div>";
                     break;
             }
