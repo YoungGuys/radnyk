@@ -2,8 +2,8 @@
     <div class="title">Відео</div>
     <div class="content">
         <div class="control clearfix">
-            <button class="left  js_last_video">Останні</button>
-            <button class="right js_popular_video">Популярні</button>
+            <button class="btn-last js_last_video">Останні</button>
+            <button class="btn-popular js_popular_video">Популярні</button>
         </div>
         <div class="video_bl">
             <div class="last_video">

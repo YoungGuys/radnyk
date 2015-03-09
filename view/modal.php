@@ -142,6 +142,29 @@
             </div>
         </div>
 
+
+
+
+
+        <div class="modal_window is-full mod_advice" id="mod_getAdvice">
+            <div class="mod_content">
+                <h4 class="mod_advice__title">Отримати пораду</h4>
+                <p class="mod_advice__hint">
+                    Будь-яке Ваше питання має можливість отримати відповідь від нашої редакції.
+                    Відповідь можна отримати протягом 3 днів. Найцікавіші питання ми анонімно публікуємо.
+                </p>
+
+                <form class="js-sendAdvice">
+                    <label class="mod_advice__label" for="get-advice-name">1. Ваше ім’я та тема запитання</label>
+                    <input type="text" name="name" id="get-advice-name" placeholder="Ірина Іванівна: Як правильно робити обмін валюти?"/>
+                    <label class="mod_advice__label" for="get-advice-email">2. Ваш  E-mail</label>
+                    <input type="text" name="name" id="get-advice-email" placeholder="name@example.com"/>
+                    <label class="mod_advice__label" for="get-advice-text">3. Повідомлення</label>
+                    <textarea name="" id="get-advice-text" cols="30" rows="10" placeholder="Якщо я маю гривні, де я зможу обміняти їх на долари найвигідніше?"> </textarea>
+                </form>
+            </div>
+        </div>
+
     </div>
 
 </div>

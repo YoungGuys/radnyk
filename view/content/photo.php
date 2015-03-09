@@ -65,9 +65,7 @@
     </div>
     <?php if ($limitHref) { ?>
     <a href="<?=$limitHref;?>">
-        <div class="all_post_link">
-            >> показати всі відео
-        </div>
+        <div class="all_post_link"></div>
     </a>
     <?php } ?>
 </div>

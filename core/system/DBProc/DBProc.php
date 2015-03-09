@@ -144,7 +144,7 @@ class DBProc {
                 $limit_text = "LIMIT {$limit[0]},{$limit[1]}";
             else $limit_text = "LIMIT 0,30";
             $sql = "SELECT $what FROM `$table` $where $order $limit_text";
-            //echo $sql;
+            echo $sql;
             $query = $this->pdo->prepare($sql);
             $query->execute($explode[1]);
             $res = $query->fetchAll();
