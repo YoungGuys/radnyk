@@ -84,5 +84,18 @@ footer
         color: #a8e5b7
 
 
+.footer-news
+    position: relative
+
+.footer-news__item
+    @extend .animation
+    position: absolute
+    top: 0
+    left: 0
+    opacity: 0
+
+    &.is-active
+        opacity: 1
+
 .text-news
     font-weight: 600

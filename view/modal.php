@@ -144,6 +144,12 @@
 
 
 
+        <div class="modal_window" id="mod_ok">
+            <div class="mod_content">
+                <div class="mod_header">Повідомлення відправлено</div>
+            </div>
+        </div>
+
 
 
         <div class="modal_window is-full mod_advice" id="mod_getAdvice">
@@ -165,15 +171,15 @@
                                placeholder="Ірина Іванівна: Як правильно робити обмін валюти?"/>
 
                         <label class="mod_advice__label" for="get-advice-email">2. Ваш E-mail</label>
-                        <input type="text"
-                               name="name"
+                        <input type="email"
+                               name="email"
                                id="get-advice-email"
                                class="mod_advice__field"
                                placeholder="name@example.com"/>
 
                         <label class="mod_advice__label" for="get-advice-text">3. Повідомлення</label>
                         <textarea
-                                name=""
+                                name="message"
                                 cols="30"
                                 rows="10"
                                 id="get-advice-text"
@@ -197,26 +203,26 @@
                     </div>
 
                     <form class="js-sendAdvice" action="">
-                        <label class="mod_advice__label" for="get-advice-name">1. Хто Ви та яку проблему ви намагатесь вирішити?</label>
+                        <label class="mod_advice__label" for="add-advice-name">1. Хто Ви та яку проблему ви намагатесь вирішити?</label>
                         <input type="text"
                                name="name"
-                               id="get-advice-name"
+                               id="add-advice-name"
                                class="mod_advice__field"
                                placeholder="Ірина Іванівна: Як правильно робити обмін валюти?"/>
 
-                        <label class="mod_advice__label" for="get-advice-email">2. Ваш E-mail</label>
-                        <input type="text"
-                               name="name"
-                               id="get-advice-email"
+                        <label class="mod_advice__label" for="add-advice-email">2. Ваш E-mail</label>
+                        <input type="email"
+                               name="email"
+                               id="add-advice-email"
                                class="mod_advice__field"
                                placeholder="name@example.com"/>
 
-                        <label class="mod_advice__label" for="get-advice-text">3. Повідомлення</label>
+                        <label class="mod_advice__label" for="add-advice-text">3. Повідомлення</label>
                         <textarea
-                                name=""
+                                name="message"
                                 cols="30"
                                 rows="10"
-                                id="get-advice-text"
+                                id="add-advice-text"
                                 class="mod_advice__field mod_advice__field--textarea">Якщо я маю гривні, де я зможу обміняти їх на долари найвигідніше?
                                 </textarea>
                         <input type="submit" class="btn active" value="Отимати пораду"/>

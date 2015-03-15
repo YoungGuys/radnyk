@@ -38,9 +38,13 @@
         <?php
         foreach ($important as $key => &$val) { ?>
             <div class="container">
-                <span class="theme-news">Важливо</span>
-                <span class="time-news"><?=$val['create_date'];?></span>
-                <a href="" class="text-news"><?=$val['title'];?></a>
+                <div class="footer-news">
+                    <div class="footer-news__item">
+                        <span class="theme-news">Важливо</span>
+                        <span class="time-news"><?=$val['create_date'];?></span>
+                        <a href="" class="text-news"><?=$val['title'];?></a>
+                    </div>
+                </div>
             </div>
         <?php } ?>
     </section>

@@ -49,35 +49,35 @@ img {
   vertical-align: middle;
 }
 
-/* line 38, ../../sass/_reset.sass */
+/* line 39, ../../sass/_reset.sass */
 a {
   color: #fff;
   text-decoration: none;
 }
-/* line 42, ../../sass/_reset.sass */
+/* line 43, ../../sass/_reset.sass */
 a:active, a:hover {
   outline: 0;
   text-decoration: none;
 }
 
-/* line 47, ../../sass/_reset.sass */
+/* line 48, ../../sass/_reset.sass */
 input[type="submit"],
 button {
   cursor: pointer;
 }
-/* line 50, ../../sass/_reset.sass */
+/* line 51, ../../sass/_reset.sass */
 input[type="submit"]::-moz-focus-inner,
 button::-moz-focus-inner {
   padding: 0;
   border: 0;
 }
 
-/* line 54, ../../sass/_reset.sass */
+/* line 55, ../../sass/_reset.sass */
 textarea {
   overflow: auto;
 }
 
-/* line 57, ../../sass/_reset.sass */
+/* line 58, ../../sass/_reset.sass */
 input, button {
   margin: 0;
   padding: 0;
@@ -86,35 +86,35 @@ input, button {
   cursor: pointer;
 }
 
-/* line 64, ../../sass/_reset.sass */
+/* line 65, ../../sass/_reset.sass */
 label {
   cursor: pointer;
 }
 
-/* line 67, ../../sass/_reset.sass */
+/* line 68, ../../sass/_reset.sass */
 input, textarea, select, button,
 h1, h2, h3, h4, h5, h6, a, span, a:focus {
   outline: none;
 }
 
-/* line 70, ../../sass/_reset.sass */
+/* line 71, ../../sass/_reset.sass */
 ul {
   list-style-type: none;
 }
 
-/* line 75, ../../sass/_reset.sass */
+/* line 76, ../../sass/_reset.sass */
 table {
   border-spacing: 0;
   border-collapse: collapse;
   width: 100%;
 }
 
-/* line 80, ../../sass/_reset.sass */
+/* line 81, ../../sass/_reset.sass */
 td, th {
   padding: 0;
 }
 
-/* line 84, ../../sass/_reset.sass */
+/* line 85, ../../sass/_reset.sass */
 code, kbd, pre, samp {
   font-family: monospace, monospace;
   font-size: 1em;

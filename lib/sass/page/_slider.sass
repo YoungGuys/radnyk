@@ -62,37 +62,35 @@
 
 
 .post_photo_carusel
+    position: relative
     margin: 30px 0 70px
 
-.prev_post_photo
+.prev_post_photo,
+.next_post_photo
+    position: absolute
     top: 50%
-    left: 0
-    text-align: right
+    width: 35px
+    height: 35px
+    padding: 0 22px
+    color: #6f7476
+    line-height: 29px
+    background: rgba(255, 255, 255, 0.6)
+    z-index: 10
+    cursor: pointer
 
 .next_post_photo
-    top: 50%
     right: 0
-    width: 35px
-    height: 35px
-    padding: 0 22px
-    color: #6f7476
-    line-height: 29px
-    background: rgba(255, 255, 255, 0.6)
-    z-index: 10
 
 .prev_post_photo
-    width: 35px
-    height: 35px
-    padding: 0 22px
-    color: #6f7476
-    line-height: 29px
-    background: rgba(255, 255, 255, 0.6)
-    z-index: 10
+    left: 0
 
-.next_post_photo img, .prev_post_photo img
+
+.next_post_photo img,
+.prev_post_photo img
     height: 70%
 
 .author_post_photo
+    position: absolute
     bottom: -40px
     left: 0
     width: 100%
@@ -101,7 +99,19 @@
     font-size: 13px
     font-weight: 300
 
+.author_post_photo__item
+    @extend .animate
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    opacity: 0
+
+    &.is-visible
+        opacity: 1
+
 .num_post_photo
+    position: absolute
     right: 45px
     bottom: -40px
     color: #2e3130
@@ -109,23 +119,27 @@
     font-weight: 600
 
 .post_photo_carusel_container
+    position: relative
     width: 100%
     padding-bottom: 66%
     overflow: hidden
-    li
+    cursor: pointer
+    &__item
         position: absolute
         top: 0
         left: 0
         width: 100%
         text-align: center
         z-index: 1
+
         img
             width: auto
             opacity: 0
             -webkit-transition: all .8s ease
             -moz-transition: all .8s ease
             transition: all .8s ease
-    .gallery_slide__visible
+
+    .is-visible
         z-index: 2
         img
             opacity: 1
