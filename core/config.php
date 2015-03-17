@@ -8,7 +8,7 @@
 
     $db_host = "localhost";     //Ім"я серверу
     $db_user = "root";                  //Користувач
-    $db_passw = "";                     //Пароль
+    $db_passw = "root";                     //Пароль
     $db_name = "radnyk";                       //Ім"я бази данних
 /*
     $db_host = "radnyk00.mysql.ukraine.com.ua";     //Ім"я серверу
