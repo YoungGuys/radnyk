@@ -11,6 +11,7 @@ namespace Balon\System;
 
 use Balon\DBProc;
 use Balon\OAuth;
+use Controller\Sidebar;
 
 abstract class View {
 
@@ -67,5 +68,23 @@ abstract class View {
         } elseif (file_exists("./view/none_element.php")) {
             include_once("./view/none_element.php");
         }
+    }
+
+    protected function loadTop() {
+        $this->loadHead();
+        $this->loadHeader();
+        $this->loadContent();
+    }
+
+
+
+    protected function loadBottom() {
+        $this->loadFooter();
+        $this->loadModal();
+    }
+
+    protected function loadFullSidebar() {
+        $sidebar = new Sidebar();
+        $sidebar->loadSidebar(["advice","video", "recklama", "blog"]);
     }
 }

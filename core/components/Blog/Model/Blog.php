@@ -27,10 +27,15 @@ class Blog extends System\Model{
 
 
     //TODO: make this method private
-    public function addArticle($title,$text) {
+    public function save() {
         if (System\User::trueUser()) {
+            $title = $_POST['name'];
+            $chapter = $_POST['type'];
+            $text = $_POST['text'];
+            System\File::resizeImage($_FILES['photo']['tmp_name'], "lib/image/blog/".$_FILES['photo']['name'], [300]);
             $id = $_COOKIE['user_id'];
-            $this->db->insert("blog",["title" => $title, "text" => $text, "id" => $id]);
+            $this->db->insert("blog",["title" => $title, "text" => $text, "id_author" => $id, "chapter" => $chapter,
+                "image" => $_FILES['photo']['name']]);
         }
     }
 

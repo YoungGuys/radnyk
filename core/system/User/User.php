@@ -30,4 +30,8 @@ class User {
         }
     }
 
+    public static function redirect() {
+        header("Location:".SITE);
+    }
+
 }

@@ -19,7 +19,7 @@
     <?php foreach ($data as $key => $val) { ?>
         <div class="blogy_item">
             <div class="blogy_img">
-                <img src="/lib/pic/sidebar/splin.png" alt="">
+                <img src="<?=$val['photo'];?>" alt="">
             </div>
             <div class="blogy_content">
                 <div class="header">

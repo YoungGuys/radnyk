@@ -48,5 +48,6 @@ class News extends System\Controller {
             echo "404 ERROR";
             //TODO: Дописати щоб перенаправляло на сторінку 404
         }
+        
     }
 } 

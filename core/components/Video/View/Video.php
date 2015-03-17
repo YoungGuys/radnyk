@@ -33,9 +33,6 @@ class Video extends System\View{
         $this->loadHead();
         $this->loadHeader();
         $this->loadContent();
-        echo "<pre>";
-        print_r($data);
-        echo "</pre>";
         $sidebar = new Sidebar();
         $sidebar->loadSidebar(["advice","video", "recklama", "blog"]);
         $this->loadFooter();

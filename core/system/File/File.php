@@ -104,12 +104,14 @@ class File {
                 } else {
                     $filename = $tmp_name;
                     $size = getimagesize($filename);
+                    var_dump(getimagesize($filename));
                     $size_w = $size[0]; // ширина оригіналу
                     $size_h = $size[1]; // висота оригіналу
                     $w = $size_image[0]; // потрібна ширина
                     $h = $size_image[1]; // потрібна висота
                     if (!$h) {
                         $h = round($w * $size_h / $size_w);
+                        echo "w = $w size_h = $size_h size_w = $size_w h = $h <BR> <BR>";
                     }
                     $type = $size['mime'];
                     // щоб виликі картинки норм завантажувались
@@ -129,12 +131,19 @@ class File {
                         case 'image/gif':
                             $image = imagecreatefromgif($filename);
                             break;
+                        default:
+                            return false;
+                            break;
                     }
                     $new_image = imagecreatetruecolor($w, $h);
+                    var_dump($new_image);
                     imagecopyresampled($new_image, $image, 0, 0, 0, 0, $w, $h, $size_w, $size_h);
+                    var_dump($new_image);
                     if ($path) {
                         imagejpeg($new_image, $path, 75);
                     } else {
+                        echo "new_image = $new_image";
+                        echo "file_name = $file_name";
                         imagejpeg($new_image, $file_name, 75);
                     }
                     imagedestroy($new_image);

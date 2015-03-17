@@ -39,4 +39,11 @@ class Blog extends System\View{
         $this->loadFooter();
         $this->loadModal();
     }
+
+    public function add() {
+        $this->loadTop();
+        include_once("view/content/add_blog.php");
+        $this->loadFullSidebar();
+        $this->loadBottom();
+    }
 }

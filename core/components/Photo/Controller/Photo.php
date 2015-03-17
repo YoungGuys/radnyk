@@ -22,4 +22,9 @@ class Photo extends System\Controller {
         $data = $this->model->index();
         $this->view->index($data);
     }
-} 
+
+    public function show() {
+        $data = $this->model->show();
+        $this->view->show();
+    }
+}

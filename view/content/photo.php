@@ -10,7 +10,7 @@
 
 <div class="post_news">
     <?php Control::controllers(["edit","visibility","remove"], "photolist", $most['id'], $most['visibility']); ?>
-    <a href="Photo/show?title=<?=$most['title'];?>?id=<?=$most['id']?>">
+    <a href="<?=$val['href']?>">
         <div class="img_container p-rel">
             <img src="/lib/image/photolist/<?=$most['image']?>" alt=""/>
 
@@ -48,7 +48,7 @@
         <?php foreach ($data as $key => $val) {?>
             <div class="post photo_item">
                 <?php Control::controllers(['edit',"visibility","remove"], "photolist", $val['id'],$val['visibility']); ?>
-                <a href="Photo/show?title=<?=$val['title'];?>?id=<?=$val['id'];?>" class="img_container p-rel">
+                <a href="<?=$val['href']?>" class="img_container p-rel">
                     <img src="/lib/image/photolist/<?=$val['image'];?>" alt=""/>
                 </a>
 

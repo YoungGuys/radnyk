@@ -30,4 +30,15 @@ class Photo extends System\View {
         $this->loadModal();
         $this->loadFooter();
     }
+
+
+    public function show() {
+        $this->loadHead();
+        $this->loadHeader();
+        $this->loadContent();
+        $sidebar = new Sidebar();
+        $sidebar->loadSidebar(["advice","video", "recklama", "blog"]);
+        $this->loadModal();
+        $this->loadFooter();
+    }
 }

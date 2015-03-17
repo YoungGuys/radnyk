@@ -15,10 +15,7 @@ require('config.php');
 define("DEV_MOD",true);
 $rout = new \Balon\Routing();
 $rout->loadPage();
-//$b = microtime(true);
 
 //echo "Time to load Page == ".($b-$a);
 
-
-$_
 ?>

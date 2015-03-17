@@ -673,6 +673,9 @@ class Admin {
         if ($table == "article") {
             $result['href_name'] = Reports::translit($array['title']);
         }
+        if ($table == "news" && !isset($result['important'])) {
+            $result['important'] = "off";
+        }
         if (!$this->db->update("$table", $result, [$what => $id])) {
             try {
                 if (!header("Location:$returnHref")) {

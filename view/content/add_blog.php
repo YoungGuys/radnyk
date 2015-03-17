@@ -3,7 +3,7 @@
 
 </div>
 
-<div class="add-blog">
+<form class="add-blog" action="<?=SITE?>Blog/save" method="post" enctype="multipart/form-data">
     <div class="add-blog__fields">
         <label for="article-name">Назва сатті</label>
         <input type="text" name="name" id="article-name" />
@@ -21,17 +21,15 @@
     <div class="add-blog__fields">
         <label for="article-type">Тип блога</label>
         <select name="type" id="article-type">
-            <option value="">всі теми</option>
-            <option value="">політика</option>
-            <option value="">економіка</option>
+            <?php foreach (\Model\News::$nameChapter as $key => $val) { ?>
+                <option value="<?=$key?>"><?=$val;?></option>
+            <?php } ?>
         </select>
     </div>
 
     <textarea name="text" id="editor" cols="30" rows="10"></textarea>
     <script>CKEDITOR.replace('editor');</script>
 
-    <button class="btn active">Зберегти статтю</button>
+    <input class="btn active" type="submit" value="Зберегти статтю" />
 
-</div>
-
-</div>
+</form>

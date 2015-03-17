@@ -43,6 +43,8 @@ class Photo extends System\Model {
             $list[$key]['chapter'] =  self::$nameChapter[$val['id_chapter']];
             $list[$key]['create_date'] = Date::reformatDate($val['create_date']);
             $list[$key]['description'] = trim($list[$key]['description']);
+            $list[$key]['href'] = SITE."Photo/show?title=".
+                str_replace(" ","+",$val['title'])."&id=".$val['id'];
             if ($val['most'] == "on") {
                 $most = $list[$key];
                 $unset = true;
@@ -65,5 +67,12 @@ class Photo extends System\Model {
             $data['limitHref'] .= "page=".($_GET['page']+1);
         }
         return $data;
+    }
+
+
+    public function show() {
+        $array = $this->db->select("photolist", false, ['id' => $_GET['id']])[0];
+        print_r ($array);
+
     }
 }

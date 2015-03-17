@@ -8,6 +8,7 @@
 
 namespace Controller;
 use Balon\System;
+use Model\News;
 
 class Blog extends System\Controller{
 
@@ -26,5 +27,20 @@ class Blog extends System\Controller{
     public function show() {
         $data = $this->model->modelGetBlog();
         $this->view->viewLoadBlog($data);
+    }
+
+    public function add() {
+        if (System\User::trueAdmin()) {
+            $this->view->add();
+        }
+        else {
+            System\User::redirect();
+        }
+    }
+    
+    public function save() {
+        print_r ($_POST);
+        print_r ($_FILES);
+        $this->model->save();
     }
 } 

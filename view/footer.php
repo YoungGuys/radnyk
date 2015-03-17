@@ -6,13 +6,13 @@
             <div class="f_main">
                 <ul>
                     <li>
-                        <a href="">Про проект</a>
+                        <a href="<?=SITE?>Info/About">Про проект</a>
                     </li>
                     <li>
-                        <a href="">Контакти</a>
+                        <a href="<?=SITE?>Info/Contacts">Контакти</a>
                     </li>
                     <li>
-                        <a href="">Реклама</a>
+                        <a href="<?=SITE?>Info/Advertising">Реклама</a>
                     </li>
                 </ul>
                 <a class="mob_ver" href="#">мобільна версія</a>
