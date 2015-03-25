@@ -9,3 +9,6 @@ gulp.task('sprites', function () {
         }))
         .pipe(gulp.dest("assets"));
 });
+
+
+gulp.task('default', ['sprites']);
