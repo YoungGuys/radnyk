@@ -16,6 +16,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="/lib/js/jquery-2.1.3.min.js"><\/script>')</script>
 
+
         <?php //if Admin ?>
             <link rel="stylesheet" href="/core/lib/admin.css"/>
             <script src="/core/lib/js/script.js"></script>
@@ -23,6 +24,7 @@
             <script src="/lib/js/ckeditor/ckeditor.js"></script>
         <?php ?>
 
+        <script src="/lib/js/owl.carousel.js"></script>
         <script src="/lib/js/control.js"></script>
     </head>
 <body>

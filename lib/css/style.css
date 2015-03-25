@@ -122,20 +122,8 @@ code, kbd, pre, samp {
   font-size: 1em;
 }
 
-@font-face {
-  font-family: "ClearSans";
-  src: url('../fonts/../fonts/ClearSans-Regular.ttf') format('truetype'), url('../fonts/../fonts/ClearSans-Regular.woff') format('woff'), url('../fonts/../fonts/ClearSans-Regular.svg') format('svg'), url('../fonts/../fonts/ClearSans-Regular.eot') format('embedded-opentype');
-}
-@font-face {
-  font-family: "ClearSans-Bold";
-  src: url('../fonts/../fonts/ClearSans-Bold.ttf') format('truetype'), url('../fonts/../fonts/ClearSans-Bold.woff') format('woff'), url('../fonts/../fonts/ClearSans-Bold.svg') format('svg'), url('../fonts/../fonts/ClearSans-Bold.eot') format('embedded-opentype');
-}
-@font-face {
-  font-family: "ClearSans-Light";
-  src: url('../fonts/../fonts/ClearSans-Light.ttf') format('truetype'), url('../fonts/../fonts/ClearSans-Light.woff') format('woff'), url('../fonts/../fonts/ClearSans-Light.svg') format('svg'), url('../fonts/../fonts/ClearSans-Light.eot') format('embedded-opentype');
-}
 /* line 10, ../sass/_base.sass */
-.clearfix:after, section:after, .base-menu:after, .addit-menu:after, .home_post_item:after, .news_item:after, .page.photo_container:after, .archive_item:after, .blogy_item:after, .list_author_container:after, .footer__in:after, .f_main ul li:after, .footer__line:after, .f_soc:after, .slide_item:after {
+.clearfix:after, section:after, .base-menu:after, .addit-menu:after, .home_post_item:after, .news_item:after, .page.photo_container:after, .archive_item:after, .blogy_item:after, .list_author_container:after, .footer__in:after, .f_main ul li:after, .footer__line:after, .f_soc:after, .slide_item:after, .owl-carousel .owl-wrapper:after {
   content: " ";
   width: 0;
   height: 0;
@@ -1694,31 +1682,39 @@ header .logo {
 }
 
 /* line 658, ../sass/page/_main.sass */
+.post_content {
+  font-family: "Clear Sans", Verdana, Tahoma !important;
+}
+/* line 661, ../sass/page/_main.sass */
+.post_content p, .post_content span {
+  font-family: "Clear Sans", Verdana, Tahoma !important;
+}
+
+/* line 665, ../sass/page/_main.sass */
 .post_content h1 {
   color: #0b0b0b;
   font-size: 30px;
-  font-family: "Georgia", Verdana, Tahoma;
+  font-weight: 300;
 }
 
-/* line 663, ../sass/page/_main.sass */
+/* line 670, ../sass/page/_main.sass */
 .post_more {
   color: #323131;
   font-weight: normal;
 }
-/* line 666, ../sass/page/_main.sass */
+/* line 673, ../sass/page/_main.sass */
 .post_more p {
   margin: 12px 0 0;
   text-indent: 15px;
   font-size: 14px;
-  line-height: 18px;
   font-weight: 300;
 }
 
-/* line 673, ../sass/page/_main.sass */
+/* line 680, ../sass/page/_main.sass */
 .post_text {
   font-weight: normal;
 }
-/* line 676, ../sass/page/_main.sass */
+/* line 683, ../sass/page/_main.sass */
 .post_text h6 {
   margin: 12px 0;
   font-size: 14px;
@@ -1726,45 +1722,44 @@ header .logo {
   font-weight: bold;
   text-transform: uppercase;
 }
-/* line 682, ../sass/page/_main.sass */
+/* line 689, ../sass/page/_main.sass */
 .post_text p {
   margin: 0 0 15px;
   color: #656363;
   font-size: 12px;
-  line-height: 16px;
 }
 
-/* line 688, ../sass/page/_main.sass */
+/* line 695, ../sass/page/_main.sass */
 .post_info {
   border-top: #646161;
   padding: 20px 0;
 }
-/* line 691, ../sass/page/_main.sass */
+/* line 698, ../sass/page/_main.sass */
 .post_info > div {
   display: inline-block;
   vertical-align: middle;
 }
 
-/* line 695, ../sass/page/_main.sass */
+/* line 702, ../sass/page/_main.sass */
 .related_news {
   margin: 0 0 30px;
   font-size: 13px;
 }
-/* line 698, ../sass/page/_main.sass */
+/* line 705, ../sass/page/_main.sass */
 .related_news li {
   padding: 7px 0;
 }
-/* line 700, ../sass/page/_main.sass */
+/* line 707, ../sass/page/_main.sass */
 .related_news .ttl {
   margin: 8px 0;
   color: #4e4d4d;
   font-size: 16px;
 }
-/* line 704, ../sass/page/_main.sass */
+/* line 711, ../sass/page/_main.sass */
 .related_news a {
   color: #212020;
 }
-/* line 706, ../sass/page/_main.sass */
+/* line 713, ../sass/page/_main.sass */
 .related_news .relat_date {
   margin-left: 12px;
   color: #636161;
@@ -1773,19 +1768,19 @@ header .logo {
 /************************************************************************************
  *Add-blod
  ************************************************************************************* */
-/* line 716, ../sass/page/_main.sass */
+/* line 723, ../sass/page/_main.sass */
 .add-blog__fields {
   margin-bottom: 15px;
 }
-/* line 719, ../sass/page/_main.sass */
+/* line 726, ../sass/page/_main.sass */
 .add-blog__fields label {
   display: block;
 }
-/* line 722, ../sass/page/_main.sass */
+/* line 729, ../sass/page/_main.sass */
 .add-blog__fields input[type=text] {
   width: 93%;
 }
-/* line 725, ../sass/page/_main.sass */
+/* line 732, ../sass/page/_main.sass */
 .add-blog__fields select {
   width: 250px;
   height: 35px;
@@ -1889,39 +1884,47 @@ footer a {
 
 /* line 76, ../sass/page/_footer.sass */
 .f-bot {
-  padding: 4px 0;
+  height: 25px;
   font-size: 14px;
   background: #323131;
 }
-/* line 80, ../sass/page/_footer.sass */
+/* line 81, ../sass/page/_footer.sass */
 .f-bot .theme-news {
   text-transform: uppercase;
 }
-/* line 82, ../sass/page/_footer.sass */
+/* line 83, ../sass/page/_footer.sass */
 .f-bot .time-news {
   margin: 0 6.5% 0 2.2%;
   color: #a8e5b7;
 }
 
-/* line 87, ../sass/page/_footer.sass */
+/* line 88, ../sass/page/_footer.sass */
 .footer-news {
   position: relative;
 }
 
-/* line 90, ../sass/page/_footer.sass */
+/* line 91, ../sass/page/_footer.sass */
 .footer-news__item {
   position: absolute;
-  top: 0;
+  top: 3px;
   left: 0;
+  width: 100%;
   opacity: 0;
 }
-/* line 97, ../sass/page/_footer.sass */
+/* line 99, ../sass/page/_footer.sass */
 .footer-news__item.is-active {
   opacity: 1;
 }
 
-/* line 100, ../sass/page/_footer.sass */
+/* line 102, ../sass/page/_footer.sass */
 .text-news {
+  width: 75%;
+  display: inline-block;
+  vertical-align: top;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
   font-weight: 600;
 }
 
@@ -2368,6 +2371,7 @@ input:checked + label.inp_label_checkbox:before, input:checked + label.inp_label
 /* line 10, ../sass/_icon.sass */
 i {
   display: inline-block;
+  vertical-align: middle;
 }
 
 /* line 14, ../sass/_icon.sass */
@@ -2442,6 +2446,71 @@ i {
   margin-top: -15px;
   height: 26px;
   width: 80px;
+}
+
+/* display none until init */
+/* line 6, ../sass/_owl.sass */
+.owl-carousel {
+  display: none;
+  position: relative;
+  width: 100%;
+  -ms-touch-action: pan-y;
+}
+
+/* line 12, ../sass/_owl.sass */
+.owl-carousel .owl-wrapper {
+  display: none;
+  position: relative;
+  -webkit-transform: translate3d(0px, 0px, 0px);
+}
+
+/* line 17, ../sass/_owl.sass */
+.owl-carousel .owl-wrapper-outer {
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* line 22, ../sass/_owl.sass */
+.owl-carousel .owl-wrapper-outer.autoHeight {
+  -webkit-transition: height 500ms ease-in-out;
+  -moz-transition: height 500ms ease-in-out;
+  -ms-transition: height 500ms ease-in-out;
+  -o-transition: height 500ms ease-in-out;
+  transition: height 500ms ease-in-out;
+}
+
+/* line 30, ../sass/_owl.sass */
+.owl-carousel .owl-item {
+  float: left;
+}
+
+/* line 33, ../sass/_owl.sass */
+.owl-controls .owl-page,
+.owl-controls .owl-buttons div {
+  cursor: pointer;
+}
+
+/* line 37, ../sass/_owl.sass */
+.owl-controls {
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* fix */
+/* line 48, ../sass/_owl.sass */
+.owl-carousel .owl-wrapper,
+.owl-carousel .owl-item {
+  -webkit-backface-visibility: hidden;
+  -moz-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+  -moz-transform: translate3d(0, 0, 0);
+  -ms-transform: translate3d(0, 0, 0);
 }
 
 /************************************************************************************

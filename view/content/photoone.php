@@ -19,14 +19,16 @@
     </div>
 </div>
 <div>
-    <?php Control::add("photo",['id_list' => $data['id']]); ?>
-    <?php foreach ($photo as $key => $val) { ?>
-        <div>
-            <?php Control::controllers(['edit', 'position', 'remove'], "photo", $val['id'], false, false,
-                false, [$photo[$key-1]['id'], $val['id'], $photo[$key+1]['id']]); ?>
-            <img src="/lib/image/photo/<?=$val['image']?>" alt=""/>
-        </div>
-    <?php } ?>
+<?php Control::add("photo",['id_list' => $data['id']]); ?>
+    <section class="js-photoSlider">
+        <?php foreach ($photo as $key => $val) { ?>
+            <figure class="item">
+                <?php Control::controllers(['edit', 'position', 'remove'], "photo", $val['id'], false, false,
+                        false, [$photo[$key-1]['id'], $val['id'], $photo[$key+1]['id']]); ?>
+                <img src="/lib/image/photo/<?=$val['image']?>" alt=""/>
+            </figure>
+        <?php } ?>
+    </section>
 </div>
 <div>
     <?php Control::controllers(['edit','visibility','remove'],"photolist",$data['id'],$data['visibility']) ?>

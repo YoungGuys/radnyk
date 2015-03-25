@@ -74,7 +74,8 @@ footer
     font-weight: 300
 
 .f-bot
-    padding: 4px 0
+    height: 25px
+    //padding: 4px 0
     font-size: 14px
     background: #323131
     .theme-news
@@ -90,13 +91,23 @@ footer
 .footer-news__item
     @extend .animate
     position: absolute
-    top: 0
+    top: 3px
     left: 0
+    width: 100%
     opacity: 0
 
     &.is-active
         opacity: 1
 
 .text-news
+    width: 75%
+    display: inline-block
+    vertical-align: top
+    -ms-text-overflow: ellipsis
+    text-overflow: ellipsis
+    overflow: hidden
+    white-space: nowrap
     font-weight: 600
+
+
 

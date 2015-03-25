@@ -35,18 +35,17 @@
         </div>
     </section>
     <section class="f-bot">
-        <?php
-        foreach ($important as $key => &$val) { ?>
             <div class="container">
                 <div class="footer-news">
-                    <div class="footer-news__item">
-                        <span class="theme-news">Важливо</span>
-                        <span class="time-news"><?=$val['create_date'];?></span>
-                        <a href="" class="text-news"><?=$val['title'];?></a>
-                    </div>
+                    <?php foreach ($important as $key => &$val) { ?>
+                        <div class="footer-news__item js-footerSlide">
+                            <span class="theme-news">Важливо</span>
+                            <span class="time-news"><?=$val['create_date'];?></span>
+                            <a href="" class="text-news"><?=$val['title'];?></a>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
-        <?php } ?>
     </section>
 </footer>
 
