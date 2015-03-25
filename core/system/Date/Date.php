@@ -24,7 +24,6 @@ class Date {
     }
 
     public static function reformatDate($val) {
-
         $date = new \DateTime($val);
         $day = $date->format("j");
         $month = \Balon\Date::getMonth($date->format("n"));

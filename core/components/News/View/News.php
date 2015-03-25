@@ -32,6 +32,7 @@ class News extends System\View {
     public function loadList($data) {
         $nameChapter = $data['nameChapter'];
         $most = $data['most'][0];
+        $pagination = $data['pagination'];
         $data = $data['data'];
         $this->loadHead();
         $this->loadHeader();

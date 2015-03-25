@@ -62,7 +62,7 @@
                         <a href="<?= SITE ?>Video">Відео</a>
                     </li>
                     <li>
-                        <a href="">Блоги</a>
+                        <a href="<?= SITE ?>Blog">Блоги</a>
                     </li>
                 </ul>
             </div>

@@ -8,6 +8,7 @@
 
 namespace Model;
 
+use Balon\Cache;
 use Balon\Date;
 use Balon\DBProc;
 use Balon\System;
@@ -45,12 +46,18 @@ class Photo extends System\Model {
             $list[$key]['description'] = trim($list[$key]['description']);
             $list[$key]['href'] = SITE."Photo/show?title=".
                 str_replace(" ","+",$val['title'])."&id=".$val['id'];
+            $ids[] = $val['id'];
             if ($val['most'] == "on") {
                 $most = $list[$key];
                 $unset = true;
                 unset($list[$key]);
             }
         }
+        $cache = Cache::instance();
+        $ids = $cache->get('photo',$ids);
+        echo "<pre>";
+        print_r($ids);
+        echo "</pre>";
         if (!$unset) {
             if (count($list) > $this->count) array_pop($list);
             $most = $this->db->select("photolist",false,["most" => "on",$where])[0];
@@ -71,8 +78,16 @@ class Photo extends System\Model {
 
 
     public function show() {
-        $array = $this->db->select("photolist", false, ['id' => $_GET['id']])[0];
-        print_r ($array);
+        $id = (int) $_GET['id'];
+        $cache = Cache::instance();
+        $views = $cache->incrementViews("photo",$id);
+        $data = $this->db->select("photolist", false, ['id' => $id])[0];
+        $list = $this->db->select("photo", false, ['id_list' =>$data['id']]);
+        $data['views'] = $views;
+        $array['photo'] = $list;
+        $array['data'] = $data;
+        $array['chapter'] = News::$nameChapter[$data['id_chapter']];
+        return ($array);
 
     }
 }

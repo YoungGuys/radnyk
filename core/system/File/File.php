@@ -122,7 +122,7 @@ class File {
                         $size_h = $h; // висота оригіналу
                     }
                     switch ($type) {
-                        case 'image/png':
+                    case 'image/png':
                             $image = imagecreatefrompng($filename);
                             break;
                         case 'image/jpeg':

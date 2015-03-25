@@ -19,7 +19,24 @@ class Blog extends System\Controller{
     }
 
     public function index(){
-        $data = $this->model->modelGetAllBlog();
+        if (!isset($_GET['popular'])) {
+            $data = $this->model->modelGetAllBlog();
+        }
+        else {
+            $data = $this->model->getAllPopularBlog($_GET['chapters']);
+        }
+        $hrefPopular = $hrefLast = SITE."Blog?";
+        //"<?php echo $_SERVER['REQUEST_URI']; if ($_GET['chapters']) echo "&"; else echo "?"time"
+        foreach ($_GET as $key => $val) {
+            if ($key != "time" && $key != "popular") {
+                $hrefPopular .= $key."=".$val."&";
+                $hrefLast .= $key."=".$val."&";
+            }
+        }
+        $hrefPopular .= "popular";
+        $hrefLast .= "time";
+        $data['hrefLast'] = $hrefLast;
+        $data['hrefPopular'] = $hrefPopular;
         $this->view->index($data);
     }
 

@@ -36,7 +36,7 @@ class News extends System\Controller {
             } else {
                 $data = $this->model->loadFeaturedList($id);
             }
-            $db = DBProc::instance();
+            //$db = DBProc::instance();
             $this->view->loadList($data);
         }
     }
@@ -48,6 +48,5 @@ class News extends System\Controller {
             echo "404 ERROR";
             //TODO: Дописати щоб перенаправляло на сторінку 404
         }
-        
     }
 } 

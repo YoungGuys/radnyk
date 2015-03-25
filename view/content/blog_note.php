@@ -3,44 +3,33 @@
     <div class="page_name">
         <h1>
             Блоги >
-            <span class="blog_author">Блог Євгена Іхельзона</span>
+            <span class="blog_author"><?=$data['first_name']." ".$data['last_name'];?></span>
         </h1>
 
         <div class="page_info">
-            <span class="date">8 березня, 10:33</span>
-            <span class="num_view">1</span>
+            <span class="date"><?=\Balon\Date::reformatDate($data['create_date'])?></span>
+            <span class="num_view"><?=$data['views'];?></span>
             <span class="right cur-p btn-print js_bnt_print"></span>
             <span class="right cur-p bnt-font_plus js_bnt_font_plus">A+</span>
         </div>
     </div>
 
     <div class="post_content">
-        <h1>Составлена карта кинематографических бедствий
+        <h1><?=$data['title']?>
             <h1>
                 <div class="preview_bl mini clearfix p-rel">
                     <div class="preview_img">
-                        <img src="lib/pic/sidebar/splin.png" alt=""/>
+                        <img src="<?=$data['photo'];?>" alt=""/>
                     </div>
                     <div class="preview_cont text">
-                        <a href="" class="preview_author_name text">Євген Іхельзон</a>
+                        <a href="" class="preview_author_name text"><?=$data['first_name']." ".$data['last_name'];?></a>
                         Наиболее “катастрофичным” признали американский город Нью-Йорк
                     </div>
                 </div>
                 <div class="post_more">
-                    <p>
-                        В интернете опубликовали карту США, на которой показано,
-                        какие города и штаты чаще всего страдают от различных бедст-
-                        вий в художественных фильмах. Рекордсменом стал Нью-Йорк —
-                        на город было совершено 35 атак, причем чаще всего на него
-                        нападали гигантские монстры.
-                    </p>
-
-                    <p>
-                        На втором месте оказался Лос-Анджелес (34 атаки), на
-                        третьем —Сан-Франциско (21 атака).
-                    </p>
+                    <?=$data['text'];?>
                 </div>
-                <div class="post_text">
+                <!--<div class="post_text">
                     <h6>Сховище даних</h6>
 
                     <p>
@@ -87,7 +76,7 @@
                         востійких конфігурацій.
                     </p>
                     <h6>Контрольні запитання</h6>
-                </div>
+                </div>-->
     </div>
 
     <div class="post_info">

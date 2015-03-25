@@ -32,10 +32,12 @@ class Photo extends System\View {
     }
 
 
-    public function show() {
+    public function show($data) {
+        extract($data);
         $this->loadHead();
         $this->loadHeader();
         $this->loadContent();
+        include_once("view/content/photoone.php");
         $sidebar = new Sidebar();
         $sidebar->loadSidebar(["advice","video", "recklama", "blog"]);
         $this->loadModal();

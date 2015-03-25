@@ -106,7 +106,7 @@ class OAuth {
                 // отримуємо access_token
                 $this->vk['access_token'] = $array->access_token;
                 //
-                $info = file_get_contents("https://api.vk.com/method/users.get?user_id=$array->user_id&v=5.24&access_token={$this->vk['access_token']}&fields=photo_100");
+                $info = file_get_contents("https://api.vk.com/method/users.get?user_id=$array->user_id&v=5.24&access_token={$this->vk['access_token']}&fields=photo_200");
                 $info = json_decode($info);
                 $info = $info->response[0];
                 if ($_COOKIE['user_id']) {
@@ -120,13 +120,13 @@ class OAuth {
                         "vk_id" => $array->user_id,
                         "first_name" => $info->first_name,
                         "last_name" => $info->last_name,
-                        "photo" => $info->photo_100
+                        "photo" => $info->photo_200
                     ],true);
                     if ($FD) {
                         $this->db->insert("users_info",["id_user" => $FD]);
                         setcookie("first_name",$info->first_name,time() + 60*60*24*360*2, "/");
                         setcookie("last_name",$info->last_name,time() + 60*60*24*360*2, "/");
-                        setcookie("photo",$info->photo_100,time() + 60*60*24*360*2, "/");
+                        setcookie("photo",$info->photo_200,time() + 60*60*24*360*2, "/");
                         setcookie("user_id",$FD,time() + 60*60*24*360*2, "/");
                         setcookie("token",md5("balon_".$FD."_core"),time() + 60*60*24*360*2, "/");
                     }
@@ -159,8 +159,12 @@ class OAuth {
             $code = explode("=",$access)[1];
             $code = explode("&",$code)[0];
             $href = "https://graph.facebook.com/v2.1/me?&access_token=$code"."&fields=$fb_param";
+            echo $href;
             $info = file_get_contents($href);
             $info = json_decode($info);
+            echo "<pre>";
+            print_r($info);
+            echo "</pre>";
             if ($_COOKIE['user_id']) {
                 $this->db->update("users",["fb_id" => $info->id], ["id" => $_COOKIE['user_id']]);
                 header("Location:".SITE);

@@ -47,9 +47,6 @@ class News extends System\Model {
         return $result[0];
     }
 
-    public function course() {
-        echo "aa";
-    }
 
     public function loadList($id) {
         include_once("core/config.php");
@@ -72,8 +69,6 @@ class News extends System\Model {
             //array_pop($result);
         }
         // reformat create date for most news
-
-
         $date = new \DateTime($most['create_date']);
         $day = $date->format("j");
         $month = \Balon\Date::getMonth($date->format("n"));
@@ -86,6 +81,7 @@ class News extends System\Model {
         $most = $this->prepareList([$most[0]],$nameCacheFile);
         $results = $this->prepareList($result, $nameCacheFile);
         $results['most'] = $most;
+        $results['pagination'] = System\Article::getPagination();
         /*echo "<pre>";
         var_dump($results);*/
         return $results;
@@ -132,7 +128,7 @@ class News extends System\Model {
             }
             if ($n > 9) {
                 $exit = true;
-                echo "<br><br>EXIT<br><br><br>";
+                //echo "<br><br>EXIT<br><br><br>";
             }
             $j++;
         }

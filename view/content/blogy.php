@@ -3,16 +3,23 @@
 </div>
 
 <div class="blogy_tag_container">
-    <a href="" class="blogy_tag blogy_tag__active">всі теми</a>
-    <a href="" class="blogy_tag js_mod js_mod_edit">політика</a>
-    <a href="" class="blogy_tag">економіка</a>
-    <a href="" class="blogy_tag">культура</a>
-    <a href="" class="blogy_tag">спорт</a>
-    <a href="" class="blogy_tag">світ</a>
+    <a href="<?=SITE?>Blog" class="blogy_tag <?php if (!$_GET['chapters']) echo "blogy_tag__active";?>">всі теми</a>
+    <?php foreach (\Model\News::$nameChapter as $key => $val) { ?>
+        <a href="<?=SITE?>Blog?filter=<?=$val;?>&code=<?=md5($val.$key."a");?>&chapters=<?=$key;?>"
+           class="blogy_tag <?php if ($_GET['chapters'] == $key) echo "blogy_tag__active";?>">
+            <?=$val;?>
+        </a>
+    <?php } ?>
     <br/>
-    <a href="" class="blogy_tag blogy_tag__time blogy_tag__active">весь час</a>
-    <a href="" class="blogy_tag blogy_tag__time">останні</a>
-    <a href="" class="blogy_tag blogy_tag__time">популярні</a>
+    <!--<a href="" class="blogy_tag blogy_tag__time blogy_tag__active">весь час</a>-->
+    <a href="<?=$hrefLast?>"
+       class="blogy_tag blogy_tag__time <?php if ($_GET['time'] || !isset($_GET['popular'])) echo "blogy_tag__active";?>">
+        останні
+    </a>
+    <a href="<?=$hrefPopular;?>"
+       class="blogy_tag blogy_tag__time <?php if (isset($_GET['popular'])) echo "blogy_tag__active";?>">
+        популярні
+    </a>
 </div>
 
 <div class="blog_container">
@@ -24,7 +31,7 @@
             <div class="blogy_content">
                 <div class="header">
                     <a href=""
-                       class="author_name left" href=""><?=$val['first_name'].$val['second_name'];?></a>
+                       class="author_name left" href=""><?=$val['first_name']." ".$val['last_name'];?></a>
 
                     <div class="info">
                         <span class="time"><?=$val['create_date']?></span>

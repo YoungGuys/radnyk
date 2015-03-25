@@ -59,6 +59,8 @@ class Sidebar extends System\Model{
             foreach ($popular as $k => $v) {
                 if ($key == $v['id']) {
                     $v['views'] = $val['views'];
+                    $v['create_date'] = Date::reformatDate($v['create_date']);
+                    $v['chapter'] = System\Model::$nameChapter[$v['id_chapter']];
                     $populars[] = $v;
                     continue;
                 }

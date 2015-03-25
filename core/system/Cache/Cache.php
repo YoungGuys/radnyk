@@ -125,10 +125,12 @@ class Cache {
     static public function get($file, $number) {
         if (file_exists("cache/$file.json"))
             $array = file_get_contents("cache/$file.json");
+        else return 0;
         $array = json_decode($array, true);
         if (is_array($number)) {
             foreach ($number as $key => $val) {
-                $result[$val] = $array[$val];
+                //  if ($array[$val])
+                    $result[$val] = $array[$val];
             }
         } else {
             $result = $array[$number];

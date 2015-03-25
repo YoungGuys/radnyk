@@ -17,9 +17,9 @@
                 </ul>
                 <a class="mob_ver" href="#">мобільна версія</a>
             </div>
-            <div class="f_archive_bl">
+            <!--div class="f_archive_bl">
                 <a class="" href="">Архів</a>
-            </div>
+            </div-->
             <div class="f_logo">
                 <img src="/lib/pic/logo2.png" alt=""/>
             </div>

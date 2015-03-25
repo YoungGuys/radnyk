@@ -124,6 +124,15 @@
     },
     "settings": {"pk": "id"}
   },
+  "photo": {
+    "fields": {
+      "image": [
+        "image",
+        "Оберіть картинку"
+      ]
+    },
+    "settings": {"pk": "id"}
+  },
   "videolist": {
     "fields": {
       "title": [

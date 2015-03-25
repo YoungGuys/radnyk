@@ -3,8 +3,6 @@
 --update
 design
 cache
-config.php
-core/config.php
 # =========================
 # Operating System Files
 # =========================
@@ -46,3 +44,5 @@ $RECYCLE.BIN/
 *.msp
 *.rar
 *.zip
+config.php
+core/config.php

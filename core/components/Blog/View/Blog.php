@@ -29,6 +29,7 @@ class Blog extends System\View{
     }
 
     public function viewLoadBlog($data) {
+        extract($data);
         $this->loadHead();
         $this->loadHEader();
         $this->loadContent();

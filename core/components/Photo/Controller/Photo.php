@@ -25,6 +25,6 @@ class Photo extends System\Controller {
 
     public function show() {
         $data = $this->model->show();
-        $this->view->show();
+        $this->view->show($data);
     }
 }

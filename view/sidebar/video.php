@@ -15,7 +15,7 @@
                                      alt=""/>
                             </div>
                             <p class="text">
-                                <?=$val['description'];?>
+                                <?=$val['title'];?>
                             </p>
                         </a>
 
@@ -42,7 +42,7 @@
                                      alt=""/>
                             </div>
                             <p class="text">
-                                <?=$val['description'];?>
+                                <?=$val['title'];?>
                             </p>
                         </a>
 
