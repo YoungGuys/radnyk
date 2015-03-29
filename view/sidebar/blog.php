@@ -2,46 +2,20 @@
     <div class="title">Блоги</div>
     <div class="content">
         <div class="blog_bl">
-            <div class="blog_item">
-                <a href="">
-                    <div class="photo">
-                        <img src="/lib/pic/sidebar/splin.png" alt=""/>
-                    </div>
-                    <p class="name text">Антон Олійник:</p>
-
-                    <p class="text">
-                        Мистецтво балансувати, не падаючи в прірву
-                    </p>
-                </a>
-            </div>
-
-            <div class="blog_item">
-                <a href="">
-                    <div class="photo">
-                        <img src="/lib/pic/sidebar/splin.png" alt=""/>
-                    </div>
-                    <p class="name text">Антон Олійник:</p>
-
-                    <p class="text">
-                        Мистецтво балансувати, не падаючи в прірву
-                    </p>
-                </a>
-            </div>
-
-            <div class="blog_item">
-                <a href="">
-                    <div class="photo">
-                        <img src="/lib/pic/sidebar/splin.png" alt=""/>
-                    </div>
-                    <p class="name text">Антон Олійник:</p>
-
-                    <p class="text">
-                        Мистецтво балансувати, не падаючи в прірву
-                    </p>
-                </a>
-            </div>
-
-            <a class="all_item" href="">Всі блоги >></a>
+            <?php foreach ($data as $key => $val) { ?>
+                <div class="blog_item">
+                    <a href="<?=SITE?>Blog/show?title=<?=$val['title']?>&id=<?=$val['id']?>">
+                        <div class="photo">
+                            <img src="<?=$val['photo']?>" alt=""/>
+                        </div>
+                        <p class="name text"><?=$val['first_name']." ".$val['last_name'];?>:</p>
+                        <p class="text">
+                            <?=$val['title']?>
+                        </p>
+                    </a>
+                </div>
+            <?php } ?>
+            <a class="all_item" href="<?=SITE?>Blog">Всі блоги >></a>
         </div>
     </div>
 </section>

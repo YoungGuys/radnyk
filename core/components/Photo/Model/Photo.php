@@ -40,10 +40,13 @@ class Photo extends System\Model {
         }
         $list = $this->db->select("photolist",false,$where,"create_date",false,$limit);
         $unset = false;
+        $cache = Cache::instance();
+        $ids = $cache->get('photo',$ids);
         foreach ($list as $key => $val) {
             $list[$key]['chapter'] =  self::$nameChapter[$val['id_chapter']];
             $list[$key]['create_date'] = Date::reformatDate($val['create_date']);
             $list[$key]['description'] = trim($list[$key]['description']);
+            $list[$key]['views'] = $ids[$val['id']] ? $ids[$val['id']]['views'] : 0;
             $list[$key]['href'] = SITE."Photo/show?title=".
                 str_replace(" ","+",$val['title'])."&id=".$val['id'];
             $ids[] = $val['id'];
@@ -53,11 +56,6 @@ class Photo extends System\Model {
                 unset($list[$key]);
             }
         }
-        $cache = Cache::instance();
-        $ids = $cache->get('photo',$ids);
-        echo "<pre>";
-        print_r($ids);
-        echo "</pre>";
         if (!$unset) {
             if (count($list) > $this->count) array_pop($list);
             $most = $this->db->select("photolist",false,["most" => "on",$where])[0];
@@ -82,7 +80,7 @@ class Photo extends System\Model {
         $cache = Cache::instance();
         $views = $cache->incrementViews("photo",$id);
         $data = $this->db->select("photolist", false, ['id' => $id])[0];
-        $list = $this->db->select("photo", false, ['id_list' =>$data['id']]);
+        $list = $this->db->select("photo", false, ['id_list' =>$data['id']],'order');
         $data['views'] = $views;
         $array['photo'] = $list;
         $array['data'] = $data;

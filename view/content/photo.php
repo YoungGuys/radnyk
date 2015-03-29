@@ -10,7 +10,7 @@
 
 <div class="post_news">
     <?php Control::controllers(["edit","visibility","remove"], "photolist", $most['id'], $most['visibility']); ?>
-    <a href="<?=$val['href']?>">
+    <a href="<?=$most['href']?>">
         <div class="img_container p-rel">
             <img src="/lib/image/photolist/<?=$most['image']?>" alt=""/>
 
