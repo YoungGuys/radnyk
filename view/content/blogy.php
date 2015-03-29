@@ -53,27 +53,11 @@
 
 <div class="page_navigation">
     <ul>
-        <li>
-            <a class="active" href="">1</a>
-        </li>
-        <li>
-            <a href="">2</a>
-        </li>
-        <li>
-            <a href="">3</a>
-        </li>
-        <li>
-            <a href="">4</a>
-        </li>
-        <li>
-            <a href="">5</a>
-        </li>
-        <li>
-            ...
-        </li>
-        <li>
-            <a href="">25</a>
-        </li>
+        <?php  foreach ($pagination as $key => $val) { ?>
+            <li>
+                <a class="<?=$val['active'] ? "active" : "" ;?>" href="<?=$val['href']?>"><?=$val['num'];?></a>
+            </li>
+        <?php } ?>
     </ul>
 </div>
 

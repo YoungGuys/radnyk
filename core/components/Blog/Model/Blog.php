@@ -49,11 +49,12 @@ class Blog extends System\Model{
             $id = (int) $_GET['chapters'];
             $where = ["blog",'chapter', $id];
         }
+        $limit = System\Article::getPaginatorLimit();
         $array = $this->db->join(
             [
                 "users" => "id",
                 "blog" => "id_author"
-            ], $where, ["blog","create_date"]
+            ], $where, ["blog","create_date"], false, $limit
         );
         foreach ($array as $key => $val) {
             $ids[] = $val['id'];
@@ -81,6 +82,7 @@ class Blog extends System\Model{
             $array[$key]['views'] = $views[$val['id']]['views'];
         }
         $array['data'] = $array;
+        $array['pagination'] = System\Article::getPagination('t_blog');
         return $array;
     }
 
@@ -109,11 +111,12 @@ class Blog extends System\Model{
         $listResultId = "";
         for ($i = 0; $i < self::COUNT; $i++) {
             if ($newsList[$i]['id']) {
-                $listResultId .= "$or `id` = " . $newsList[$i]['id'];
+                $listResultId .= "$or b.`id` = " . $newsList[$i]['id'];
                 $or = " OR ";
             }
         }
-        $result = $this->db->send_query("SELECT * FROM `t_blog` WHERE $listResultId LIMIT 0,1000");
+        $result = $this->db->send_query("SELECT * FROM `t_users` AS u LEFT JOIN `t_blog` AS b ON u.`id` = b.`id_author`
+            WHERE $listResultId LIMIT 0,1000");
         $exit = false;
         $n = $j = 0;
         $count = count($result);
@@ -152,6 +155,7 @@ class Blog extends System\Model{
             $array[$key]['views'] = $views[$val['id']]['views'];
         }*/
         $array['data'] = $array;
+        $array['pagination'] = System\Article::getPagination('t_blog');
         return $array;
     }
 

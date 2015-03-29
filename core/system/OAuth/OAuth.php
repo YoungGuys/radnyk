@@ -159,12 +159,15 @@ class OAuth {
             $code = explode("=",$access)[1];
             $code = explode("&",$code)[0];
             $href = "https://graph.facebook.com/v2.1/me?&access_token=$code"."&fields=$fb_param";
-            echo $href;
             $info = file_get_contents($href);
             $info = json_decode($info);
-            echo "<pre>";
-            print_r($info);
-            echo "</pre>";
+            $href = "https://graph.facebook.com/v2.1/me?&access_token=$code"."&fields=$fb_param";
+            $info = file_get_contents($href);
+            $info = json_decode($info);
+            $newHref = "https://graph.facebook.com/v2.1/".$info->id."/picture?&access_token=$code"."&type=large&redirect=false";
+            $newInfo = file_get_contents($newHref);
+            $newInfo = json_decode($newInfo);
+            $info->picture->data->url = $newInfo->data->url;
             if ($_COOKIE['user_id']) {
                 $this->db->update("users",["fb_id" => $info->id], ["id" => $_COOKIE['user_id']]);
                 header("Location:".SITE);

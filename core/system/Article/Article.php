@@ -45,12 +45,12 @@ class Article {
         return $limit;
     }
 
-    public static function getPagination() {
+    public static function getPagination($table = 't_news') {
         $db = DBProc::instance();
         if (!empty($_GET['chapters'])) {
             $where = " WHERE `chapter` = ".$_GET['chapters'];
         }
-        $count = $db->send_query("SELECT count(`id`) as coun FROM `t_news` $where")[0]['coun']-1;
+        $count = $db->send_query("SELECT count(`id`) as coun FROM `$table` $where")[0]['coun'];
         //echo $count;
         if ($_GET['page']) $page = $_GET['page'];
         else $page = 1;
@@ -58,7 +58,7 @@ class Article {
         /*echo "a = ".(3+4);
         echo ($count%COUNT_ARTICLE);*/
         // magic O_o
-        if ($count%COUNT_ARTICLE == 0) {
+        if ($count%COUNT_ARTICLE != 0) {
             $count += 1;
         }
         for ($i = 1; $i <= $count; $i++) {
