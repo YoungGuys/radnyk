@@ -85,7 +85,7 @@ class Sidebar extends System\Model{
         foreach ($popular as $key => $val) {
             if (++$j > 3) break;
             $ids[] = $key;
-            $where .= "$comma b.`id_author` = $key ";
+            $where .= "$comma b.`id` = $key ";
             $comma = " OR ";
         }
         $sql = "SELECT b.`id`, b.`title`, b.`id_author`, u.`first_name`, u.`last_name`, u.`photo`

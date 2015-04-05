@@ -9,8 +9,17 @@
             <!--
                 після реєстрації додати клас "user" а класи "undrln js_mod js_mod_signIn" видалити
             -->
-            <span class="btn-sign-in undrln right js_mod js_mod_signIn">Вхід</span>
-            <span class="btn-sign-up undrln right js_mod js_mod_signUp">Підписка</span>
+            <?php if (\Balon\System\User::trueAdmin()) { ?>
+                <span class="btn-sign-in"><a href="<?=SITE?>Admin/users">Список юзерів</a></span>
+            <?php } ?>
+            <?php if (!$_COOKIE['user_id']) { ?>
+                <span class="btn-sign-in undrln right js_mod js_mod_signIn">Вхід</span>
+                <span class="btn-sign-up undrln right js_mod js_mod_signUp">Підписка</span>
+            <?php } else { ?>
+                <span class="btn-sign-in user">
+                    <a href="<?=SITE?>User/logout">Вихід</a>
+                </span>
+            <?php } ?>
         </div>
         <div class="header">
             <div class="container">

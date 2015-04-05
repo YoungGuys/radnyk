@@ -50,7 +50,13 @@ class Article {
         if (!empty($_GET['chapters'])) {
             $where = " WHERE `chapter` = ".$_GET['chapters'];
         }
-        $count = $db->send_query("SELECT count(`id`) as coun FROM `$table` $where")[0]['coun'];
+        if ((int) $_GET['id'] && $_GET['author']) {
+            $where = " WHERE u.`id` = ".(int) $_GET['id'];
+            $count = $db->send_query("SELECT count(b.`id`) as coun FROM `$table` as b LEFT JOIN `t_users` as u ON u.`id` = b.`id_author` $where")[0]['coun'];
+        }
+        else {
+            $count = $db->send_query("SELECT count(`id`) as coun FROM `$table` $where")[0]['coun'];
+        }
         //echo $count;
         if ($_GET['page']) $page = $_GET['page'];
         else $page = 1;

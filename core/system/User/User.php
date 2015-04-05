@@ -16,10 +16,10 @@ class User {
 
     public static function trueAdmin() {
         //return false;
-        return true;
+        //return true;
         $role = $_COOKIE['role'];
         $token = $_COOKIE['role_token'];
-        if ($token == md5("balon_" . $role . "_core_role") && $role == 2) {
+        if ($token == md5("balon_" . $role . "_core_role") && $role == 1) {
             return true;
         }
     }

@@ -1,4 +1,7 @@
-<?
+<?php
+
+
+
 function getex($filename) {
 return end(explode(".", $filename));
 }

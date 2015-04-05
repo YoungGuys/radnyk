@@ -1,5 +1,7 @@
 <div class="page_name">
-    <h1>Блоги</h1>
+    <h1>Блоги
+        <span class="blog_author"><?=$data['first_name']." ".$data['last_name'];?></span>
+    </h1>
 </div>
 
 <div class="blogy_tag_container">
@@ -62,64 +64,14 @@
 </div>
 
 <div class="list_author_container">
-    <div class="column_there">
-        <h3>A</h3>
-        <a href="">Арсен Аваков 213</a>
-        <a href="">Сакен Аймурзаєв 1</a>
-        <a href="">Анна Андрієвська 2</a>
-        <a href="">Дмитро Андрієвський 20</a>
-        <a href="">Іван Андрусяк 13</a>
-        <a href="">Сергій Андрушко 62</a>
-        <a href="">Олександр Аргат 14</a>
-    </div>
-    <div class="column_there">
-        <h3>A</h3>
-        <a href="">Арсен Аваков 213</a>
-        <a href="">Сакен Аймурзаєв 1</a>
-        <a href="">Анна Андрієвська 2</a>
-        <a href="">Дмитро Андрієвський 20</a>
-        <a href="">Іван Андрусяк 13</a>
-        <a href="">Сергій Андрушко 62</a>
-        <a href="">Олександр Аргат 14</a>
-    </div>
-    <div class="column_there">
-        <h3>A</h3>
-        <a href="">Арсен Аваков 213</a>
-        <a href="">Сакен Аймурзаєв 1</a>
-        <a href="">Анна Андрієвська 2</a>
-        <a href="">Дмитро Андрієвський 20</a>
-        <a href="">Іван Андрусяк 13</a>
-        <a href="">Сергій Андрушко 62</a>
-        <a href="">Олександр Аргат 14</a>
-    </div>
-    <div class="column_there">
-        <h3>A</h3>
-        <a href="">Арсен Аваков 213</a>
-        <a href="">Сакен Аймурзаєв 1</a>
-        <a href="">Анна Андрієвська 2</a>
-        <a href="">Дмитро Андрієвський 20</a>
-        <a href="">Іван Андрусяк 13</a>
-        <a href="">Сергій Андрушко 62</a>
-        <a href="">Олександр Аргат 14</a>
-    </div>
-    <div class="column_there">
-        <h3>A</h3>
-        <a href="">Арсен Аваков 213</a>
-        <a href="">Сакен Аймурзаєв 1</a>
-        <a href="">Анна Андрієвська 2</a>
-        <a href="">Дмитро Андрієвський 20</a>
-        <a href="">Іван Андрусяк 13</a>
-        <a href="">Сергій Андрушко 62</a>
-        <a href="">Олександр Аргат 14</a>
-    </div>
-    <div class="column_there">
-        <h3>A</h3>
-        <a href="">Арсен Аваков 213</a>
-        <a href="">Сакен Аймурзаєв 1</a>
-        <a href="">Анна Андрієвська 2</a>
-        <a href="">Дмитро Андрієвський 20</a>
-        <a href="">Іван Андрусяк 13</a>
-        <a class="js_mod js_mod_edit2" href="">Сергій Андрушко 62</a>
-        <a class="js_mod js_mod_edit234" href="">Олександр Аргат 14</a>
-    </div>
+    <?php foreach ($authorsList as $key => $author) { ?>
+        <div class="column_there">
+            <h3><?=$key?></h3>
+            <?php foreach ($author as $key => $val) { ?>
+                <a href="<?=SITE?>Blog?author=<?=$val['first_name']."+".$val['last_name']?>&id=<?=$val['id']?>">
+                    <?=$val['first_name']." ".$val['last_name'];?> <?=$val['countarticle']?>
+                </a>
+            <?php } ?>
+        </div>
+    <?php } ?>
 </div>

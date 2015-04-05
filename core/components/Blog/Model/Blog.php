@@ -49,6 +49,10 @@ class Blog extends System\Model{
             $id = (int) $_GET['chapters'];
             $where = ["blog",'chapter', $id];
         }
+        if ((int) $_GET['id'] && $_GET['author']) {
+            $id = (int) $_GET['id'];
+            $where = ["users", "id", $id];
+        }
         $limit = System\Article::getPaginatorLimit();
         $array = $this->db->join(
             [
@@ -73,7 +77,6 @@ class Blog extends System\Model{
                         if ($val) {
                             $views[$key] = $val;
                         }
-                        //array_push($views, $viewsList);
                     }
                 }
             }
@@ -83,6 +86,7 @@ class Blog extends System\Model{
         }
         $array['data'] = $array;
         $array['pagination'] = System\Article::getPagination('t_blog');
+        $array['authorsList'] = $this->getAuthorList();
         return $array;
     }
 
@@ -131,31 +135,9 @@ class Blog extends System\Model{
                 }
             }
         }
-
-
-        /*$cache = Cache::instance();
-        $where = false;
-        if ((int) $_GET['chapters']) {
-            $id = (int) $_GET['chapters'];
-            $where = ["blog",'chapter', $id];
-        }
-        $array = $this->db->join(
-            [
-                "users" => "id",
-                "blog" => "id_author"
-            ], $where
-        );
-        foreach ($array as $key => $val) {
-            $ids[] = $val['id'];
-            $array[$key]['create_date'] = Date::reformatDate($val['create_date']);
-            $array[$key]['text'] = mb_substr($val['text'], 0, 250, 'UTF-8') . "...";
-        }
-        $views = $cache->get("blog", $ids);
-        foreach ($array as $key => $val) {
-            $array[$key]['views'] = $views[$val['id']]['views'];
-        }*/
         $array['data'] = $array;
         $array['pagination'] = System\Article::getPagination('t_blog');
+        $array['authorsList'] = $this->getAuthorList();
         return $array;
     }
 
@@ -175,6 +157,21 @@ class Blog extends System\Model{
         }
         //$result['last'] = $this->db->select('blog');
         $result['data'] = $data;
+        return $result;
+    }
+
+    private function getAuthorList() {
+        $sql = "SELECT u.`id`, u.`first_name`, u.`last_name`, COUNT(b.`id`) as countarticle
+            FROM `t_users` as u LEFT JOIN `t_blog` AS b  ON b.`id_author` = u.`id` GROUP BY b.`id_author`
+            ORDER BY u.`first_name`, u.`last_name`";
+        //echo $sql;
+        $authorsList = $this->db->send_query($sql);
+        $letter = mb_substr($authorsList[0]['first_name'],0,1,'utf-8');
+        foreach ($authorsList as $key => $val) {
+            if ($letter != $val['first_name'][0]) $letter = mb_substr($val['first_name'],0,1,'utf-8');
+            $result["$letter"][] = $val;
+        }
+
         return $result;
     }
 }

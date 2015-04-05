@@ -23,7 +23,7 @@ class Routing {
 
 
     function loadPage() {
-        if ($_GET['method']) {
+        if ($_GET['method'] && !$_COOKIE['user_id']) {
             $oauth = new OAuth;
             $oauth->routing($_GET);
         }
