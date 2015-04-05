@@ -29,10 +29,11 @@ class Video extends System\View{
     }
 
     public function show($data) {
-        //extract($data);
+        extract($data);
         $this->loadHead();
         $this->loadHeader();
         $this->loadContent();
+        include_once("view/content/videoone.php");
         $sidebar = new Sidebar();
         $sidebar->loadSidebar(["advice","video", "recklama", "blog"]);
         $this->loadFooter();

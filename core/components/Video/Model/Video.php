@@ -80,11 +80,15 @@ class Video extends System\Model{
     public function show() {
         $id = $_GET['id'];
         if (!$id) {header("Location:".SITE); die();}
-        $video = $this->db->select("videolist",false,['id' => $id]);
-        if ($video) {
+        $data = $this->db->select("videolist",false,['id' => $id])[0];
+        if ($data) {
             $cache = Cache::instance();
             $data['views'] = $cache->incrementViews("video", $id);
         }
+        $data['src'] = preg_replace("/watch\?v=(.*)/","embed/$1",$data['src']);
+        $chapter = News::$nameChapter[$data['id_chapter']];
+        $data['data'] = $data;
+        $data['chapter'] = $chapter;
         return $data;
     }
 }

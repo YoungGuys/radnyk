@@ -19,7 +19,7 @@ class User {
         //return true;
         $role = $_COOKIE['role'];
         $token = $_COOKIE['role_token'];
-        if ($token == md5("balon_" . $role . "_core_role") && $role == 1) {
+        if ($token == md5("balon_" . $role . "_core_role") && $role == 2) {
             return true;
         }
     }

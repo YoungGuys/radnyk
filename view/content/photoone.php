@@ -34,3 +34,6 @@
     <?php Control::controllers(['edit','visibility','remove'],"photolist",$data['id'],$data['visibility']) ?>
     <?=$data['description'];?>
 </div>
+<div>
+    <?php \Balon\System\Comments::loadDisqus(); ?>
+</div>

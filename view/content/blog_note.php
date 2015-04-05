@@ -79,13 +79,9 @@
                 </div>-->
     </div>
 
-    <div class="post_info">
-        <div>
+            <?php \Balon\System\Comments::loadDisqus(); ?>
 
-        </div>
-    </div>
-
-    <div class="related_news">
+    <!--<div class="related_news">
         <h4 class="ttl">Схожі новини</h4>
         <ul>
             <li>
@@ -117,5 +113,5 @@
                 <span class="relat_date">23.04.2014</span>
             </li>
         </ul>
-    </div>
+    </div>-->
 </div>

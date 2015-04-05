@@ -71,43 +71,6 @@
         </div>
     </div>
 
-    <div class="post_info">
-        <div>
+            <?php \Balon\System\Comments::loadDisqus(); ?>
 
-        </div>
-    </div>
-
-    <!--div class="related_news">
-        <h4 class="ttl">Схожі новини</h4>
-        <ul>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-            <li>
-                <a href="">Абелевскую премию дали за работы по гипотезам Вейля</a>
-                <span class="relat_date">23.04.2014</span>
-            </li>
-        </ul>
-    </div-->
 </div>
