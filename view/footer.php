@@ -1,4 +1,10 @@
 </aside>
+
+<button class="js-down btn-down">
+    <i class="icon-up"></i>
+    вгору
+</button>
+
 </section>
 <footer>
     <section class="footer__in">
@@ -21,13 +27,13 @@
                 <a class="" href="">Архів</a>
             </div-->
             <div class="f_logo">
-                <img src="/lib/pic/logo2.png" alt=""/>
+                <i class="icon-logo--white"></i>
             </div>
         </div>
         <div class="f_soc">
             <div class="f_soc__box">
-                <a href="">VK</a>
-                <a href="">FB</a>
+                <a href="#">VK</a>
+                <a href="#">FB</a>
             </div>
             <div class="copyright">
                 © 1999 ООО «Радник.com.ua». Дизайн сайту - <span class="f-semib">Yongermonger</span>

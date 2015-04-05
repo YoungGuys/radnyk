@@ -7,6 +7,7 @@
     display: none
     position: relative
     width: 100%
+    margin-bottom: 20px
     -ms-touch-action: pan-y
 
 .owl-carousel .owl-wrapper
@@ -53,3 +54,31 @@
     -webkit-transform: translate3d(0,0,0)
     -moz-transform: translate3d(0,0,0)
     -ms-transform: translate3d(0,0,0)
+
+.owl-buttons
+    position: absolute
+    top: 0
+    bottom: 0
+    width: 100%
+
+
+.owl-prev
+    position: absolute
+    left: 0
+    bottom: 0
+    width: 30px
+    //background: rga(
+
+    &:before
+        position: absolute
+        content: ''
+        top: 0
+        bottom: 0
+        left: 0
+
+.owl-next
+    position: absolute
+    right: 0
+    bottom: 0
+
+    &:beore

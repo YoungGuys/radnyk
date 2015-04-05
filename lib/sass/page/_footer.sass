@@ -28,6 +28,7 @@ footer
     position: relative
 
 .mob_ver
+    @extend .animate
     @extend .btn-style--active
     position: absolute
     bottom: 0
@@ -60,10 +61,23 @@ footer
 
 .f_soc__box
     padding: 10px 0
+
     a
-        margin: 0 16px 0
-        padding: 2px 4px
+        @extend .animate
+        @extend .btn-style--active
+        width: 26px
+        height: 26px
+        margin: 0 12px 0
+        display: inline-block
+        text-align: center
+        line-height: 26px
         background: #3eb85c
+        font-weight: 300
+        text-decoration: none
+
+        //&:hover
+        //    background: darken(#3eb85c, 10%)
+
 
 .copyright
     position: absolute

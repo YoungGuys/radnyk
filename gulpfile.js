@@ -3,11 +3,14 @@ var gulp = require('gulp'),
 
 
 gulp.task('sprites', function () {
-    return gulp.src('assets/svg/*.svg')
+    return gulp.src('lib/pic/icon/*.svg')
         .pipe(svgSprite({
-            selector: "icon-%f"
+            selector: "icon-%f",
+            preview: {
+                sprite: "index.html"
+            }
         }))
-        .pipe(gulp.dest("assets"));
+        .pipe(gulp.dest("lib/pic/sprite"));
 });
 
 

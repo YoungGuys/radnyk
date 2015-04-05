@@ -173,6 +173,7 @@ input:checked + label
     &:hover,
     &.active,
     &--active
+        @extend .animate
         color: #fff
         background: #2abe7a
         text-decoration: none
@@ -195,8 +196,8 @@ input:checked + label
     width: 27px
     height: 22px
     margin: -1px 0 0 35px
-    background: url('../pic/print.svg') no-repeat center center
-    background-size: 65%
+    //background: url('../pic/print.svg') no-repeat center center
+    //background-size: 65%
 
 .bnt-font_plus
     margin: 0 0 0 35px
@@ -212,6 +213,17 @@ input:checked + label
     background: #bbbcbc
 
 
+.btn-down
+    position: fixed
+    right: 100 / 1336 * 154%
+    bottom: 150px
+    width: 40px
+    opacity: 0.8
+
+    &:hover
+        opacity: 1
+
 
 .bnt-font_minus
     padding: 1px 3px
+    color: #3eb85c

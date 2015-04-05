@@ -8,7 +8,9 @@
             <a class="tag" href=""><?= $data['name'] ?></a>
             <span class="date"><?= $data['create_date'] ?></span>
             <span class="num_view"><?= $data['views'] ?></span>
-            <span class="right cur-p btn-print 		js_bnt_print"></span>
+            <span class="right cur-p btn-print js_bnt_print">
+                <i class="icon-print"></i>
+            </span>
             <span class="right cur-p bnt-font_plus	js_bnt_font_plus">A+</span>
             <span class="right cur-p bnt-font_minus js_bnt_font_minus">a-</span>
         </div>
