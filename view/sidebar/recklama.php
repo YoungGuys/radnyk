@@ -9,7 +9,7 @@
         </a>
     </div>
 
-    <div class="blurb_item">
+    <!--<div class="blurb_item">
         <a href="">
             <span class="p-rel">реклама</span>
 
@@ -17,5 +17,5 @@
                 <img src="/lib/pic/sidebar/reklama.png" alt=""/>
             </div>
         </a>
-    </div>
+    </div>-->
 </section>

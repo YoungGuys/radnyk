@@ -1,7 +1,7 @@
 <div class="slider">
     <div class="slider_container p-rel">
         <?php Control::add("slider"); ?>
-        <?php foreach ($data['slider'] as $key => $val) { ?>
+        <?php foreach ($slider as $key => $val) { ?>
             <div class="slide_item clearfix p-abs <?php if ($key == 0)
                 echo "slide__visible"; ?>">
                 <?php Control::controllers(['edit', 'remove'], "slider", $val['id']); ?>
@@ -21,7 +21,7 @@
         <?php } ?>
 
         <div class="slider_control p-abs">
-            <?php foreach ($data['slider'] as $key => $val) { ?>
+            <?php foreach ($slider as $key => $val) { ?>
                 <li class="<?php if (!$key)
                     echo "slider_control__active"; ?>"></li>
             <?php } ?>

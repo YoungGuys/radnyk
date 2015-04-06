@@ -1,7 +1,7 @@
 <?php
 
-define("SITE", "http://www.radnyk.com/");
-//define("SITE", "http://www.radnyk.in.ua/");
+//define("SITE", "http://www.radnyk.com/");
+define("SITE", "http://www.test.radnyk.in.ua/");
 
 define("COUNT_ARTICLE",3);
 

@@ -1,5 +1,5 @@
 <div class="page_name">
-    <?php Control::add("news", ["id_chapter" => $most['id_chapter']]) ?>
+    <?php Control::add("news", ["id_chapter" => $id_chapter]) ?>
     <h1><?=$data['nameChapter']?></h1>
 
     <div class="page_info">
@@ -55,11 +55,11 @@
 
     <?php foreach ($data as $day => $result) { ?>
         <div class="page news_container">
-            <?php if (!isset($_GET['popular'])) { ?>
+            <?php //if (!isset($_GET['popular'])) { ?>
                 <div class="news_title">
-                    <h1 class="ttl_mini big_ttl"><?= $day ?></h1>
+                    <h1 class="ttl_mini big_ttl"><?= isset($_GET['popular']) ? "Пополурні" : $day ?></h1>
                 </div>
-            <?php } ?>
+            <?php //} ?>
             <?php foreach ($result as $key => $val) { ?>
                 <div class="news_item">
                     <?php Control::controllers(['edit', 'visibility', 'remove'], 'news', ['id' => $val['id']], $val['visibility']) ?>
@@ -75,7 +75,7 @@
                         </a>
 
                         <div class="text">
-                            <?= $val['text']; ?>
+                            <?= strip_tags($val['text']); ?>
                         </div>
                     </div>
                 </div>

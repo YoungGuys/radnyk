@@ -19,6 +19,9 @@ class Main extends System\View {
     function index($data) {
         $this->loadHead();
         $this->loadHeader();
+        unset($data['header']);
+        $slider = $data['slider'];
+        unset($data['slider']);
         $this->loadContent();
         //include_once("view/content.php");
         include_once("view/content/site.php");

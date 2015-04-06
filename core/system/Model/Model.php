@@ -14,7 +14,8 @@ abstract class Model {
 
 
 public static $array = ["politics" => 1, "world" => 2, "economic" => 3, "culture" => 4, "sport" => 5];
-public static $nameChapter = [1 => "Політика", 2 => "Світ", 3 => "Економіка", 4 => "Культура", 5 => "Спорт"];
+    public static $nameChapter = [1 => "Політика", 2 => "Світ", 3 => "Економіка", 4 => "Культура", 5 => "Спорт"];
+    public static $chapter = ["politics" => "Політика", "world" => "Світ", "economic" => "Економіка", "culture" => "Культура", "sport" => "Спорт"];
 
     public $db;
 

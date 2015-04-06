@@ -26,11 +26,15 @@ class Article {
     function loadList($filter) {
         self::getPagination();
         $this->db = DBProc::instance();
-        $result = $this->db->select($this->table, false,
+        $result = $this->db->send_query("SELECT * FROM `t_news` WHERE `id_chapter` = '".$filter['id_chapter']. "' OR
+            (`id_chapter` = ".$filter['id_chapter']." AND `most` = 'on' ) ORDER BY `create_date` DESC LIMIT 0,5");
+
+        /*$result = $this->db->select($this->table, false,
             [
-                array_keys($filter)[0] => array_values($filter)[0]
+                array_keys($filter)[0] => [array_values($filter)[0], true, "OR"],
+                'most' => 'on'
             ], 'create_date', false, [0, 5]
-        );
+        );*/
         return $result;
     }
 

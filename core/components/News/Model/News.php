@@ -43,6 +43,7 @@ class News extends System\Model {
         $nameCacheFile = "news" . $result[0]['id_chapter'];
         $cache->incrementViews($nameCacheFile, $_GET['id']);
         $result[0]['views'] = $cache->get($nameCacheFile, $_GET['id'])['views'];
+        $result[0]['id_chapter'] = $id;
         //print_r ($result);
         return $result[0];
     }
@@ -82,6 +83,7 @@ class News extends System\Model {
         $results = $this->prepareList($result, $nameCacheFile);
         $results['most'] = $most;
         $results['pagination'] = System\Article::getPagination();
+        $results['id_chapter'] = $id;
         /*echo "<pre>";
         var_dump($results);*/
         return $results;
@@ -141,7 +143,17 @@ class News extends System\Model {
         });
         $results = array_merge($results, $result);
         $nameCacheFile = "news" . $id;
+        foreach ($results as $key => $val) {
+            if ($val['most'] == "on") {
+                unset($results[$key]);
+                $most[0] = $val;
+            }
+        }
+        if (!$most) {
+            $most[0] = $this->db->select("news",['id_chapter' => $id, 'most' => "on"]) ;
+        }
         $results = $this->prepareList($results, $nameCacheFile);
+        $results['most'] = $this->prepareList($most,$nameCacheFile);
         return $results;
     }
 

@@ -30,7 +30,9 @@ class News extends System\View {
     }
 
     public function loadList($data) {
+        $id_chapter = $data['id_chapter'];
         $nameChapter = $data['nameChapter'];
+        var_dump($data);
         $most = $data['most'][0];
         $pagination = $data['pagination'];
         $data = $data['data'];

@@ -42,13 +42,19 @@
             </div>
         </div-->
         <div class="preview_bl clearfix p-rel">
+            <?php if ($data['image']) { ?>
             <div class="preview_img">
                 <img src="/lib/image/news/<?= $data['image']; ?>" alt=""/>
             </div>
+            <?php } ?>
+            <?php if ($data['righttext']) { ?>
             <div class="preview_cont text">
                 <?=$data['righttext']?>
             </div>
+            <?php } ?>
+            <?php if ($data['photoauthor']) { ?>
             <div class="photo_autor p-abs">Фото: <?=$data['photoauthor']?></div>
+            <?php } ?>
         </div>
         <div class="post_more">
             <p>
@@ -65,11 +71,6 @@
                 На втором месте оказался Лос-Анджелес (34 атаки), на
                 третьем —Сан-Франциско (21 атака).
             </p-->
-        </div>
-        <div class="post_text">
-            <p>
-                <?= $data['text'] ?>
-            </p>
         </div>
     </div>
 

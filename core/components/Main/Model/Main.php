@@ -13,13 +13,16 @@ class Main extends Model{
     //private $db;
 
     function __construct() {
+        $this->array = ["politics" => 1, "world" => 2, "economic" => 3, "culture" => 4, "sport" => 5];
         $this->db = DBProc::instance();// TODO: comment this when finish
     }
 
     public function index() {
         $this->db = DBProc::instance();
         $data['slider'] = $this->loadSlider();
-        $data['politics'] = $this->loadNewsList(1);
+        foreach ($this->array as $key => $val) {
+            $data[$key] = $this->loadNewsList($val);
+        }
         return $data;
     }
 
@@ -49,9 +52,16 @@ class Main extends Model{
         foreach ($result as $key => $val) {
             $result[$key]['views'] = $arrayViews[$val['id']]['views'];
             $result[$key]['href'] = "?title=".str_replace(" ","_",$result[$key]['title'])."&id=".$result[$key]['id'];
+            if ($val['most'] == "on") {
+                $data['most'] = $result[$key];
+                $a = true;
+            }
+            else {
+                $data['data'][] = $result[$key];
+            }
         }
-
-        return $result;
+        //if ($a) array_pop($data['data']);
+        return $data;
     }
 
 
