@@ -25,7 +25,7 @@
             <div class="container">
                 <div class="logo">
                     <a href="<?= SITE ?>">
-                        <img src="/lib/pic/logo.png">
+                        <i class="icon-logo"></i>
                     </a>
                 </div>
                 <div class="quote">
